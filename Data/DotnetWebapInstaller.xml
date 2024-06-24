@@ -1,0 +1,62 @@
+<?xml  version='1.0' encoding='windows-1252' ?>
+<MDG.Technology version="1.0"><Documentation id="net-webapi" name="DotnetWebapi" version="0.1.0" notes="..."/><UMLProfiles><UMLProfile profiletype="uml2">
+	<Documentation id="F0DB09E3-8" name="DotnetWebapi" version="1.0" notes="DotnetWebapi"/>
+	<Content>
+		<Stereotypes>
+			<Stereotype name="Entity" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+				<AppliesTo>
+					<Apply type="Class">
+						<Property name="isActive" value=""/>
+					</Apply>
+				</AppliesTo>
+			</Stereotype>
+			<Stereotype name="Field" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+				<AppliesTo>
+					<Apply type="Attribute"/>
+				</AppliesTo>
+				<TaggedValues>
+					<Tag name="Description" type="String" description="" unit="" values="" default=""/>
+				</TaggedValues>
+			</Stereotype>
+		</Stereotypes>
+		<TaggedValueTypes/>
+		<ViewDefinitions/>
+		<Metamodel/>
+	</Content>
+</UMLProfile></UMLProfiles><DiagramProfile><UMLProfile profiletype="uml2">
+	<Documentation id="CC5F720F-E" name="DotnetWebapi" version="1.0" notes="DotnetWebapi"/>
+	<Content>
+		<Stereotypes>
+			<Stereotype name="DotnetWebApi" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+				<AppliesTo>
+					<Apply type="Diagram_Logical">
+						<Property name="alias" value="Dotnet WebApi"/>
+						<Property name="diagramID" value="dotnet--webapi"/>
+						<Property name="toolbox" value="DotnetWebapi"/>
+					</Apply>
+				</AppliesTo>
+			</Stereotype>
+		</Stereotypes>
+		<TaggedValueTypes/>
+		<ViewDefinitions/>
+		<Metamodel/>
+	</Content>
+</UMLProfile></DiagramProfile><UIToolboxes><UMLProfile profiletype="uml2">
+	<Documentation id="6327DD56-7" name="DotnetWebapi" version="1.0" notes="DotnetWebapi"/>
+	<Content>
+		<Stereotypes>
+			<Stereotype name="DotnetWebapiElements" alias="Dotnet Webapi" notes="The things that can be added to a diagram." cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+				<AppliesTo>
+					<Apply type="ToolboxPage"/>
+				</AppliesTo>
+				<TaggedValues>
+					<Tag name="DotnetWebapi::Entity(UML::Class)" type="" description="" unit="" values="" default="Entity"/>
+					<Tag name="DotnetWebapi::Field(UML::Attribute)" type="" description="" unit="" values="" default="Attribute"/>
+				</TaggedValues>
+			</Stereotype>
+		</Stereotypes>
+		<TaggedValueTypes/>
+		<ViewDefinitions/>
+		<Metamodel/>
+	</Content>
+</UMLProfile></UIToolboxes></MDG.Technology>

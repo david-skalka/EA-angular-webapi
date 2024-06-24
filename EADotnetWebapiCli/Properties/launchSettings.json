@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EADotnetWebapiCli": {
+      "commandName": "Project",
+      "commandLineArgs": "entity -p \"C:\\\\tmp\\\\EASampleProj\" -x \"..\\\\..\\\\..\\\\..\\\\data\\\\SampleModel.xml\" -s ReactSample -n Product"
+    }
+  }
+}

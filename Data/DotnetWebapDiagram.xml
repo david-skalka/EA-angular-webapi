@@ -1,0 +1,20 @@
+<?xml  version='1.0' encoding='windows-1252' ?>
+<UMLProfile profiletype="uml2">
+	<Documentation id="CC5F720F-E" name="DotnetWebapi" version="1.0" notes="DotnetWebapi"/>
+	<Content>
+		<Stereotypes>
+			<Stereotype name="DotnetWebApi" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+				<AppliesTo>
+					<Apply type="Diagram_Logical">
+						<Property name="alias" value="Dotnet WebApi"/>
+						<Property name="diagramID" value="dotnet--webapi"/>
+						<Property name="toolbox" value="DotnetWebapi"/>
+					</Apply>
+				</AppliesTo>
+			</Stereotype>
+		</Stereotypes>
+		<TaggedValueTypes/>
+		<ViewDefinitions/>
+		<Metamodel/>
+	</Content>
+</UMLProfile>

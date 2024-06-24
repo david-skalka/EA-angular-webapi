@@ -1,0 +1,43 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#
+    var primitivesMap = new Dictionary<string, string>()
+{
+    {"EAC__int", "int"},
+    {"EAC__String", "string"},
+    {"EAC__Decimal", "decimal"},
+    {"DateTime", "DateTime"},
+    {"EAC__Boolean", "bool"},
+};
+#>
+using System.ComponentModel.DataAnnotations;
+
+
+namespace <#= Namespace #>.Models
+{
+
+    public class <#= Model.Name #>
+    {
+        
+<# foreach (var attribute in Model.Attributes) { #>
+<# if(attribute.Type.Stereotype=="Primitive") { #>
+        <#= !attribute.isNullable ? "[Required]" : "" #>
+        public <#= primitivesMap[attribute.Type.Name] + (attribute.isNullable ? "?" : "") #> <#= attribute.Name #> { get; set; }
+<# } else {  #>
+        public <#= attribute.Name #>? <#= attribute.Type.Name #> { get; set; }
+<# } #>
+
+<# } #>
+
+    }
+}
+
+
+<#+
+public Element Model { get; set; }
+public String Namespace { get; set; }
+
+#>
