@@ -32,4 +32,13 @@ jobs:
       with:
         name: AddIn
         path: EADotnetWebapiAddIn/bin/Debug/*
+    - name: Create a temporary directory
+      id: create-temp-dir
+      shell: pwsh
+      run: |
+        $tempDir = New-Item -ItemType Directory -Path ([System.IO.Path]::GetTempPath()) -Name ([System.Guid]::NewGuid().ToString())
+        echo "##[set-output name=temp_dir;]$($tempDir.FullName)"
+    - name: Display the temporary directory path
+      shell: pwsh
+      run: echo "Temporary directory is ${{ steps.create-temp-dir.outputs.temp_dir }}"
 
