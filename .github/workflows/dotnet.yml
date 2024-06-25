@@ -45,6 +45,6 @@ jobs:
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n SampleDotnetWebapi -o ${{ steps.create-temp-dir.outputs.temp_dir }}
     - uses: actions/upload-artifact@v4
       with:
-        name: SampleDotnetWebapi
-        path: ${{ steps.create-temp-dir.outputs.temp_dir }}
+        name: Sample
+        path: EADotnetWebapiSample/**
     - uses: actions/upload-artifact@v4
