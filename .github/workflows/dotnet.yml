@@ -27,9 +27,9 @@ jobs:
     - name: Generate a sample project
       shell: pwsh
       run: | 
-        $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name "EADotnetWebapiSample"
+        $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name "DotnetWebapiSample"
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n SampleDotnetWebapi -o $tempDir
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x "data\\SampleModel.xml" -n SampleDotnetWebapi -o $tempDir
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $tempDir
     - uses: actions/upload-artifact@v4
       with:
         name: Cli
@@ -41,5 +41,5 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: Sample
-        path: EADotnetWebapiSample/**
+        path: DotnetWebapiSample/**
 
