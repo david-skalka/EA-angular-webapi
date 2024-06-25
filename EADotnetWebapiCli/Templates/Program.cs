@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\Program.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class Program : ProgramBase
     {

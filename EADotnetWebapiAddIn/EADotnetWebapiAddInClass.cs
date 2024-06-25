@@ -1,6 +1,7 @@
 ﻿using EA;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -20,14 +21,14 @@ namespace EADotnetWebapiAddIn
         const string menuGenerateEntities = "&Generate entities";
         const string menuSettings = "&Settings";
 
-        string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EAReactCoreAddIn", "config.json");
+        string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
 
 
-        
-        
+
+
         public String EA_Connect(EA.Repository repository)
         {
-            
+
             return "a string";
         }
 
@@ -50,14 +51,14 @@ namespace EADotnetWebapiAddIn
             switch (menuName)
             {
                 case "":
-                    return menuHeader; 
+                    return menuHeader;
                 case menuHeader:
-                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateEntities, menuSettings }; 
+                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateEntities, menuSettings };
             }
             return "";
         }
 
-        public Dictionary<string,object> ReadConfig()
+        public Dictionary<string, object> ReadConfig()
         {
             var content = System.IO.File.ReadAllText(configPath);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
@@ -69,22 +70,42 @@ namespace EADotnetWebapiAddIn
             repository.GetProjectInterface().ExportPackageXMI(repository.GetPackageByID(diagram.PackageID).PackageGUID, EnumXMIType.xmiEA21, 0, 0, 0, 0, xmiPath);
         }
 
-        
+
 
 
 
         public void EA_MenuClick(EA.Repository repository, string Location, string MenuName, string ItemName)
         {
 
+            var config = ReadConfig();
 
 
-            switch (ItemName)
+            var commands = new Dictionary<string, Action>
             {
-                case menuInitializeSolution:
-                    MessageBox.Show("Initialize solution");
+                {
+                    menuInitializeSolution,
+                    () => ExecuteCli("initialize", new Dictionary<string, string>
+                    {
+                        { "-o", (string)config["output-dir"] },
+                        { "-n", (string)config["project-name"] }
+                    })
 
-                    break;
-                case menuGenerateEntities:
+                },
+                { menuGenerateDbContext, () => {
+                 var selectedDiagram = repository.GetCurrentDiagram();
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
+                    ExportXmi(repository, selectedDiagram, xmiPath);
+
+                    ExecuteCli("db-context", new Dictionary<string, string>
+                    {
+                        { "-o", (string)config["output-dir"] },
+                        { "-x", xmiPath },
+                        { "-n", (string)config["project-name"] }
+                    });
+                }
+                },
+                { menuGenerateEntities, () => {
+
 
                     var selectedDiagram = repository.GetCurrentDiagram();
 
@@ -94,34 +115,49 @@ namespace EADotnetWebapiAddIn
                         .ToList().Select(x => x.Name).ToArray();
 
 
-
-
                     var entityDialog = new EntitesDialog(entities);
                     entityDialog.ShowDialog();
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
-
                     ExportXmi(repository, selectedDiagram, xmiPath);
-                    var config = ReadConfig();
-
-                    var process = new System.Diagnostics.Process();
-                    process.StartInfo.FileName = (string)config["cli-path.override"];
-                    
-                    process.StartInfo.Arguments = "entity -p \"" + config["project-path"] +"\" -n "+ entityDialog.SelectedItem+ " -x \"" + xmiPath + "\" -s " + config["namespace"];
-
-                    process.Start();
-                    process.WaitForExit();
 
 
-                    
 
-                    break;
-                case menuSettings:
+
+
+                    ExecuteCli("entity", new Dictionary<string, string>
+                    {
+                        { "-o", (string)config["output-dir"] },
+                        { "-e", entityDialog.SelectedItem },
+                        { "-x", xmiPath },
+                        { "-n", (string)config["project-name"] }
+                    });
+
+                } },
+                { menuSettings, () =>
+                {
                     var settingsDialog = new SettingsDialogs(configPath);
                     settingsDialog.ShowDialog();
+                }
+                },
 
-                    break;
-            }
+            };
+
+            commands[ItemName]();
+        }
+
+
+        void ExecuteCli(string command, Dictionary<string, string> args)
+        {
+            var config = ReadConfig();
+
+            var process = new System.Diagnostics.Process();
+            process.StartInfo.FileName = (string)config["cli-path.override"];
+
+            process.StartInfo.Arguments = command + " " + string.Join(" ", args.Select(x => x.Key + " \"" + x.Value + "\""));
+
+            process.Start();
+            process.WaitForExit();
         }
 
 

@@ -4,9 +4,9 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 using Microsoft.EntityFrameworkCore;
-using <#= Namespace #>.Models;
+using <#= ProjectName #>.Models;
 
-namespace <#= Namespace #>
+namespace <#= ProjectName #>
 {
     public class ApplicationDbContext : DbContext
     {
@@ -30,5 +30,5 @@ namespace <#= Namespace #>
 <#+
 public Element[] Entities { get; set; }
 
-public String Namespace { get; set; }
+public String ProjectName { get; set; }
 #>
