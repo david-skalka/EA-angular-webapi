@@ -28,4 +28,8 @@ jobs:
       with:
         name: Cli
         path: EADotnetWebapiCli/bin/Debug/net6.0/*
+    - uses: actions/upload-artifact@v4
+      with:
+        name: AddIn
+        path: EADotnetWebapiAddIn/bin/Debug/*
 
