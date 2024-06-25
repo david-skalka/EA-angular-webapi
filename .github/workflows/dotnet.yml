@@ -36,9 +36,8 @@ jobs:
       id: create-temp-dir
       shell: pwsh
       run: |
-        $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name ([System.Guid]::NewGuid().ToString())
+        $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name "EADotnetWebapiSample"
         echo "##[set-output name=temp_dir;]$($tempDir.FullName)"
-        mkdir $tempDir.FullName
     - name: Generate a sample project
       shell: pwsh
       run: | 
