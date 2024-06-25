@@ -77,12 +77,19 @@ namespace EADotnetWebapiAddIn
         public void EA_MenuClick(EA.Repository repository, string Location, string MenuName, string ItemName)
         {
 
-
+            var config = ReadConfig();
 
             switch (ItemName)
             {
                 case menuInitializeSolution:
-                    MessageBox.Show("Initialize solution");
+                   
+
+
+                    ExecuteCli("initialize", new Dictionary<string, string>
+                    {
+                        { "-o", (string)config["output-dir"] },
+                        { "-n", (string)config["project-name"] }
+                    });
 
                     break;
                 case menuGenerateEntities:
@@ -102,7 +109,7 @@ namespace EADotnetWebapiAddIn
                     ExportXmi(repository, selectedDiagram, xmiPath);
 
 
-                    var config = ReadConfig();
+                    
 
 
                     ExecuteCli("entity", new Dictionary<string, string>
