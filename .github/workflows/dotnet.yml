@@ -24,6 +24,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Generate a sample project
+      shell: pwsh
+      run: | 
+        $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name "EADotnetWebapiSample"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n SampleDotnetWebapi -o $tempDir
     - uses: actions/upload-artifact@v4
       with:
         name: Cli
@@ -32,19 +37,8 @@ jobs:
       with:
         name: AddIn
         path: EADotnetWebapiAddIn/bin/Debug/*
-    - name: Create a temporary directory
-      id: create-temp-dir
-      shell: pwsh
-      run: |
-        $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name "EADotnetWebapiSample"
-        echo "##[set-output name=temp_dir;]$($tempDir.FullName)"
-    - name: Generate a sample project
-      shell: pwsh
-      run: | 
-        echo "Temporary directory is ${{ steps.create-temp-dir.outputs.temp_dir }}"
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n SampleDotnetWebapi -o ${{ steps.create-temp-dir.outputs.temp_dir }}
     - uses: actions/upload-artifact@v4
       with:
         name: Sample
         path: EADotnetWebapiSample/**
-    - uses: actions/upload-artifact@v4
+
