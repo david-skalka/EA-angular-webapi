@@ -24,11 +24,11 @@ namespace EADotnetWebapiAddIn
         string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
 
 
-        
-        
+
+
         public String EA_Connect(EA.Repository repository)
         {
-            
+
             return "a string";
         }
 
@@ -51,14 +51,14 @@ namespace EADotnetWebapiAddIn
             switch (menuName)
             {
                 case "":
-                    return menuHeader; 
+                    return menuHeader;
                 case menuHeader:
-                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateEntities, menuSettings }; 
+                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateEntities, menuSettings };
             }
             return "";
         }
 
-        public Dictionary<string,object> ReadConfig()
+        public Dictionary<string, object> ReadConfig()
         {
             var content = System.IO.File.ReadAllText(configPath);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
@@ -70,7 +70,7 @@ namespace EADotnetWebapiAddIn
             repository.GetProjectInterface().ExportPackageXMI(repository.GetPackageByID(diagram.PackageID).PackageGUID, EnumXMIType.xmiEA21, 0, 0, 0, 0, xmiPath);
         }
 
-        
+
 
 
 
@@ -79,20 +79,33 @@ namespace EADotnetWebapiAddIn
 
             var config = ReadConfig();
 
-            switch (ItemName)
+
+            var commands = new Dictionary<string, Action>
             {
-                case menuInitializeSolution:
-                   
-
-
-                    ExecuteCli("initialize", new Dictionary<string, string>
+                {
+                    menuInitializeSolution,
+                    () => ExecuteCli("initialize", new Dictionary<string, string>
                     {
                         { "-o", (string)config["output-dir"] },
                         { "-n", (string)config["project-name"] }
-                    });
+                    })
 
-                    break;
-                case menuGenerateEntities:
+                },
+                { menuGenerateDbContext, () => {
+                 var selectedDiagram = repository.GetCurrentDiagram();
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
+                    ExportXmi(repository, selectedDiagram, xmiPath);
+
+                    ExecuteCli("db-context", new Dictionary<string, string>
+                    {
+                        { "-o", (string)config["output-dir"] },
+                        { "-x", xmiPath },
+                        { "-n", (string)config["project-name"] }
+                    });
+                }
+                },
+                { menuGenerateEntities, () => {
+
 
                     var selectedDiagram = repository.GetCurrentDiagram();
 
@@ -109,7 +122,7 @@ namespace EADotnetWebapiAddIn
                     ExportXmi(repository, selectedDiagram, xmiPath);
 
 
-                    
+
 
 
                     ExecuteCli("entity", new Dictionary<string, string>
@@ -120,13 +133,17 @@ namespace EADotnetWebapiAddIn
                         { "-n", (string)config["project-name"] }
                     });
 
-                    break;
-                case menuSettings:
+                } },
+                { menuSettings, () =>
+                {
                     var settingsDialog = new SettingsDialogs(configPath);
                     settingsDialog.ShowDialog();
+                }
+                },
 
-                    break;
-            }
+            };
+
+            commands[ItemName]();
         }
 
 
@@ -137,7 +154,7 @@ namespace EADotnetWebapiAddIn
             var process = new System.Diagnostics.Process();
             process.StartInfo.FileName = (string)config["cli-path.override"];
 
-            process.StartInfo.Arguments = command + " " +  string.Join(" ",  args.Select(x =>  x.Key + " \"" + x.Value + "\""));
+            process.StartInfo.Arguments = command + " " + string.Join(" ", args.Select(x => x.Key + " \"" + x.Value + "\""));
 
             process.Start();
             process.WaitForExit();
