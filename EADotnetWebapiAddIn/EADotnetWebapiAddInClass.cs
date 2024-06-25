@@ -1,6 +1,7 @@
 ﻿using EA;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -94,26 +95,23 @@ namespace EADotnetWebapiAddIn
                         .ToList().Select(x => x.Name).ToArray();
 
 
-
-
                     var entityDialog = new EntitesDialog(entities);
                     entityDialog.ShowDialog();
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
-
                     ExportXmi(repository, selectedDiagram, xmiPath);
+
+
                     var config = ReadConfig();
 
-                    var process = new System.Diagnostics.Process();
-                    process.StartInfo.FileName = (string)config["cli-path.override"];
-                    
-                    process.StartInfo.Arguments = "entity -o \"" + config["output-dir"] +"\" -e "+ entityDialog.SelectedItem+ " -x \"" + xmiPath + "\" -n " + config["project-name"];
 
-                    process.Start();
-                    process.WaitForExit();
-
-
-                    
+                    ExecuteCli("entity", new Dictionary<string, string>
+                    {
+                        { "-o", (string)config["output-dir"] },
+                        { "-e", entityDialog.SelectedItem },
+                        { "-x", xmiPath },
+                        { "-n", (string)config["project-name"] }
+                    });
 
                     break;
                 case menuSettings:
@@ -122,6 +120,20 @@ namespace EADotnetWebapiAddIn
 
                     break;
             }
+        }
+
+
+        void ExecuteCli(string command, Dictionary<string, string> args)
+        {
+            var config = ReadConfig();
+
+            var process = new System.Diagnostics.Process();
+            process.StartInfo.FileName = (string)config["cli-path.override"];
+
+            process.StartInfo.Arguments = command + " " +  string.Join(" ",  args.Select(x =>  x.Key + " \"" + x.Value + "\""));
+
+            process.Start();
+            process.WaitForExit();
         }
 
 
