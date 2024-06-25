@@ -28,7 +28,7 @@ jobs:
       shell: pwsh
       run: | 
         $tempDir = New-Item -ItemType Directory -Path (Get-Item .).FullName -Name "DotnetWebapiSample"
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n SampleDotnetWebapi -o $tempDir
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n DotnetWebapiSample -o $tempDir
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $tempDir
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe entity -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $tempDir -e Product
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe entity -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $tempDir -e Comment
