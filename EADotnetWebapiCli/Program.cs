@@ -14,7 +14,6 @@ void ConfirmFileWrite(string path, string content)
         if (key.Key != ConsoleKey.Y)
         {
             Console.WriteLine("Aborted");
-            Environment.Exit(1);
         }
     }
 
@@ -38,25 +37,25 @@ void ExecShell(string filename, string args, string? cwd)
 Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions>(args).MapResult(
     (InitializeOptions options) =>
 {
-    ExecShell("dotnet", "new webapi -f net8.0 -n " + options.Namespace + " -o " + options.Path, null);
-    Directory.CreateDirectory(Path.Combine(options.Path, "Models"));
-    Directory.CreateDirectory(Path.Combine(options.Path, "Controllers"));
-    ExecShell("dotnet", "add package Microsoft.EntityFrameworkCore --version 6.0.27", options.Path);
-    ExecShell("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.27", options.Path);
+    ExecShell("dotnet", "new webapi -f net8.0 -n " + options.ProjectName + " -o " + options.OutputDir, null);
+    Directory.CreateDirectory(Path.Combine(options.OutputDir, "Models"));
+    Directory.CreateDirectory(Path.Combine(options.OutputDir, "Controllers"));
+    ExecShell("dotnet", "add package Microsoft.EntityFrameworkCore --version 6.0.27", options.OutputDir);
+    ExecShell("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.27", options.OutputDir);
 
 
     var programContent = new EADotnetWebapiCli.Templates.Program().TransformText();
-    File.WriteAllText(Path.Combine(options.Path, "Program.cs"), programContent);
+    File.WriteAllText(Path.Combine(options.OutputDir, "Program.cs"), programContent);
     return 0;
 },
 (DbContextOptions options) =>
 {
 
     var dbContext = new DbContext();
-    dbContext.Namespace = options.Namespace;    
+    dbContext.ProjectName = options.ProjectName;    
     dbContext.Entities = new EAXmiParser().Parse(options.Xmi).Where(x=>x.Stereotype=="DotnetWebapi:Entity").ToArray();
     var programContent = dbContext.TransformText();
-    ConfirmFileWrite(Path.Combine(options.Path, "ApplicationDbContext.cs"), programContent);
+    ConfirmFileWrite(Path.Combine(options.OutputDir, "ApplicationDbContext.cs"), programContent);
     return 0;
 },
 (EntityOptions options) =>
@@ -66,17 +65,17 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
     
     var efModel = new EfModel();
     efModel.Model = diagram.Single(x => x.Name == options.Name);
-    efModel.Namespace = options.Namespace;
+    efModel.ProjectName = options.ProjectName;
     var efModelContent = efModel.TransformText();
 
-    ConfirmFileWrite(Path.Combine(options.Path, "Models", options.Name + ".cs"), efModelContent);
+    ConfirmFileWrite(Path.Combine(options.OutputDir, "Models", options.Name + ".cs"), efModelContent);
 
     var controller = new Controller();
     controller.Model = diagram.Single(x => x.Name == options.Name);
-    controller.Namespace = options.Namespace;
+    controller.ProjectName = options.ProjectName;
     var controllerContent = controller.TransformText();
 
-    ConfirmFileWrite(Path.Combine(options.Path, "Controllers", options.Name + "Controller.cs"), controllerContent);
+    ConfirmFileWrite(Path.Combine(options.OutputDir, "Controllers", options.Name + "Controller.cs"), controllerContent);
 
 
 
@@ -90,11 +89,11 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 [Verb("initialize", HelpText = "Initialize project")]
 class InitializeOptions
 {
-    [Option('p', "path", Required = true, HelpText = "Path to the project")]
-    public string Path { get; set; } = String.Empty;
+    [Option('o', "output-dir", Required = true)]
+    public string OutputDir { get; set; } = String.Empty;
 
-    [Option('s', "namespace", Required = true, HelpText = "Namespace")]
-    public string Namespace { get; set; } = String.Empty;
+    [Option('n', "project-name", Required = true)]
+    public string ProjectName { get; set; } = String.Empty;
 }
 
 
@@ -102,31 +101,31 @@ class InitializeOptions
 [Verb("entity", HelpText = "Generate Entity")]
 class EntityOptions
 {
-    [Option('p', "path", Required = true, HelpText = "Path to the project")]
-    public string Path { get; set; } = String.Empty;
+    [Option('o', "output-dir", Required = true)]
+    public string OutputDir { get; set; } = String.Empty;
 
-    [Option('n', "name", Required = true, HelpText = "Entity name")]
+    [Option('e', "entity", Required = true)]
     public string Name { get; set; } = String.Empty;
 
-    [Option('x', "xmi", Required = true, HelpText = "Path to the xmi file")]
+    [Option('x', "xmi", Required = true)]
     public string Xmi { get; set; } = String.Empty;
 
-    [Option('s', "namespace", Required = true, HelpText = "Namespace")]
-    public string Namespace { get; set; } = String.Empty;
+    [Option('n', "project-name", Required = true)]
+    public string ProjectName { get; set; } = String.Empty;
 }
 
 
 [Verb("db-context", HelpText = "DbContext")]
 class DbContextOptions
 {
-    [Option('p', "path", Required = true, HelpText = "Path to the project")]
-    public string Path { get; set; } = String.Empty;
+    [Option('o', "output-dir", Required = true)]
+    public string OutputDir { get; set; } = String.Empty;
 
-    [Option('x', "xmi", Required = true, HelpText = "Path to the xmi file")]
+    [Option('x', "xmi", Required = true)]
     public string Xmi { get; set; } = String.Empty;
 
-    [Option('s', "namespace", Required = true, HelpText = "Namespace")]
-    public string Namespace { get; set; } = String.Empty;
+    [Option('n', "project-name", Required = true)]
+    public string ProjectName { get; set; } = String.Empty;
 }
 
 

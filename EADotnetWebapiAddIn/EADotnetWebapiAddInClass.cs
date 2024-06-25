@@ -20,7 +20,7 @@ namespace EADotnetWebapiAddIn
         const string menuGenerateEntities = "&Generate entities";
         const string menuSettings = "&Settings";
 
-        string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EAReactCoreAddIn", "config.json");
+        string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
 
 
         
@@ -107,7 +107,7 @@ namespace EADotnetWebapiAddIn
                     var process = new System.Diagnostics.Process();
                     process.StartInfo.FileName = (string)config["cli-path.override"];
                     
-                    process.StartInfo.Arguments = "entity -p \"" + config["project-path"] +"\" -n "+ entityDialog.SelectedItem+ " -x \"" + xmiPath + "\" -s " + config["namespace"];
+                    process.StartInfo.Arguments = "entity -o \"" + config["output-dir"] +"\" -e "+ entityDialog.SelectedItem+ " -x \"" + xmiPath + "\" -n " + config["project-name"];
 
                     process.Start();
                     process.WaitForExit();

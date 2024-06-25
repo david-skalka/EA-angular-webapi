@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class DbContext : DbContextBase
     {
@@ -30,15 +30,15 @@ namespace EADotnetWebapiCli.Templates
         {
             this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 7 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(".Models;\r\n\r\nnamespace ");
             
-            #line 9 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
@@ -56,28 +56,28 @@ namespace EADotnetWebapiCli.Templates
 
 ");
             
-            #line 21 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
+            #line 21 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
  foreach (var model in Entities) { 
             
             #line default
             #line hidden
             this.Write("        public DbSet<");
             
-            #line 22 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
+            #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 22 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
+            #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n\r\n");
             
-            #line 24 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
+            #line 24 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
  } 
             
             #line default
@@ -86,11 +86,11 @@ namespace EADotnetWebapiCli.Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 30 "C:\Users\David\source\repos\EAReactCoreGenerator\EAReactCoreCli\Templates\DbContext.tt"
+        #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
 
 public Element[] Entities { get; set; }
 
-public String Namespace { get; set; }
+public String ProjectName { get; set; }
 
         
         #line default
