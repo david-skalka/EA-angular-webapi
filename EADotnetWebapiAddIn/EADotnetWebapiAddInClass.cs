@@ -93,12 +93,25 @@ namespace EADotnetWebapiAddIn
                 },
                 { menuGenerateDbContext, () => {
                  var selectedDiagram = repository.GetCurrentDiagram();
+
+
+                     var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
+                        .Select(x => repository.GetElementByID(x.ElementID))
+                        .Where(x => x.Stereotype == "Entity")
+                        .ToList().Select(x => x.Name).ToArray();
+
+                        var entityDialog = new EntitesDialog(entities);
+
+                    entityDialog.ShowDialog();
+
+
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
                     ExportXmi(repository, selectedDiagram, xmiPath);
 
                     ExecuteCli("db-context", new Dictionary<string, string>
                     {
                         { "-o", (string)config["output-dir"] },
+                        { "-e", string.Join(",", entityDialog.SelectedItems) },
                         { "-x", xmiPath },
                         { "-n", (string)config["project-name"] }
                     });
@@ -128,7 +141,7 @@ namespace EADotnetWebapiAddIn
                     ExecuteCli("entity", new Dictionary<string, string>
                     {
                         { "-o", (string)config["output-dir"] },
-                        { "-e", entityDialog.SelectedItem },
+                        { "-e", string.Join(",", entityDialog.SelectedItems) },
                         { "-x", xmiPath },
                         { "-n", (string)config["project-name"] }
                     });

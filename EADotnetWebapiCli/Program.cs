@@ -54,7 +54,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 
     var dbContext = new DbContext();
     dbContext.ProjectName = options.ProjectName;    
-    dbContext.Entities = new EAXmiParser().Parse(options.Xmi).Where(x=>x.Stereotype=="DotnetWebapi:Entity").ToArray();
+    dbContext.Entities = new EAXmiParser().Parse(options.Xmi).Where(x=>x.Stereotype=="DotnetWebapi:Entity").Where(x=> options.Entities.Split(",").Contains(x.Name)).ToArray();
     var programContent = dbContext.TransformText();
     ConfirmFileWrite(Path.Combine(options.OutputDir, "ApplicationDbContext.cs"), programContent);
     return 0;
@@ -65,18 +65,25 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
     var diagram = parser.Parse(options.Xmi);
     
     var efModel = new EfModel();
-    efModel.Model = diagram.Single(x => x.Name == options.Name);
-    efModel.ProjectName = options.ProjectName;
-    var efModelContent = efModel.TransformText();
+    
+    
+    foreach (var entity in options.Entities.Split(","))
+    {
+        efModel.Model = diagram.Single(x => x.Name == entity);
+        efModel.ProjectName = options.ProjectName;
+        var efModelContent = efModel.TransformText();
 
-    ConfirmFileWrite(Path.Combine(options.OutputDir, "Models", options.Name + ".cs"), efModelContent);
+        ConfirmFileWrite(Path.Combine(options.OutputDir, "Models", options.Entities + ".cs"), efModelContent);
 
-    var controller = new Controller();
-    controller.Model = diagram.Single(x => x.Name == options.Name);
-    controller.ProjectName = options.ProjectName;
-    var controllerContent = controller.TransformText();
+        var controller = new Controller();
+        controller.Model = diagram.Single(x => x.Name == entity);
+        controller.ProjectName = options.ProjectName;
+        var controllerContent = controller.TransformText();
 
-    ConfirmFileWrite(Path.Combine(options.OutputDir, "Controllers", options.Name + "Controller.cs"), controllerContent);
+        ConfirmFileWrite(Path.Combine(options.OutputDir, "Controllers", options.Entities + "Controller.cs"), controllerContent);
+
+    }
+
 
 
 
@@ -105,8 +112,8 @@ class EntityOptions
     [Option('o', "output-dir", Required = true)]
     public string OutputDir { get; set; } = String.Empty;
 
-    [Option('e', "entity", Required = true)]
-    public string Name { get; set; } = String.Empty;
+    [Option('e', "entities", Required = true)]
+    public string Entities { get; set; } = String.Empty;
 
     [Option('x', "xmi", Required = true)]
     public string Xmi { get; set; } = String.Empty;
@@ -121,6 +128,9 @@ class DbContextOptions
 {
     [Option('o', "output-dir", Required = true)]
     public string OutputDir { get; set; } = String.Empty;
+
+    [Option('e', "entities", Required = true)]
+    public string Entities { get; set; } = String.Empty;
 
     [Option('x', "xmi", Required = true)]
     public string Xmi { get; set; } = String.Empty;

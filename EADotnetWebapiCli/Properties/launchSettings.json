@@ -2,7 +2,7 @@
   "profiles": {
     "EADotnetWebapiCli": {
       "commandName": "Project",
-      "commandLineArgs": "entity -p \"C:\\\\tmp\\\\EASampleProj\" -x \"..\\\\..\\\\..\\\\..\\\\data\\\\SampleModel.xml\" -s ReactSample -n Product"
+      "commandLineArgs": "entity -o \"C:\\tmp\\EASampleProj\" -e \"Product,Comment\" -x \"C:\\Users\\David\\AppData\\Local\\Temp\\react-core.xmi\" -n \"ReactSample\""
     }
   }
 }

@@ -28,22 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbEntities = new System.Windows.Forms.ComboBox();
             this.btnOk = new System.Windows.Forms.Button();
+            this.listEntities = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // cmbEntities
-            // 
-            this.cmbEntities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEntities.FormattingEnabled = true;
-            this.cmbEntities.Location = new System.Drawing.Point(27, 23);
-            this.cmbEntities.Name = "cmbEntities";
-            this.cmbEntities.Size = new System.Drawing.Size(253, 21);
-            this.cmbEntities.TabIndex = 0;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(205, 62);
+            this.btnOk.Location = new System.Drawing.Point(205, 166);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
@@ -51,11 +42,20 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // listEntities
+            // 
+            this.listEntities.FormattingEnabled = true;
+            this.listEntities.Location = new System.Drawing.Point(27, 24);
+            this.listEntities.Name = "listEntities";
+            this.listEntities.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listEntities.Size = new System.Drawing.Size(253, 121);
+            this.listEntities.TabIndex = 2;
+            // 
             // EntitesDialog
             // 
-            this.ClientSize = new System.Drawing.Size(308, 102);
+            this.ClientSize = new System.Drawing.Size(308, 212);
+            this.Controls.Add(this.listEntities);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.cmbEntities);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EntitesDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -65,8 +65,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbEntities;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.ListBox listEntities;
     }
 }
