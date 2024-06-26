@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class Program : ProgramBase
     {
@@ -28,8 +28,14 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using Microsoft.EntityFrameworkCore;
-using ReactSample;
+            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
+            
+            #line 7 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(@";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,6 +79,16 @@ app.Run();
 ");
             return this.GenerationEnvironment.ToString();
         }
+        
+        #line 48 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+
+
+public String ProjectName { get; set; }
+
+
+        
+        #line default
+        #line hidden
     }
     
     #line default

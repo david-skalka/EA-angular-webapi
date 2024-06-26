@@ -43,7 +43,8 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
     ExecShell("dotnet", "add package Microsoft.EntityFrameworkCore --version 6.0.27", options.OutputDir);
     ExecShell("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.27", options.OutputDir);
 
-
+    var programTemplate = new EADotnetWebapiCli.Templates.Program();
+    programTemplate.ProjectName = options.ProjectName;
     var programContent = new EADotnetWebapiCli.Templates.Program().TransformText();
     File.WriteAllText(Path.Combine(options.OutputDir, "Program.cs"), programContent);
     return 0;

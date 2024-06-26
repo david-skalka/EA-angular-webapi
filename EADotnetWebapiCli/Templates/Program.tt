@@ -4,7 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 using Microsoft.EntityFrameworkCore;
-using ReactSample;
+using <#= ProjectName #>;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,3 +45,8 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
 
 app.Run();
 
+<#+
+
+public String ProjectName { get; set; }
+
+#>
