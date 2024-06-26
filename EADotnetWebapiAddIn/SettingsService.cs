@@ -10,14 +10,21 @@ namespace EADotnetWebapiAddIn
     public class SettingsService
     {
 
-        public string ConfigPath { get; set; }
+        
         
 
         private Dictionary<string, object> settings;
 
+        public SettingsService(string configPath)
+        {
+            this.configPath = configPath;
+        }
+
+        public string configPath;
+
         public void Load()
         {
-            var content = File.ReadAllText(ConfigPath);
+            var content = File.ReadAllText(configPath);
             settings = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
         }
 
