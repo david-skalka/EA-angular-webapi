@@ -21,13 +21,17 @@ namespace EADotnetWebapiAddIn
         const string menuGenerateEntities = "&Generate entities";
         const string menuSettings = "&Settings";
 
-        public static string ConfigPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
+        public static string ConfigPath;
 
-        SettingsService settingsService = new SettingsService(ConfigPath) ;
+        SettingsService settingsService;
 
         public String EA_Connect(EA.Repository repository)
         {
+
+            ConfigPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
+            settingsService = new SettingsService(ConfigPath);
             settingsService.Load();
+
             return "a string";
         }
 
