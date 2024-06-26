@@ -73,14 +73,14 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
         efModel.ProjectName = options.ProjectName;
         var efModelContent = efModel.TransformText();
 
-        ConfirmFileWrite(Path.Combine(options.OutputDir, "Models", options.Entities + ".cs"), efModelContent);
+        ConfirmFileWrite(Path.Combine(options.OutputDir, "Models", entity + ".cs"), efModelContent);
 
         var controller = new Controller();
         controller.Model = diagram.Single(x => x.Name == entity);
         controller.ProjectName = options.ProjectName;
         var controllerContent = controller.TransformText();
 
-        ConfirmFileWrite(Path.Combine(options.OutputDir, "Controllers", options.Entities + "Controller.cs"), controllerContent);
+        ConfirmFileWrite(Path.Combine(options.OutputDir, "Controllers", entity + "Controller.cs"), controllerContent);
 
     }
 
