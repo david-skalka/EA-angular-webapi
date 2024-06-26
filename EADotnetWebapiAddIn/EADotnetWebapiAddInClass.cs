@@ -21,14 +21,11 @@ namespace EADotnetWebapiAddIn
         const string menuGenerateEntities = "&Generate entities";
         const string menuSettings = "&Settings";
 
-        string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
-
-
-
+        SettingsService settingsService = new SettingsService() { ConfigPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json") };
 
         public String EA_Connect(EA.Repository repository)
         {
-
+            settingsService.Load();
             return "a string";
         }
 
@@ -58,11 +55,7 @@ namespace EADotnetWebapiAddIn
             return "";
         }
 
-        public Dictionary<string, object> ReadConfig()
-        {
-            var content = System.IO.File.ReadAllText(configPath);
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(content);
-        }
+
 
 
         void ExportXmi(EA.Repository repository, EA.Diagram diagram, string xmiPath)
@@ -77,7 +70,7 @@ namespace EADotnetWebapiAddIn
         public void EA_MenuClick(EA.Repository repository, string Location, string MenuName, string ItemName)
         {
 
-            var config = ReadConfig();
+            
 
 
             var commands = new Dictionary<string, Action>
@@ -86,8 +79,8 @@ namespace EADotnetWebapiAddIn
                     menuInitializeSolution,
                     () => ExecuteCli("initialize", new Dictionary<string, string>
                     {
-                        { "-o", (string)config["output-dir"] },
-                        { "-n", (string)config["project-name"] }
+                        { "-o", (string)settingsService.GetValue("output-dir")  },
+                        { "-n", (string)settingsService.GetValue("project-name") }
                     })
 
                 },
@@ -110,10 +103,10 @@ namespace EADotnetWebapiAddIn
 
                     ExecuteCli("db-context", new Dictionary<string, string>
                     {
-                        { "-o", (string)config["output-dir"] },
+                        { "-o", (string)settingsService.GetValue("output-dir")  },
                         { "-e", string.Join(",", entityDialog.SelectedItems) },
                         { "-x", xmiPath },
-                        { "-n", (string)config["project-name"] }
+                        { "-n",  (string)settingsService.GetValue("project-name") }
                     });
                 }
                 },
@@ -140,17 +133,18 @@ namespace EADotnetWebapiAddIn
 
                     ExecuteCli("entity", new Dictionary<string, string>
                     {
-                        { "-o", (string)config["output-dir"] },
+                        { "-o",  (string)settingsService.GetValue("output-dir") },
                         { "-e", string.Join(",", entityDialog.SelectedItems) },
                         { "-x", xmiPath },
-                        { "-n", (string)config["project-name"] }
+                        { "-n", (string)settingsService.GetValue("project-name") }
                     });
 
                 } },
                 { menuSettings, () =>
                 {
-                    var settingsDialog = new SettingsDialogs(configPath);
+                    var settingsDialog = new SettingsDialogs(settingsService.ConfigPath);
                     settingsDialog.ShowDialog();
+                    settingsService.Load();
                 }
                 },
 
@@ -162,10 +156,10 @@ namespace EADotnetWebapiAddIn
 
         void ExecuteCli(string command, Dictionary<string, string> args)
         {
-            var config = ReadConfig();
+            
 
-            var process = new System.Diagnostics.Process();
-            process.StartInfo.FileName = (string)config["cli-path.override"];
+            var process = new Process();
+            process.StartInfo.FileName = (string)settingsService.GetValue("cli-path.override");
 
             process.StartInfo.Arguments = command + " " + string.Join(" ", args.Select(x => x.Key + " \"" + x.Value + "\""));
 

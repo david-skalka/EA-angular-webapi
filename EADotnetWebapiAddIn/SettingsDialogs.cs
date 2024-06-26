@@ -11,23 +11,23 @@ namespace EADotnetWebapiAddIn
 {
     public partial class SettingsDialogs : Form
     {
-        private readonly string path;
+        string configPath;
 
-        public SettingsDialogs(string path)
+        public SettingsDialogs(string configPath)
         {
             InitializeComponent();
-            this.path = path;
+            this.configPath = configPath;
+
         }
 
         private void SettingDialog_Load(object sender, EventArgs e)
         {
-            var content = File.ReadAllText(path);
-            this.txbContent.Text = content;
+            this.txbContent.Text = File.ReadAllText(configPath);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            File.WriteAllText(path, this.txbContent.Text);
+            File.WriteAllText(configPath, this.txbContent.Text);
             Close();
         }
     }

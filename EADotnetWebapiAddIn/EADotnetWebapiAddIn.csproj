@@ -64,6 +64,7 @@
     <Compile Include="SettingsDialogs.Designer.cs">
       <DependentUpon>SettingsDialogs.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EntitesDialog.resx">
