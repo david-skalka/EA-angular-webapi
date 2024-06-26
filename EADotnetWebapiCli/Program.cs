@@ -45,7 +45,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 
     var programTemplate = new EADotnetWebapiCli.Templates.Program();
     programTemplate.ProjectName = options.ProjectName;
-    var programContent = new EADotnetWebapiCli.Templates.Program().TransformText();
+    var programContent = programTemplate.TransformText();
     File.WriteAllText(Path.Combine(options.OutputDir, "Program.cs"), programContent);
     return 0;
 },
