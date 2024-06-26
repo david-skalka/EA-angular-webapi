@@ -72,8 +72,14 @@ namespace EADotnetWebapiAddIn
         public void EA_MenuClick(EA.Repository repository, string Location, string MenuName, string ItemName)
         {
 
-            
 
+            var selectedDiagram = repository.GetCurrentDiagram();
+
+            if (selectedDiagram == null)
+            {
+                MessageBox.Show("Please select a diagram", "Information");
+                return;
+            }
 
             var commands = new Dictionary<string, Action>
             {
@@ -87,7 +93,7 @@ namespace EADotnetWebapiAddIn
 
                 },
                 { menuGenerateDbContext, () => {
-                 var selectedDiagram = repository.GetCurrentDiagram();
+                
 
 
                      var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
@@ -114,8 +120,6 @@ namespace EADotnetWebapiAddIn
                 },
                 { menuGenerateEntities, () => {
 
-
-                    var selectedDiagram = repository.GetCurrentDiagram();
 
                     var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
                         .Select(x => repository.GetElementByID(x.ElementID))
