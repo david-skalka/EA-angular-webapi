@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class CustomWebApplicationFactory : CustomWebApplicationFactoryBase
     {
@@ -33,7 +33,7 @@ namespace EADotnetWebapiCli.Templates
                     "eworkCore;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing ReactSample;\r" +
                     "\n\r\nnamespace ");
             
-            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+            #line 14 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -61,7 +61,7 @@ namespace EADotnetWebapiCli.Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 59 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+        #line 59 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
 
 
 public String ProjectName { get; set; }

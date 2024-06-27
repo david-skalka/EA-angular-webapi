@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class ISeeder : ISeederBase
     {
@@ -31,21 +31,21 @@ namespace EADotnetWebapiCli.Templates
             this.Write("using Microsoft.EntityFrameworkCore;\r\nusing Microsoft.Extensions.DependencyInject" +
                     "ion;\r\nusing NUnit.Framework.Interfaces;\r\nusing ");
             
-            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(";\r\nusing ");
             
-            #line 10 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+            #line 10 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(".Models;\r\n\r\nnamespace ");
             
-            #line 12 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -56,7 +56,7 @@ namespace EADotnetWebapiCli.Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 22 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+        #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
 
 
 public String ProjectName { get; set; }

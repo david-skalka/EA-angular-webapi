@@ -58,7 +58,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
             dbContext.Entities = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray();
             return dbContext.TransformText();
 
-        }, Path.Combine(options.OutputDir, "ApplicationDbContext.cs"))
+        }, Path.Combine(options.OutputDir, options.ProjectName, "ApplicationDbContext.cs"))
     };
     Generate(pipeline);
     return 0;
@@ -82,7 +82,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
            efModel.ProjectName = options.ProjectName;
            return efModel.TransformText();
 
-        }, Path.Combine(options.OutputDir, "Models", entity + ".cs")),
+        }, Path.Combine(options.OutputDir, options.ProjectName, "Models", entity + ".cs")),
 
                 new WriteCallbackResultGeneratorCommand(() =>
         {
@@ -92,7 +92,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
                 return controller.TransformText();
 
 
-        }, Path.Combine(options.OutputDir,  "Controllers", entity + "Controller.cs"))
+        }, Path.Combine(options.OutputDir, options.ProjectName,  "Controllers", entity + "Controller.cs"))
     };
         Generate(pipeline);
 
