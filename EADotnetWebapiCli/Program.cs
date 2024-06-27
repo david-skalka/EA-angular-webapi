@@ -68,8 +68,10 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
     var parser = new EAXmiParser();
     var diagram = parser.Parse(options.Xmi);
 
-   
 
+    var fakeObject = new FakerObjectInitializer(diagram.Single(x=>x.Name=="Comment"), new Dictionary<string, object> { { "Id", 1 } });
+
+    var test = fakeObject.ToString();
 
     foreach (var entity in options.Entities.Split(","))
     {

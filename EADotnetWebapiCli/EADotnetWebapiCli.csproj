@@ -2,6 +2,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="AutoBogus" Version="2.13.1" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="System.CodeDom" Version="8.0.0" />
   </ItemGroup>
@@ -31,6 +32,10 @@
     <None Update="Templates\Program.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Program.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Seeder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Seeder.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -70,6 +75,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Program.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Seeder.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Seeder.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
