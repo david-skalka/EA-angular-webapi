@@ -27,19 +27,23 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
     (InitializeOptions options) =>
 {
     var pipeline = new IGeneratorCommand[] {
-        new ShellGeneratorCommand("dotnet", "new webapi -f net8.0 -n " + options.ProjectName + " -o " + options.OutputDir, null),
-        new MkdirGeneratorCommand(Path.Combine(options.OutputDir, "Models")),
-        new MkdirGeneratorCommand(Path.Combine(options.OutputDir, "Controllers")),
-        new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore --version 6.0.27", options.OutputDir),
-        new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.27", options.OutputDir),
-        new RmGeneratorCommand(Path.Combine(options.OutputDir, "Program.cs")),
-        new WriteCallbackResultGeneratorCommand(() => {
 
-            var programTemplate = new EADotnetWebapiCli.Templates.Program();
-            programTemplate.ProjectName = options.ProjectName;
-            return programTemplate.TransformText();
-
-        }, Path.Combine(options.OutputDir, "Program.cs"))
+        new ShellGeneratorCommand("dotnet", "new sln -n " + options.ProjectName + " -o " + options.OutputDir + '"', null),
+        new ShellGeneratorCommand("dotnet", "new webapi -f net8.0 -n " + options.ProjectName + " -o " + Path.Combine(options.OutputDir, options.ProjectName), null),
+        new MkdirGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName, "Models")),
+        new MkdirGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName, "Controllers")),
+        new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore --version 6.0.27", Path.Combine(options.OutputDir, options.ProjectName)),
+        new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.27", Path.Combine(options.OutputDir, options.ProjectName)),
+        new ShellGeneratorCommand("dotnet", "new nunit -f net6.0 -n " + options.ProjectName + "IntegrationTest -o \"" + Path.Combine( options.OutputDir, options.ProjectName + "IntegrationTest"), null),
+        new ShellGeneratorCommand("dotnet", "add package Microsoft.AspNetCore.Mvc.Testing --version 6.0.27", Path.Combine(options.OutputDir, options.ProjectName+ "IntegrationTest")),
+        new ShellGeneratorCommand("dotnet", "add reference ../" + options.ProjectName, Path.Combine(options.OutputDir, options.ProjectName+ "IntegrationTest")),
+        new ShellGeneratorCommand("dotnet", "dotnet sln " + options.ProjectName + ".sln add "+options.ProjectName+" "+options.ProjectName+"IntegrationTest", options.OutputDir),
+        new RmGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName, "Program.cs")),
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Program(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(options.OutputDir,  options.ProjectName, "Program.cs")),
+        new RmGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName+"IntegrationTest", "UnitTest1.cs")),
+        new MkdirGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName, options.ProjectName + "IntegrationTest", "Seeders")),
+        new WriteCallbackResultGeneratorCommand(() => new ISeeder(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(options.OutputDir,  options.ProjectName+ "IntegrationTest", "ISeeder.cs")),
+        new WriteCallbackResultGeneratorCommand(() => new CustomWebApplicationFactory(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(options.OutputDir,  options.ProjectName+ "IntegrationTest", "CustomWebApplicationFactory.cs")),
     };
     Generate(pipeline);
     return 0;

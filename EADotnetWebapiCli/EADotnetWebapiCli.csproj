@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 
   <ItemGroup>
@@ -12,6 +12,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Controller.cs</LastGenOutput>
     </None>
+    <None Update="Templates\CustomWebApplicationFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CustomWebApplicationFactory.cs</LastGenOutput>
+    </None>
     <None Update="Templates\DbContext.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbContext.cs</LastGenOutput>
@@ -19,6 +23,10 @@
     <None Update="Templates\EfModel.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EfModel.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ISeeder.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ISeeder.cs</LastGenOutput>
     </None>
     <None Update="Templates\Program.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -38,6 +46,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Controller.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\CustomWebApplicationFactory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomWebApplicationFactory.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\DbContext.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -47,6 +60,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EfModel.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ISeeder.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ISeeder.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Program.cs">
       <DesignTime>True</DesignTime>
