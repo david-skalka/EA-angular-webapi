@@ -4,6 +4,7 @@
   <ItemGroup>
     <PackageReference Include="AutoBogus" Version="2.13.1" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="MedallionTopologicalSort" Version="1.0.0" />
     <PackageReference Include="System.CodeDom" Version="8.0.0" />
   </ItemGroup>
 

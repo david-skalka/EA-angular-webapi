@@ -4,8 +4,8 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 using Microsoft.EntityFrameworkCore;
-using ReactSample;
-using ReactSample.Models;
+using <#= ProjectName #>;
+using <#= ProjectName #>.Models;
 
 namespace <#= ProjectName #>IntegrationTest.Seeders
 {

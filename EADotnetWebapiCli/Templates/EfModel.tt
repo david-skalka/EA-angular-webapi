@@ -12,6 +12,12 @@
     {"DateTime", "DateTime"},
     {"EAC__Boolean", "bool"},
 };
+
+var defaultValues = new Dictionary<string, string>()
+{
+    {"EAC__String", "String.Empty"},
+};
+
 #>
 using System.ComponentModel.DataAnnotations;
 
@@ -25,7 +31,7 @@ namespace <#= ProjectName #>.Models
 <# foreach (var attribute in Model.Attributes) { #>
 <# if(attribute.Type.IsPrimitive) { #>
         <#= !attribute.isNullable ? "[Required]" : "" #>
-        public <#= primitivesMap[attribute.Type.Name] + (attribute.isNullable ? "?" : "") #> <#= attribute.Name #> { get; set; }
+        public <#= primitivesMap[attribute.Type.Name] + (attribute.isNullable ? "?" : "") #> <#= attribute.Name #> { get; set; } <#= defaultValues.ContainsKey(attribute.Type.Name) ? "= " + defaultValues[attribute.Type.Name] + ";" : "" #>
 <# } else {  #>
         <#= !attribute.isNullable ? "[Required]" : "" #> 
         public int <#= attribute.Name #>Id { get; set; }

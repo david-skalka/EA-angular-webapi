@@ -19,7 +19,7 @@ namespace <#= ProjectName #>
         }
 
 <# foreach (var model in Entities) { #>
-        public DbSet<<#= model.Name  #>> <#= model.Name #> { get; set; }
+        public DbSet<<#= model.Name  #>> <#= model.Name #> { get; set; } = null!;
 
 <# } #>
 

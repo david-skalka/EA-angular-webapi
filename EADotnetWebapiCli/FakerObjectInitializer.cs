@@ -1,6 +1,7 @@
 ﻿using AutoBogus;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace EADotnetWebapiCli
             { typeof(string), (value) => "\"" + ((string)value) + "\"" },
             { typeof(int), (value) => ((int)value).ToString() },
             { typeof(bool), (value) => ((bool)value) ? "true" : "false"},
-            { typeof(decimal), (value) => ((decimal)value).ToString()+ "m" }
+            { typeof(decimal), (value) => ((decimal)value).ToString(new CultureInfo("en-US"))+ "m" }
         };
 
 
@@ -31,7 +32,7 @@ namespace EADotnetWebapiCli
 
         public override string ToString()
         {
-            return "new " + _model.Name + "() { " + string.Join(", ", GetData(_model.Attributes, _override).Select(x => x.Key + '=' + _ValueFormaters[x.Value.GetType()](x.Value))) + " }";
+            return "new " + _model.Name + "() { " + string.Join(", ", GetData(_model.Attributes, _override).Where(x=>x.Value!=null).Select(x => x.Key + '=' +  _ValueFormaters[x.Value.GetType()](x.Value))) + " }";
         }
 
         private Dictionary<string, object> GetData(Attribute[] attributes, Dictionary<string, object> _override)
