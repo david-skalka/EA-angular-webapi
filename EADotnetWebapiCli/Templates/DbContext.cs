@@ -75,7 +75,7 @@ namespace EADotnetWebapiCli.Templates
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n\r\n");
+            this.Write(" { get; set; } = null!;\r\n\r\n");
             
             #line 24 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
  } 
