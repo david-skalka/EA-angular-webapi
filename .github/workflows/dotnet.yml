@@ -42,5 +42,8 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: Sample
-        path: DotnetWebapiSample/**
+        path: |
+          DotnetWebapiSample/**
+          !**/bin/**
+          !**/obj/**
 
