@@ -32,7 +32,7 @@ namespace EADotnetWebapiCli
 
         public override string ToString()
         {
-            return "new " + _model.Name + "() { " + string.Join(", ", GetData(_model.Attributes, _override).Select(x => x.Key + '=' + _ValueFormaters[x.Value.GetType()](x.Value))) + " }";
+            return "new " + _model.Name + "() { " + string.Join(", ", GetData(_model.Attributes, _override).Where(x=>x.Value!=null).Select(x => x.Key + '=' +  _ValueFormaters[x.Value.GetType()](x.Value))) + " }";
         }
 
         private Dictionary<string, object> GetData(Attribute[] attributes, Dictionary<string, object> _override)

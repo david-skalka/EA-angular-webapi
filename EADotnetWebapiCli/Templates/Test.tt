@@ -79,6 +79,43 @@ namespace <#= ProjectName #>IntegrationTest
 
 
 
+        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        public async Task <#= Model.Name #>GetOneTest()
+        {
+            var defaultPage = await Client.GetAsync("/<#= Model.Name #>/1");
+            defaultPage.EnsureSuccessStatusCode();
+        }
+
+        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        public async Task <#= Model.Name #>CreateTest()
+        {
+<# var createOverride = Model.Attributes.Where(x => !x.Type.IsPrimitive).ToDictionary(x=>x.Name + "Id",x=>(object)1); createOverride["Id"] = null; #>
+            var arg = <#= new FakerObjectInitializer(Model, createOverride)  #>; 
+            var defaultPage = await Client.PostAsJsonAsync("/<#= Model.Name #>", arg); 
+            defaultPage.EnsureSuccessStatusCode();
+        }
+
+
+        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        public async Task <#= Model.Name #>UpdateTest()
+        {
+<# var updateOverride = Model.Attributes.Where(x => !x.Type.IsPrimitive).ToDictionary(x=>x.Name + "Id", x=>(object)1); updateOverride["Id"] = 1; #>
+            var arg = <#= new FakerObjectInitializer(Model, updateOverride)  #>; 
+            var defaultPage = await Client.PutAsJsonAsync("/<#= Model.Name #>", arg); 
+            defaultPage.EnsureSuccessStatusCode();
+        }
+
+
+        
+        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        public async Task <#= Model.Name #>DeleteTest()
+        {
+            var defaultPage = await Client.DeleteAsync("/<#= Model.Name #>/1"); 
+            defaultPage.EnsureSuccessStatusCode();
+
+        }
+
+
 
 
     }
