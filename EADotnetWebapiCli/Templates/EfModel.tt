@@ -23,10 +23,13 @@ namespace <#= ProjectName #>.Models
     {
         
 <# foreach (var attribute in Model.Attributes) { #>
-<# if(attribute.Type.Stereotype=="Primitive") { #>
+<# if(attribute.Type.IsPrimitive) { #>
         <#= !attribute.isNullable ? "[Required]" : "" #>
         public <#= primitivesMap[attribute.Type.Name] + (attribute.isNullable ? "?" : "") #> <#= attribute.Name #> { get; set; }
 <# } else {  #>
+        <#= !attribute.isNullable ? "[Required]" : "" #> 
+        public int <#= attribute.Name #>Id { get; set; }
+
         public <#= attribute.Name #>? <#= attribute.Type.Name #> { get; set; }
 <# } #>
 

@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class EfModel : EfModelBase
     {
@@ -29,7 +29,7 @@ namespace EADotnetWebapiCli.Templates
         public virtual string TransformText()
         {
             
-            #line 6 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 6 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
 
     var primitivesMap = new Dictionary<string, string>()
 {
@@ -45,83 +45,97 @@ namespace EADotnetWebapiCli.Templates
             #line hidden
             this.Write("using System.ComponentModel.DataAnnotations;\r\n\r\n\r\nnamespace ");
             
-            #line 19 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(".Models\r\n{\r\n\r\n    public class ");
             
-            #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 22 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        \r\n");
             
-            #line 25 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
  foreach (var attribute in Model.Attributes) { 
             
             #line default
             #line hidden
             
-            #line 26 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
- if(attribute.Type.Stereotype=="Primitive") { 
+            #line 26 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+ if(attribute.Type.IsPrimitive) { 
             
             #line default
             #line hidden
             this.Write("        ");
             
-            #line 27 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 27 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(!attribute.isNullable ? "[Required]" : ""));
             
             #line default
             #line hidden
             this.Write("\r\n        public ");
             
-            #line 28 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitivesMap[attribute.Type.Name] + (attribute.isNullable ? "?" : "")));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 28 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attribute.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n");
             
-            #line 29 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 29 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
  } else {  
             
             #line default
             #line hidden
-            this.Write("        public ");
+            this.Write("        ");
             
-            #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 30 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(!attribute.isNullable ? "[Required]" : ""));
+            
+            #line default
+            #line hidden
+            this.Write(" \r\n        public int ");
+            
+            #line 31 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attribute.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Id { get; set; }\r\n\r\n        public ");
+            
+            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attribute.Name));
             
             #line default
             #line hidden
             this.Write("? ");
             
-            #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attribute.Type.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n");
             
-            #line 31 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 34 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 33 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+            #line 36 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
  } 
             
             #line default
@@ -130,7 +144,7 @@ namespace EADotnetWebapiCli.Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 39 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
+        #line 42 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\EfModel.tt"
 
 public Element Model { get; set; }
 public String ProjectName { get; set; }

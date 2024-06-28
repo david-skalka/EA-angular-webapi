@@ -62,7 +62,7 @@ namespace EADotnetWebapiCli
                 }
 
 
-                var type = isPrimitive ? new Element(typeId, "Primitive", new Dictionary<string, string>(), Array.Empty<Attribute>()) : GetUmlClass(classes[typeId], xmlDoc, namespaceManager);
+                var type = isPrimitive ? new Element(typeId, null, new Dictionary<string, string>(), Array.Empty<Attribute>()) : GetUmlClass(classes[typeId], xmlDoc, namespaceManager);
 
                 var stereotypeNode = node.SelectSingleNode("//xmi:XMI/uml:Model/*[@base_Property='" + attr.Attributes!["xmi:id"]!.Value + "']", namespaceManager);
 

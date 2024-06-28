@@ -23,7 +23,7 @@ void ExecShell(string filename, string args, string? cwd)
 
 
 
-Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions>(args).MapResult(
+Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions, SeederOptions>(args).MapResult(
     (InitializeOptions options) =>
 {
     var pipeline = new IGeneratorCommand[] {
@@ -94,7 +94,23 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
                 return controller.TransformText();
 
 
-        }, Path.Combine(options.OutputDir, options.ProjectName,  "Controllers", entity + "Controller.cs"))
+  }, Path.Combine(options.OutputDir, options.ProjectName,  "Controllers", entity + "Controller.cs")),
+
+
+
+                                new WriteCallbackResultGeneratorCommand(() =>
+        {
+                 var test = new Test();
+                test.Model = diagram.Single(x => x.Name == entity);
+                test.ProjectName = options.ProjectName;
+                return test.TransformText();
+
+
+  }, Path.Combine(options.OutputDir, options.ProjectName+ "IntegrationTest", entity + "Test.cs"))
+
+
+
+
     };
         Generate(pipeline);
 
@@ -104,6 +120,28 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 
 
 
+    return 0;
+},
+(SeederOptions options) =>
+{
+    var parser = new EAXmiParser();
+    var diagram = parser.Parse(options.Xmi);
+
+    var pipeline = new IGeneratorCommand[] {
+
+
+        new WriteCallbackResultGeneratorCommand(() =>
+        {
+                 var seeder = new Seeder();
+                seeder.Entities = diagram;
+                seeder.ProjectName = options.ProjectName;
+                seeder.Count = 10;
+                return seeder.TransformText();
+
+
+        }, Path.Combine(options.OutputDir, options.ProjectName + "IntegrationTest",  "Seeders", "DefaultSeeder.cs"))
+    };
+    Generate(pipeline);
     return 0;
 }
 , errors => 1);
@@ -256,3 +294,18 @@ class DbContextOptions
 }
 
 
+
+
+
+[Verb("seeder", HelpText = "Seeder")]
+class SeederOptions
+{
+    [Option('o', "output-dir", Required = true)]
+    public string OutputDir { get; set; } = String.Empty;
+
+    [Option('x', "xmi", Required = true)]
+    public string Xmi { get; set; } = String.Empty;
+
+    [Option('n', "project-name", Required = true)]
+    public string ProjectName { get; set; } = String.Empty;
+}

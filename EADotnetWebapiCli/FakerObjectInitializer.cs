@@ -40,7 +40,7 @@ namespace EADotnetWebapiCli
 
             foreach (var attr in attributes)
             {
-                if (attr.Type.Stereotype == "Primitive")
+                if (attr.Type.IsPrimitive)
                 {
                     var fakeValue = getFakeValue(attr.Type.Name);
                     retD.Add(attr.Name, fakeValue);

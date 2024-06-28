@@ -18,9 +18,9 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class Seeder : SeederBase
+    public partial class Test : TestBase
     {
 #line hidden
         /// <summary>
@@ -28,156 +28,93 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ReactSample;\r\nusing ReactSample.Model" +
-                    "s;\r\n\r\nnamespace ");
+            this.Write("using System.Net.Http.Json;\r\nusing Microsoft.AspNetCore.Mvc.Testing;\r\nusing Micro" +
+                    "soft.Extensions.DependencyInjection;\r\nusing ");
             
-            #line 10 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
+            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write("IntegrationTest.Seeders\r\n{\r\n\r\n    public class DefaultSeeder : ISeeder\r\n    {\r\n\r\n" +
-                    "");
+            this.Write(";\r\nusing ");
             
-            #line 16 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- foreach (var model in Entities) { 
-            
-            #line default
-            #line hidden
-            this.Write("   \r\n");
-            
-            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
-
-var _override = model.Attributes.Where(x=> !x.Type.IsPrimitive).ToDictionary(attr => attr.Name+"Id", attr=>(object)1);
-
+            #line 10 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\n    virtual protected List<");
+            this.Write(".Models;\r\n\r\nnamespace ");
             
-            #line 23 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> ");
-            
-            #line 23 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
+            #line 12 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n            get\r\n            {\r\n                return new List<");
+            this.Write("IntegrationTest\r\n{\r\n    public class ");
             
-            #line 27 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(">{\r\n");
-            
-            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- for(var i=0; i< Count; i++) { 
+            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
+            this.Write("Test\r\n    {\r\n\r\n        protected readonly CustomWebApplicationFactory<Program> Fa" +
+                    "ctory = new();\r\n\r\n        protected readonly HttpClient Client;\r\n        \r\n     " +
+                    "   public ");
             
-            #line 29 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- var _overrideLocal=_override.ToDictionary(x=>x.Key, x=>x.Value); _overrideLocal.Add("Id", i+1); 
-            
-            #line default
-            #line hidden
-            this.Write("                ");
-            
-            #line 30 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new FakerObjectInitializer(model, _overrideLocal)));
+            #line 21 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write(",\r\n");
+            this.Write("Test()\r\n        {\r\n            Client = Factory.CreateClient(\r\n                ne" +
+                    "w WebApplicationFactoryClientOptions { AllowAutoRedirect = false }\r\n            " +
+                    ");\r\n        \r\n        \r\n        }\r\n        \r\n        [SetUp]\r\n        public voi" +
+                    "d DbSetup()\r\n        {\r\n            if (TestContext.CurrentContext.Test.Properti" +
+                    "es.Get(\"Seeder\") is string seeder)\r\n            {\r\n                ISeeder seede" +
+                    "rInstance = (ISeeder)Activator.CreateInstance(Type.GetType(seeder)!)!;\r\n        " +
+                    "        seederInstance\r\n                    .Seed(\r\n                        Fact" +
+                    "ory\r\n                            .Services.CreateScope()\r\n                      " +
+                    "      .ServiceProvider.GetRequiredService<ApplicationDbContext>()\r\n             " +
+                    "       );\r\n            }\r\n        \r\n        \r\n        \r\n        \r\n        }\r\n   " +
+                    "     \r\n        [TearDown]\r\n        public void DbTeardown()\r\n        {\r\n        " +
+                    "    if (TestContext.CurrentContext.Test.Properties.Get(\"Seeder\") is string seede" +
+                    "r)\r\n            {\r\n                ISeeder seederInstance = (ISeeder)Activator.C" +
+                    "reateInstance(Type.GetType(seeder)!)!;\r\n                seederInstance\r\n        " +
+                    "            .Clear(\r\n                            Factory\r\n                      " +
+                    "          .Services.CreateScope()\r\n                                .ServiceProvi" +
+                    "der.GetRequiredService<ApplicationDbContext>()\r\n                        );\r\n    " +
+                    "        }\r\n        }\r\n\r\n\r\n        [OneTimeTearDown]\r\n        public void Dispose" +
+                    "()\r\n        {\r\n            Client.Dispose();\r\n            Factory.Dispose();\r\n  " +
+                    "      }\r\n\r\n\r\n        [Test, Property(\"Seeder\", \"");
             
-            #line 31 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("            };\r\n        }\r\n    }\r\n\r\n\r\n");
-            
-            #line 37 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n    public virtual List<object> GetAll()\r\n    {\r\n        var retD = new List<" +
-                    "object>();\r\n");
-            
-            #line 43 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- foreach(var entity in Entities) { 
-            
-            #line default
-            #line hidden
-            this.Write("        retD.AddRange(");
-            
-            #line 44 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entity.Name));
+            #line 73 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(");\r\n");
+            this.Write("IntegrationTest.Seeders.DefaultSeeder\")]\r\n        public async Task ");
             
-            #line 45 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
- } 
+            #line 74 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write(@"        return retD;
-    }
-
-
-    public void Seed(ApplicationDbContext dbContext)
-    {
-        GetAll().ForEach(x =>
-        {
-            dbContext.AddRange(x);
-            dbContext.SaveChanges();
-        });
-    }
-
-    public void Clear(ApplicationDbContext dbContext)
-    {
-        var tables = GetAll().Select((x => x.GetType())).Distinct().Reverse();
-        foreach (var table in tables)
-        {
-            var myClassTableName = dbContext.Model.FindEntityType(table);
-
-            if (myClassTableName != null)
-                dbContext.Database.ExecuteSqlRaw(
-                    ""DELETE FROM "" + myClassTableName.GetTableName()
-                );
-        }
-    }
-
- 
-
-}
-
-
-
-
-}
-
-
-");
+            this.Write("GetTest()\r\n        {\r\n            var defaultPage = await Client.GetAsync(\"/");
+            
+            #line 76 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\");\r\n            defaultPage.EnsureSuccessStatusCode();\r\n        }\r\n\r\n\r\n\r\n\r\n\r\n   " +
+                    " }\r\n}\r\n\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 83 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Seeder.tt"
+        #line 89 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Test.tt"
 
-public Element[] Entities { get; set; }
-
+public Element Model { get; set; }
 public String ProjectName { get; set; }
-
-public int Count { get; set; }
 
 
         
@@ -192,7 +129,7 @@ public int Count { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class SeederBase
+    public class TestBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

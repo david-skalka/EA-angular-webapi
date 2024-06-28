@@ -21,6 +21,15 @@ namespace EADotnetWebapiCli
             Tags = tags;
             Attributes = attributes;
         }
+
+
+        public bool IsPrimitive
+        {
+            get
+            {
+                return Name.StartsWith("EAC__");
+            }
+        }
     }
 
 

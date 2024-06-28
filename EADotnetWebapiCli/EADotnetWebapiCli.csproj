@@ -37,6 +37,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Seeder.cs</LastGenOutput>
     </None>
+    <None Update="Templates\Test.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Test.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 
@@ -80,6 +84,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Seeder.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Test.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Test.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
