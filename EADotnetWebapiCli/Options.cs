@@ -64,6 +64,9 @@ namespace EADotnetWebapiCli
         [Option('o', "output-dir", Required = true)]
         public string OutputDir { get; set; } = String.Empty;
 
+        [Option('e', "entities", Required = true)]
+        public string Entities { get; set; } = String.Empty;
+
         [Option('x', "xmi", Required = true)]
         public string Xmi { get; set; } = String.Empty;
 

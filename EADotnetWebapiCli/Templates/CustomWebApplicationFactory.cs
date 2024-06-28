@@ -30,8 +30,14 @@ namespace EADotnetWebapiCli.Templates
         {
             this.Write("using System.Data.Common;\r\nusing Microsoft.AspNetCore.Hosting;\r\nusing Microsoft.A" +
                     "spNetCore.Mvc.Testing;\r\nusing Microsoft.Data.Sqlite;\r\nusing Microsoft.EntityFram" +
-                    "eworkCore;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing ReactSample;\r" +
-                    "\n\r\nnamespace ");
+                    "eworkCore;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing ");
+            
+            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\r\nnamespace ");
             
             #line 14 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));

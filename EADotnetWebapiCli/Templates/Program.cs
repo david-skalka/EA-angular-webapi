@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class Program : ProgramBase
     {
@@ -30,57 +30,65 @@ namespace EADotnetWebapiCli.Templates
         {
             this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 7 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(@";
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite(""Data Source=mydb.db;"")
-        );
-
-
-var app = builder.Build();
-
-
-if (app.Environment.IsDevelopment())
+public class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    public static void Main(string[] args)
+    {
+
+        var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddControllers();
+
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+
+
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(""Data Source=mydb.db;"")
+                );
+
+
+        var app = builder.Build();
+
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+
+
+        app.UseHttpsRedirection();
+
+
+        app.MapControllerRoute(name: ""default"", pattern: ""{controller}/{action=Index}/{id?}"");
+
+
+        using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+        {
+            var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.EnsureCreated();
+        }
+
+
+        app.Run();
+
+    }
 }
-
-
-
-app.UseHttpsRedirection();
-
-
-app.MapControllerRoute(name: ""default"", pattern: ""{controller}/{action=Index}/{id?}"");
-
-
-using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-{
-    var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    context.Database.EnsureCreated();
-}
-
-
-app.Run();
 
 ");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 48 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+        #line 56 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
 
 
 public String ProjectName { get; set; }

@@ -18,6 +18,7 @@ namespace EADotnetWebapiAddIn
         const string menuHeader = "-&React Core";
         const string menuInitializeSolution = "&Initialize solution";
         const string menuGenerateDbContext = "&Generate db-context";
+        const string menuGenerateSeeder = "&Generate seeder";
         const string menuGenerateEntities = "&Generate entities";
         const string menuSettings = "&Settings";
 
@@ -56,7 +57,7 @@ namespace EADotnetWebapiAddIn
                 case "":
                     return menuHeader;
                 case menuHeader:
-                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateEntities, menuSettings };
+                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateSeeder, menuGenerateEntities, menuSettings };
             }
             return "";
         }
@@ -114,6 +115,32 @@ namespace EADotnetWebapiAddIn
                     ExportXmi(repository, selectedDiagram, xmiPath);
 
                     ExecuteCli("db-context", new Dictionary<string, string>
+                    {
+                        { "-o", (string)settingsService.GetValue("output-dir")  },
+                        { "-e", string.Join(",", entityDialog.SelectedItems) },
+                        { "-x", xmiPath },
+                        { "-n",  (string)settingsService.GetValue("project-name") }
+                    });
+                }
+                },
+                { menuGenerateSeeder, () => {
+
+
+
+                     var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
+                        .Select(x => repository.GetElementByID(x.ElementID))
+                        .Where(x => x.Stereotype == "Entity")
+                        .ToList().Select(x => x.Name).ToArray();
+
+                        var entityDialog = new EntitesDialog(entities);
+
+                    entityDialog.ShowDialog();
+
+
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
+                    ExportXmi(repository, selectedDiagram, xmiPath);
+
+                    ExecuteCli("seeder", new Dictionary<string, string>
                     {
                         { "-o", (string)settingsService.GetValue("output-dir")  },
                         { "-e", string.Join(",", entityDialog.SelectedItems) },

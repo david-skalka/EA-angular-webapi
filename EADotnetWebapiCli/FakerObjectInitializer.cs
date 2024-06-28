@@ -1,6 +1,7 @@
 ﻿using AutoBogus;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace EADotnetWebapiCli
             { typeof(string), (value) => "\"" + ((string)value) + "\"" },
             { typeof(int), (value) => ((int)value).ToString() },
             { typeof(bool), (value) => ((bool)value) ? "true" : "false"},
-            { typeof(decimal), (value) => ((decimal)value).ToString()+ "m" }
+            { typeof(decimal), (value) => ((decimal)value).ToString(new CultureInfo("en-US"))+ "m" }
         };
 
 
