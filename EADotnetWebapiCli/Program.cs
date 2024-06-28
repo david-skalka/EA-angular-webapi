@@ -26,7 +26,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
         new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.6", Path.Combine(options.OutputDir, options.ProjectName)),
         new ShellGeneratorCommand("dotnet", "new nunit -f net8.0 -n " + options.ProjectName + "IntegrationTest -o \"" + Path.Combine( options.OutputDir, options.ProjectName + "IntegrationTest"), null),
         new MkdirGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName+"IntegrationTest", "Seeders")),
-        new ShellGeneratorCommand("dotnet", "add package Microsoft.AspNetCore.Mvc.Testing --version 6.0.27", Path.Combine(options.OutputDir, options.ProjectName+ "IntegrationTest")),
+        new ShellGeneratorCommand("dotnet", "add package Microsoft.AspNetCore.Mvc.Testing --version 8.0.6", Path.Combine(options.OutputDir, options.ProjectName+ "IntegrationTest")),
         new ShellGeneratorCommand("dotnet", "add reference ../" + options.ProjectName, Path.Combine(options.OutputDir, options.ProjectName+ "IntegrationTest")),
         new ShellGeneratorCommand("dotnet", "dotnet sln " + options.ProjectName + ".sln add "+options.ProjectName+" "+options.ProjectName+"IntegrationTest", options.OutputDir),
         new RmGeneratorCommand(Path.Combine(options.OutputDir, options.ProjectName, "Program.cs")),
