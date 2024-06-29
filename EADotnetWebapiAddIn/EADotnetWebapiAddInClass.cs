@@ -110,6 +110,11 @@ namespace EADotnetWebapiAddIn
 
                     entityDialog.ShowDialog();
 
+                    if (entityDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
+
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
                     ExportXmi(repository, selectedDiagram, xmiPath);
@@ -136,6 +141,10 @@ namespace EADotnetWebapiAddIn
 
                     entityDialog.ShowDialog();
 
+                    if (entityDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
                     ExportXmi(repository, selectedDiagram, xmiPath);
@@ -160,6 +169,11 @@ namespace EADotnetWebapiAddIn
 
                     var entityDialog = new EntitesDialog(entities);
                     entityDialog.ShowDialog();
+
+                    if (entityDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
                     ExportXmi(repository, selectedDiagram, xmiPath);
