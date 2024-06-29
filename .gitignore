@@ -2,6 +2,8 @@ EADotnetWebapiAddIn/bin
 EADotnetWebapiAddIn/obj
 EADotnetWebapiCli/bin
 EADotnetWebapiCli/obj
+EADotnetWebapiCliTest/bin
+EADotnetWebapiCliTest/obj
 *.code-workspace
 .vs
 packages

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EADotnetWebapiCli", "EADotn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EADotnetWebapiAddIn", "EADotnetWebapiAddIn\EADotnetWebapiAddIn.csproj", "{A9BC5DF8-C40E-47D2-B14F-3A5BD9CE2DAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EADotnetWebapiCliTest", "EADotnetWebapiCliTest\EADotnetWebapiCliTest.csproj", "{ED3F401E-16A5-4F82-AD2A-76F875A0008D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A9BC5DF8-C40E-47D2-B14F-3A5BD9CE2DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9BC5DF8-C40E-47D2-B14F-3A5BD9CE2DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9BC5DF8-C40E-47D2-B14F-3A5BD9CE2DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED3F401E-16A5-4F82-AD2A-76F875A0008D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED3F401E-16A5-4F82-AD2A-76F875A0008D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED3F401E-16A5-4F82-AD2A-76F875A0008D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED3F401E-16A5-4F82-AD2A-76F875A0008D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

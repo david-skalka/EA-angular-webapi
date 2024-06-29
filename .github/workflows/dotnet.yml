@@ -28,6 +28,8 @@ jobs:
       run: nuget restore EADotnetWebapiAddIn\EADotnetWebapiAddIn.csproj  -SolutionDirectory .
     - name: Build
       run: dotnet build --no-restore
+    - name: Test Cli
+      run: dotnet test
     - name: Generate a sample project
       shell: pwsh
       run: | 
