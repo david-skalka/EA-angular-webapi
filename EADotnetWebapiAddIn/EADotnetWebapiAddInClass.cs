@@ -76,15 +76,8 @@ namespace EADotnetWebapiAddIn
 
         public void EA_MenuClick(EA.Repository repository, string Location, string MenuName, string ItemName)
         {
-
-
-            var selectedDiagram = repository.GetCurrentDiagram();
-
-            if (selectedDiagram == null)
-            {
-                MessageBox.Show("Please select a diagram", "Information");
-                return;
-            }
+            
+            
 
             var commands = new Dictionary<string, Action>
             {
@@ -99,6 +92,14 @@ namespace EADotnetWebapiAddIn
                 },
                 { menuGenerateDbContext, () => {
 
+                   var validationResult = ValidateDiagram(repository);
+
+                    if (validationResult.Any())
+                    {
+                        DisplayValidationErrors(validationResult);
+                        return;
+                    }
+
                    var entityDialog = new EntitesDialog(repository);
                     entityDialog.ShowDialog();
 
@@ -108,7 +109,7 @@ namespace EADotnetWebapiAddIn
                     }
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
-                    ExportXmi(repository, selectedDiagram, xmiPath);
+                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
 
                     ExecuteCli("db-context", new Dictionary<string, string>
                     {
@@ -120,7 +121,14 @@ namespace EADotnetWebapiAddIn
                 }
                 },
                 { menuGenerateSeeder, () => {
-                     
+
+                    var validationResult = ValidateDiagram(repository);
+
+                    if (validationResult.Any())
+                    {
+                        DisplayValidationErrors(validationResult);
+                        return;
+                    }
 
                     var entityDialog = new EntitesDialog(repository);
 
@@ -132,7 +140,7 @@ namespace EADotnetWebapiAddIn
                     }
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
-                    ExportXmi(repository, selectedDiagram, xmiPath);
+                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
 
                     ExecuteCli("seeder", new Dictionary<string, string>
                     {
@@ -145,6 +153,14 @@ namespace EADotnetWebapiAddIn
                 },
                 { menuGenerateEntities, () => {
 
+                    var validationResult = ValidateDiagram(repository);
+
+                    if (validationResult.Any())
+                    {
+                        DisplayValidationErrors(validationResult);
+                        return;
+                    }
+
                     var entityDialog = new EntitesDialog(repository);
                     entityDialog.ShowDialog();
 
@@ -154,7 +170,7 @@ namespace EADotnetWebapiAddIn
                     }
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
-                    ExportXmi(repository, selectedDiagram, xmiPath);
+                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
 
                     ExecuteCli("entity", new Dictionary<string, string>
                     {
@@ -169,6 +185,13 @@ namespace EADotnetWebapiAddIn
                 {
                     var settingsDialog = new SettingsDialogs(ConfigPath);
                     settingsDialog.ShowDialog();
+
+                     if (settingsDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
+
+
                     settingsService.Load();
                 }
                 },
@@ -178,6 +201,24 @@ namespace EADotnetWebapiAddIn
             commands[ItemName]();
         }
 
+        private string[] ValidateDiagram(Repository repository)
+        {
+            var retD = new List<string>();
+            var selectedDiagram = repository.GetCurrentDiagram();
+            if (selectedDiagram == null)
+            {
+                retD.Add("Please select a diagram");
+            }
+
+            return retD.ToArray();
+        }
+
+
+        private void DisplayValidationErrors(string[] message)
+        {
+            
+            MessageBox.Show(string.Join("\n", message), "Validation errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
 
         void ExecuteCli(string command, Dictionary<string, string> args)
         {
