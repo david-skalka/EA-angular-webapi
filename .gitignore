@@ -4,3 +4,4 @@ EADotnetWebapiCli/bin
 EADotnetWebapiCli/obj
 *.code-workspace
 .vs
+packages
