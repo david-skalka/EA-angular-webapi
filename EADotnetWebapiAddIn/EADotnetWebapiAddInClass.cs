@@ -98,23 +98,14 @@ namespace EADotnetWebapiAddIn
 
                 },
                 { menuGenerateDbContext, () => {
-                
 
-
-                     var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
-                        .Select(x => repository.GetElementByID(x.ElementID))
-                        .Where(x => x.Stereotype == "Entity")
-                        .ToList().Select(x => x.Name).ToArray();
-
-                        var entityDialog = new EntitesDialog(entities);
-
+                   var entityDialog = new EntitesDialog(repository);
                     entityDialog.ShowDialog();
 
                     if (entityDialog.DialogResult != DialogResult.OK)
                     {
                         return;
                     }
-
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
                     ExportXmi(repository, selectedDiagram, xmiPath);
@@ -129,15 +120,9 @@ namespace EADotnetWebapiAddIn
                 }
                 },
                 { menuGenerateSeeder, () => {
+                     
 
-
-
-                     var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
-                        .Select(x => repository.GetElementByID(x.ElementID))
-                        .Where(x => x.Stereotype == "Entity")
-                        .ToList().Select(x => x.Name).ToArray();
-
-                        var entityDialog = new EntitesDialog(entities);
+                    var entityDialog = new EntitesDialog(repository);
 
                     entityDialog.ShowDialog();
 
@@ -160,14 +145,7 @@ namespace EADotnetWebapiAddIn
                 },
                 { menuGenerateEntities, () => {
 
-
-                    var entities = selectedDiagram.DiagramObjects.Cast<DiagramObject>()
-                        .Select(x => repository.GetElementByID(x.ElementID))
-                        .Where(x => x.Stereotype == "Entity")
-                        .ToList().Select(x => x.Name).ToArray();
-
-
-                    var entityDialog = new EntitesDialog(entities);
+                    var entityDialog = new EntitesDialog(repository);
                     entityDialog.ShowDialog();
 
                     if (entityDialog.DialogResult != DialogResult.OK)
@@ -177,10 +155,6 @@ namespace EADotnetWebapiAddIn
 
                     var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
                     ExportXmi(repository, selectedDiagram, xmiPath);
-
-
-
-
 
                     ExecuteCli("entity", new Dictionary<string, string>
                     {

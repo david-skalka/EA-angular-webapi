@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,13 @@ namespace EADotnetWebapiAddIn
 
         public string[] SelectedItems => listEntities.SelectedItems.Cast<string>().ToArray();
 
-        public EntitesDialog(string[] entities)
+        public EntitesDialog(EA.Repository repository)
         {
             InitializeComponent();
-            listEntities.DataSource = entities;
+            listEntities.DataSource = repository.GetCurrentDiagram().DiagramObjects.Cast<DiagramObject>()
+                        .Select(x => repository.GetElementByID(x.ElementID))
+                        .Where(x => x.Stereotype == "Entity")
+                        .ToList().Select(x => x.Name).ToArray();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
