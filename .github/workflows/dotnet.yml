@@ -27,7 +27,7 @@ jobs:
     - name: Generate a sample project
       shell: pwsh
       run: | 
-        $outputDir = DotnetWebapiSample
+        $outputDir = "DotnetWebapiSample"
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize -n DotnetWebapiSample -o $outputDir
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe entity -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
