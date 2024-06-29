@@ -25,7 +25,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Restore NuGet packages
-      run: nuget restore EADotnetWebapiGenerator.sln
+      run: nuget restore EADotnetWebapiAddIn\EADotnetWebapiAddIn.csproj 
     - name: Build
       run: dotnet build --no-restore
     - name: Generate a sample project
