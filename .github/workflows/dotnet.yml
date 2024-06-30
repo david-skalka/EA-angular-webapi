@@ -44,6 +44,11 @@ jobs:
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe seeder -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj 
+    - name: Build WiX Project
+      run: |
+        # Build your WiX project
+        "C:\Program Files (x86)\WiX Toolset v3.11\bin\candle.exe" EADotnetWebapiInstaller/Product.wxs -o EADotnetWebapiInstaller/Product.wixobj
+        "C:\Program Files (x86)\WiX Toolset v3.11\bin\light.exe" EADotnetWebapiInstaller/Product.wixobj -o EADotnetWebapiInstaller/Product.msi
     - uses: actions/upload-artifact@v4
       with:
         name: Cli
