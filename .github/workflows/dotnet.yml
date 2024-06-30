@@ -58,4 +58,11 @@ jobs:
           DotnetWebapiSample/**
           !**/bin/**
           !**/obj/**
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Installer
+        path: |
+          EADotnetWebapiInstaller/dist/EADotnetWebapiInstaller.msi
+          !**/bin/**
+          !**/obj/**
 

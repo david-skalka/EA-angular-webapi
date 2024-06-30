@@ -1,2 +1,2 @@
-candle.exe Product.wxs -o dist/Product.wixobj
-light.exe dist/Product.wixobj -o dist/Product.msi
+candle.exe EADotnetWebapiInstaller.wxs -o dist/EADotnetWebapiInstaller.wixobj
+light.exe dist/EADotnetWebapiInstaller.wixobj -o dist/EADotnetWebapiInstaller.msi
