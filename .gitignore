@@ -4,8 +4,8 @@ EADotnetWebapiCli/bin
 EADotnetWebapiCli/obj
 EADotnetWebapiCliTest/bin
 EADotnetWebapiCliTest/obj
-EADotnetWebapiInstaller/bin
-EADotnetWebapiInstaller/obj 
+EADotnetWebapiInstaller/dist
+EADotnetWebapiInstaller/dist 
 *.code-workspace
 .vs
 packages

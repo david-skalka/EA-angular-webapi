@@ -41,10 +41,8 @@ jobs:
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj 
     - name: Build WiX Project
-      run: |
-        # Build your WiX project
-        candle.exe EADotnetWebapiInstaller/Product.wxs -o EADotnetWebapiInstaller/Product.wixobj
-        light.exe EADotnetWebapiInstaller/Product.wixobj -o EADotnetWebapiInstaller/Product.msi
+      working-directory: EADotnetWebapiInstaller
+      run: ./build.cmd
     - uses: actions/upload-artifact@v4
       with:
         name: Cli
