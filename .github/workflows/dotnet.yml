@@ -47,8 +47,8 @@ jobs:
     - name: Build WiX Project
       run: |
         # Build your WiX project
-        "C:\Program Files (x86)\WiX Toolset v3.11\bin\candle.exe" EADotnetWebapiInstaller/Product.wxs -o EADotnetWebapiInstaller/Product.wixobj
-        "C:\Program Files (x86)\WiX Toolset v3.11\bin\light.exe" EADotnetWebapiInstaller/Product.wixobj -o EADotnetWebapiInstaller/Product.msi
+        "C:/Program Files (x86)/WiX Toolset v3.11/bin/candle.exe" EADotnetWebapiInstaller/Product.wxs -o EADotnetWebapiInstaller/Product.wixobj
+        "C:/Program Files (x86)/WiX Toolset v3.11/bin/light.exe" EADotnetWebapiInstaller/Product.wixobj -o EADotnetWebapiInstaller/Product.msi
     - uses: actions/upload-artifact@v4
       with:
         name: Cli
