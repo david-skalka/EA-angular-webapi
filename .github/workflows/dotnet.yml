@@ -25,6 +25,8 @@ jobs:
     - name: Install WiX Toolset
       run: |
         choco upgrade wixtoolset --version=3.11.2 --allow-downgrade
+        Import-Module -Name "C:\ProgramData\chocolatey\lib\RefreshEnv\tools\RefreshEnv.psm1"
+        Invoke-RefreshEnv
     - name: Restore dependencies
       run: dotnet restore
     - name: Restore NuGet packages
