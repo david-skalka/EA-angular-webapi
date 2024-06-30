@@ -22,10 +22,6 @@ jobs:
         dotnet-version: 6.0.x
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1
-    - name: Install WiX Toolset
-      run: |
-        choco upgrade wixtoolset --version=3.11.2 --allow-downgrade
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
     - name: Restore dependencies
       run: dotnet restore
     - name: Restore NuGet packages
@@ -47,8 +43,8 @@ jobs:
     - name: Build WiX Project
       run: |
         # Build your WiX project
-        "C:/Program Files (x86)/WiX Toolset v3.11/bin/candle.exe" EADotnetWebapiInstaller/Product.wxs -o EADotnetWebapiInstaller/Product.wixobj
-        "C:/Program Files (x86)/WiX Toolset v3.11/bin/light.exe" EADotnetWebapiInstaller/Product.wixobj -o EADotnetWebapiInstaller/Product.msi
+        candle.exe EADotnetWebapiInstaller/Product.wxs -o EADotnetWebapiInstaller/Product.wixobj
+        light.exe EADotnetWebapiInstaller/Product.wixobj -o EADotnetWebapiInstaller/Product.msi
     - uses: actions/upload-artifact@v4
       with:
         name: Cli
