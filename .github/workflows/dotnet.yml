@@ -24,7 +24,7 @@ jobs:
       uses: NuGet/setup-nuget@v1
     - name: Install WiX Toolset
       run: |
-        choco upgrade wixtoolset --version=3.11.2
+        choco upgrade wixtoolset --version=3.11.2 --allow-downgrade
         refreshenv  # Refresh environment variables after installing WiX
     - name: Restore dependencies
       run: dotnet restore
