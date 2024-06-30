@@ -22,6 +22,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1
+    - name: Install WiX Toolset
+      run: |
+        choco install wixtoolset
+        refreshenv  # Refresh environment variables after installing WiX
     - name: Restore dependencies
       run: dotnet restore
     - name: Restore NuGet packages
