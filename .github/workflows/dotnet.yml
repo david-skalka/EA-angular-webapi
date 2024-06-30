@@ -40,10 +40,6 @@ jobs:
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe seeder -x "data\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj
-    - name: Set up Inno Setup
-      run: |
-        choco install -y innosetup
-        echo "::add-path::C:\Program Files (x86)\Inno Setup 6"
     - name: Build Installer
       run: iscc EADotnetWebapiInstaller.iss /F"EADotnetWebapiInstaller" 
       working-directory: EADotnetWebapiInstaller
