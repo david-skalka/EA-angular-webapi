@@ -12,7 +12,7 @@ ArchitecturesInstallIn64BitMode=x64compatible
 [Files]
 Source: "..\EADotnetWebapiCli\bin\Debug\net6.0\*"; DestDir: "{app}\EADotnetWebapiCli"; Flags: recursesubdirs
 Source: "..\EADotnetWebapiAddIn\bin\Debug\*"; DestDir: "{app}\EADotnetWebapiAddIn"; Flags: recursesubdirs
-
+Source: "Resouces\config.json"; DestDir: "{userappdata}\EADotnetWebapiAddIn";
 
 
 [Registry]
