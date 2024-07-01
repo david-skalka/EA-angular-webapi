@@ -15,3 +15,8 @@ Source: "..\EADotnetWebapiAddIn\bin\Debug\*"; DestDir: "{app}\EADotnetWebapiAddI
 
 
 
+[Registry]
+Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64"; Flags: uninsdeletekeyifempty
+Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64\EADotnetWebapiAddIn"; Flags: uninsdeletekey; ValueType: string; ValueData: "EADotnetWebapiAddIn.EADotnetWebapiAddInClass"
+
+
