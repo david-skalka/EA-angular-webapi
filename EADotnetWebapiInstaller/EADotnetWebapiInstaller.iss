@@ -18,6 +18,7 @@ Source: "Resouces\config.json"; DestDir: "{userappdata}\EADotnetWebapiAddIn";
 [Registry]
 Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64"; Flags: uninsdeletekeyifempty
 Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64\EADotnetWebapiAddIn"; Flags: uninsdeletekey; ValueType: string; ValueData: "EADotnetWebapiAddIn.EADotnetWebapiAddInClass"
+Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64\EADotnetWebapiAddIn"; Flags: uninsdeletekey; ValueName: CliInstallLocation; ValueType: string; ValueData: "{app}\EADotnetWebapiCli\EADotnetWebapiCli.exe"
 
 
 [Run]
