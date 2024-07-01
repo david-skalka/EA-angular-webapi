@@ -20,3 +20,10 @@ Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64"; Flags: uninsdeletekeyif
 Root: HKCU; Subkey: "Software\Sparx Systems\EAAddins64\EADotnetWebapiAddIn"; Flags: uninsdeletekey; ValueType: string; ValueData: "EADotnetWebapiAddIn.EADotnetWebapiAddInClass"
 
 
+[Run]
+; Registrování sestavení pomocí regasm.exe
+Filename: "{dotnet40}\regasm.exe"; Parameters: """{app}\EADotnetWebapiAddIn\EADotnetWebapiAddIn.dll"" /codebase"; StatusMsg: "Registering EADotnetWebapiAddIn.dll..."; Flags: runhidden
+
+[UninstallRun]
+; Odregistrování sestavení při odinstalaci
+Filename: "{dotnet40}\regasm.exe"; Parameters: """{app}\EADotnetWebapiAddIn\EADotnetWebapiAddIn.dll"" /unregister"; StatusMsg: "Unregistering EADotnetWebapiAddIn.dll..."; Flags: runhidden
