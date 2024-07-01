@@ -225,7 +225,9 @@ namespace EADotnetWebapiAddIn
             
 
             var process = new Process();
-            process.StartInfo.FileName = (string)settingsService.GetValue("cli-path.override");
+            var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Sparx Systems\EAAddins64\EADotnetWebapiAddIn");
+
+           process.StartInfo.FileName = (string)key.GetValue("CliInstallLocation");
 
             process.StartInfo.Arguments = command + " " + string.Join(" ", args.Select(x => x.Key + " \"" + x.Value + "\""));
 
