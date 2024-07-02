@@ -19,8 +19,6 @@ Model-Driven Development (MDD) generators enhance productivity, improve code qua
 - Optimized Code: With custom code generators, developers have more control over the generated code, allowing for optimization of performance, scalability, and maintainability based on project requirements.
 - Integration with Existing Systems: Custom code generators can be seamlessly integrated with existing systems, ensuring smoother transitions and better compatibility with legacy infrastructure.
 
-## Screencast
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wPTYLHBJA1Q/0.jpg)](https://www.youtube.com/watch?v=wPTYLHBJA1Q)
 
 ## Features
 - Generate integration tests.
