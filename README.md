@@ -59,7 +59,7 @@ Model-Driven Development (MDD) generators enhance productivity, improve code qua
   </details>
   <details>
     <summary>Initialize the Project</summary>
-    Generate the Application: Navigate to the menu (Tools > React Core) and follow the steps to generate the entire application.
+    Generate the Application: Navigate to the menu (Specialize > Dotnet Webapi) and follow the steps to generate the entire application.
   </details>
   <details>
     <summary>Customization</summary>
