@@ -11,7 +11,7 @@ namespace EADotnetWebapiCliTest
         public void Setup()
         {
             var parser = new EAXmiParser();
-            diagram = parser.Parse("..\\..\\..\\..\\Data\\SampleModel.xml");
+            diagram = parser.Parse("..\\..\\..\\..\\Data\\Sample\\SampleModel.xml");
         }
 
         [Test]

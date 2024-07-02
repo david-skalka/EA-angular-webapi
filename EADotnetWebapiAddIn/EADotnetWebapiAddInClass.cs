@@ -15,7 +15,7 @@ namespace EADotnetWebapiAddIn
     public class EADotnetWebapiAddInClass
     {
         // Define menu constants
-        const string menuHeader = "-&React Core";
+        const string menuHeader = "-&Dotnet Webapi";
         const string menuInitializeSolution = "&Initialize solution";
         const string menuGenerateDbContext = "&Generate db-context";
         const string menuGenerateSeeder = "&Generate seeder";
@@ -108,7 +108,7 @@ namespace EADotnetWebapiAddIn
                         return;
                     }
 
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
                     ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
 
                     ExecuteCli("db-context", new Dictionary<string, string>
@@ -139,7 +139,7 @@ namespace EADotnetWebapiAddIn
                         return;
                     }
 
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
                     ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
 
                     ExecuteCli("seeder", new Dictionary<string, string>
@@ -169,7 +169,7 @@ namespace EADotnetWebapiAddIn
                         return;
                     }
 
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"react-core.xmi");
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
                     ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
 
                     ExecuteCli("entity", new Dictionary<string, string>
