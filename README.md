@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Enterprise Architect Dotnet WEbapi Generator Add-in👋</h1>
+<h1 align="center">Welcome to Enterprise Architect Dotnet Webapi Generator Add-in👋</h1>
 <p>
 
   <a href="#" target="_blank">
