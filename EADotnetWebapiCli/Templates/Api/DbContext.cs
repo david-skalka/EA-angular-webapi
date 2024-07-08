@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace EADotnetWebapiCli.Templates
+namespace EADotnetWebapiCli.Templates.Api
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class CustomWebApplicationFactory : CustomWebApplicationFactoryBase
+    public partial class DbContext : DbContextBase
     {
 #line hidden
         /// <summary>
@@ -28,50 +28,69 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using System.Data.Common;\r\nusing Microsoft.AspNetCore.Hosting;\r\nusing Microsoft.A" +
-                    "spNetCore.Mvc.Testing;\r\nusing Microsoft.Data.Sqlite;\r\nusing Microsoft.EntityFram" +
-                    "eworkCore;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing ");
+            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+            #line 7 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(";\r\n\r\nnamespace ");
+            this.Write(".Models;\r\n\r\nnamespace ");
             
-            #line 14 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write("IntegrationTest\r\n{\r\n    public class CustomWebApplicationFactory<TProgram> : WebA" +
-                    "pplicationFactory<TProgram>\r\n        where TProgram : class\r\n    {\r\n        prot" +
-                    "ected override void ConfigureWebHost(IWebHostBuilder builder)\r\n        {\r\n      " +
-                    "      builder.ConfigureServices(services =>\r\n            {\r\n                var " +
-                    "dbContextDescriptor = services.SingleOrDefault(d =>\r\n                    d.Servi" +
-                    "ceType == typeof(DbContextOptions<ApplicationDbContext>)\r\n                );\r\n\r\n" +
-                    "                services.Remove(dbContextDescriptor!);\r\n\r\n                var db" +
-                    "ConnectionDescriptor = services.SingleOrDefault(d =>\r\n                    d.Serv" +
-                    "iceType == typeof(DbConnection)\r\n                );\r\n\r\n                services." +
-                    "Remove(dbConnectionDescriptor!);\r\n\r\n                // Create open SqliteConnect" +
-                    "ion so EF won\'t automatically close it.\r\n                services.AddSingleton<D" +
-                    "bConnection>(container =>\r\n                {\r\n                    var connection" +
-                    " = new SqliteConnection(\"DataSource=:memory:\");\r\n                    connection." +
-                    "Open();\r\n\r\n                    return connection;\r\n                });\r\n\r\n      " +
-                    "          services.AddDbContext<ApplicationDbContext>(\r\n                    (con" +
-                    "tainer, options) =>\r\n                    {\r\n                        var connecti" +
-                    "on = container.GetRequiredService<DbConnection>();\r\n                        opti" +
-                    "ons.UseSqlite(connection);\r\n                    }\r\n                );\r\n         " +
-                    "   });\r\n\r\n            builder.UseEnvironment(\"Development\");\r\n        }\r\n\r\n    }" +
-                    "\r\n}\r\n\r\n");
+            this.Write(@"
+{
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
+");
+            
+            #line 21 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
+ foreach (var model in Entities) { 
+            
+            #line default
+            #line hidden
+            this.Write("        public DbSet<");
+            
+            #line 22 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
+            
+            #line default
+            #line hidden
+            this.Write("> ");
+            
+            #line 22 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; set; } = null!;\r\n\r\n");
+            
+            #line 24 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    }\r\n}\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 59 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\CustomWebApplicationFactory.tt"
+        #line 30 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\DbContext.tt"
 
+public Element[] Entities { get; set; }
 
 public String ProjectName { get; set; }
-
 
         
         #line default
@@ -85,7 +104,7 @@ public String ProjectName { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class CustomWebApplicationFactoryBase
+    public class DbContextBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

@@ -7,20 +7,21 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace EADotnetWebapiCli.Templates
+namespace EADotnetWebapiCli.Templates.Client
 {
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
+    using CaseExtensions;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class Program : ProgramBase
+    public partial class ListComponent : ListComponentBase
     {
 #line hidden
         /// <summary>
@@ -28,70 +29,114 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
+            this.Write(@"import { Component, OnInit, ViewChild } from '@angular/core';
+import { Api, Product } from '../../api';
+import { CommonModule } from '@angular/common';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import {
+  MatDialog,
+} from '@angular/material/dialog';
+import { ");
             
-            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write(@";
+            this.Write("EditComponent } from \'../");
+            
+            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
+            
+            #line default
+            #line hidden
+            this.Write("-edit/");
+            
+            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
+            
+            #line default
+            #line hidden
+            this.Write("-edit.component\';\r\n\r\n\r\n@Component({\r\n  selector: \'app-new-page\',\r\n  standalone: t" +
+                    "rue,\r\n  imports: [MatSlideToggleModule, MatTableModule, MatPaginatorModule, Comm" +
+                    "onModule, MatButtonModule],\r\n  templateUrl: \'./");
+            
+            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
+            
+            #line default
+            #line hidden
+            this.Write("-list.component.html\',\r\n  styleUrl: \'./");
+            
+            #line 26 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
+            
+            #line default
+            #line hidden
+            this.Write("-list.component.scss\'\r\n})\r\nexport class ");
+            
+            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write(@"ListComponent implements OnInit {
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
+  @ViewChild(MatPaginator) paginator: MatPaginator  | null = null;
+  @ViewChild(MatSort) sort: MatSort | null = null;
 
-        var builder = WebApplication.CreateBuilder(args);
-
-        builder.Services.AddControllers();
-
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
-
-
-        builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite(""Data Source=mydb.db;"")
-                );
-
-
-        var app = builder.Build();
-
-
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
-
-
-        app.UseHttpsRedirection();
-
-
-        app.MapControllerRoute(name: ""default"", pattern: ""{controller}/{action=Index}/{id?}"");
-
-
-        using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-        {
-            var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            context.Database.EnsureCreated();
-        }
-
-
-        app.Run();
-
-    }
-}
-
-");
+  dataSource: MatTableDataSource<Product> = new MatTableDataSource<Product>([]);
+  displayedColumns: string[] = [");
+            
+            #line 34 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", Model.Attributes.Select(x=> "'" + x.Name.ToCamelCase()  + "'" ))));
+            
+            #line default
+            #line hidden
+            this.Write(", \'actions\'];\r\n  \r\n\r\n  constructor(private api: Api<unknown>, private matDialog: " +
+                    "MatDialog) { }\r\n\r\n  async ngOnInit(): Promise<void> {\r\n    this.dataSource.data=" +
+                    "(await this.api.");
+            
+            #line 40 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 40 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write("List()).data; \r\n  }\r\n\r\n  async afterViewInit(): Promise<void> {\r\n    this.dataSou" +
+                    "rce.sort = this.sort;\r\n    this.dataSource.paginator = this.paginator;\r\n  }\r\n\r\n " +
+                    " edit(id: number): void {\r\n    this.matDialog.open(");
+            
+            #line 49 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write("EditComponent, { data: id });\r\n  }\r\n\r\n  add(): void {\r\n    this.matDialog.open(");
+            
+            #line 53 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write("EditComponent, { data: null });\r\n  }\r\n\r\n}\r\n\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 56 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Program.tt"
+        #line 60 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
 
 
-public String ProjectName { get; set; }
+public Element Model { get; set; }
 
 
         
@@ -106,7 +151,7 @@ public String ProjectName { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class ProgramBase
+    public class ListComponentBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

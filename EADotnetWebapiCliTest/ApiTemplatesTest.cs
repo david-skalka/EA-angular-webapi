@@ -1,9 +1,9 @@
 using EADotnetWebapiCli;
-using EADotnetWebapiCli.Templates;
+using EADotnetWebapiCli.Templates.Api;
 
 namespace EADotnetWebapiCliTest
 {
-    public class Tests
+    public class ApiTemplatesTest
     {
         private Element[] diagram;
 

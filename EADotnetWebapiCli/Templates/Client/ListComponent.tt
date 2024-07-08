@@ -1,0 +1,64 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CaseExtensions" #>
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Api, Product } from '../../api';
+import { CommonModule } from '@angular/common';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import {
+  MatDialog,
+} from '@angular/material/dialog';
+import { <#= Model.Name  #>EditComponent } from '../<#= Model.Name.ToKebabCase()  #>-edit/<#= Model.Name.ToKebabCase()  #>-edit.component';
+
+
+@Component({
+  selector: 'app-new-page',
+  standalone: true,
+  imports: [MatSlideToggleModule, MatTableModule, MatPaginatorModule, CommonModule, MatButtonModule],
+  templateUrl: './<#= Model.Name.ToKebabCase()  #>-list.component.html',
+  styleUrl: './<#= Model.Name.ToKebabCase()  #>-list.component.scss'
+})
+export class <#= Model.Name  #>ListComponent implements OnInit {
+
+  @ViewChild(MatPaginator) paginator: MatPaginator  | null = null;
+  @ViewChild(MatSort) sort: MatSort | null = null;
+
+  dataSource: MatTableDataSource<Product> = new MatTableDataSource<Product>([]);
+  displayedColumns: string[] = [<#= string.Join(", ", Model.Attributes.Select(x=> "'" + x.Name.ToCamelCase()  + "'" ))  #>, 'actions'];
+  
+
+  constructor(private api: Api<unknown>, private matDialog: MatDialog) { }
+
+  async ngOnInit(): Promise<void> {
+    this.dataSource.data=(await this.api.<#= Model.Name.ToCamelCase()  #>.<#= Model.Name.ToCamelCase() #>List()).data; 
+  }
+
+  async afterViewInit(): Promise<void> {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
+  edit(id: number): void {
+    this.matDialog.open(<#= Model.Name #>EditComponent, { data: id });
+  }
+
+  add(): void {
+    this.matDialog.open(<#= Model.Name #>EditComponent, { data: null });
+  }
+
+}
+
+
+
+<#+
+
+public Element Model { get; set; }
+
+#>

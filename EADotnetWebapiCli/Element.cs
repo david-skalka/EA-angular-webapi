@@ -43,8 +43,10 @@ namespace EADotnetWebapiCli
 
         public string? Stereotype { get; set; }
 
+        public Dictionary<string, string> Tags { get; set; }
+
         //constructor
-        public Attribute(string name, Element type, bool isId, string lowerBound, string upperBound, string? stereotype)
+        public Attribute(string name, Element type, bool isId, string lowerBound, string upperBound, string? stereotype, Dictionary<string, string> tags)
         {
             Name = name;
             Type = type;
@@ -52,6 +54,7 @@ namespace EADotnetWebapiCli
             LowerBound = lowerBound;
             UpperBound = upperBound;
             Stereotype = stereotype;
+            Tags = tags;
         }
 
         public bool isNullable

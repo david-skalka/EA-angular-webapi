@@ -3,44 +3,78 @@
 
   <ItemGroup>
     <PackageReference Include="AutoBogus" Version="2.13.1" />
+    <PackageReference Include="CaseExtensions" Version="1.1.0" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="MedallionTopologicalSort" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.CodeDom" Version="8.0.0" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <None Update="Templates\Controller.tt">
+    <None Update="Templates\Api\Controller.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Controller.cs</LastGenOutput>
     </None>
-    <None Update="Templates\CustomWebApplicationFactory.tt">
+    <None Update="Templates\Api\CustomWebApplicationFactory.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CustomWebApplicationFactory.cs</LastGenOutput>
     </None>
-    <None Update="Templates\DbContext.tt">
+    <None Update="Templates\Api\DbContext.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DbContext.cs</LastGenOutput>
     </None>
-    <None Update="Templates\EfModel.tt">
+    <None Update="Templates\Api\EfModel.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EfModel.cs</LastGenOutput>
     </None>
-    <None Update="Templates\ISeeder.tt">
+    <None Update="Templates\Api\ISeeder.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ISeeder.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Program.tt">
+    <None Update="Templates\Api\Program.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Program.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Seeder.tt">
+    <None Update="Templates\Api\Seeder.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Seeder.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Test.tt">
+    <None Update="Templates\Api\Test.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Test.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\EditComponent.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditComponent.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\EditTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\ListTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ListTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\Stories.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Stories.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\Storybook\GlobalMockData.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GlobalMockData.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\ListComponent.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ListComponent.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\Storybook\Main.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Main.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\Storybook\Preview.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Preview.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -51,45 +85,85 @@
 
 
   <ItemGroup>
-    <Compile Update="Templates\Controller.cs">
+    <Compile Update="Templates\Api\Controller.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Controller.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\CustomWebApplicationFactory.cs">
+    <Compile Update="Templates\Api\CustomWebApplicationFactory.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CustomWebApplicationFactory.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\DbContext.cs">
+    <Compile Update="Templates\Api\DbContext.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\EfModel.cs">
+    <Compile Update="Templates\Api\EfModel.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EfModel.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\ISeeder.cs">
+    <Compile Update="Templates\Api\ISeeder.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ISeeder.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Program.cs">
+    <Compile Update="Templates\Api\Program.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Program.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Seeder.cs">
+    <Compile Update="Templates\Api\Seeder.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Seeder.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Test.cs">
+    <Compile Update="Templates\Api\Test.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Test.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\EditComponent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EditComponent.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\EditTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EditTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\ListTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ListTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\Stories.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Stories.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\Storybook\GlobalMockData.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GlobalMockData.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\ListComponent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ListComponent.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\Storybook\Main.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\Storybook\Preview.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Preview.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

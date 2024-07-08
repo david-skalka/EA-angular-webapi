@@ -9,7 +9,9 @@ namespace EADotnetWebapiCli
 {
 
 
-    [Verb("initialize", HelpText = "Initialize project")]
+
+
+    [Verb("initialize", HelpText = "Initialize client project")]
     class InitializeOptions
     {
         [Option('o', "output-dir", Required = true)]
@@ -56,8 +58,6 @@ namespace EADotnetWebapiCli
 
 
 
-
-
     [Verb("seeder", HelpText = "Seeder")]
     class SeederOptions
     {
@@ -72,6 +72,25 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+    }
+
+
+
+    [Verb("global-mock-data", HelpText = "Seeder")]
+    class GlobalMockDataOptions
+    {
+        [Option('o', "output-dir", Required = true)]
+        public string OutputDir { get; set; } = String.Empty;
+
+        [Option('e', "entities", Required = true)]
+        public string Entities { get; set; } = String.Empty;
+
+        [Option('x', "xmi", Required = true)]
+        public string Xmi { get; set; } = String.Empty;
+
+        [Option('n', "project-name", Required = true)]
+        public string ProjectName { get; set; } = String.Empty;
+
     }
 
 }

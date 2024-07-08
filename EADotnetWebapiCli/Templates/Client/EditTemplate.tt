@@ -1,0 +1,92 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CaseExtensions" #>
+<h2 mat-dialog-title>Edit</h2>
+<mat-dialog-content >
+
+    <form [formGroup]="editForm" >
+
+<#
+    foreach (var attr in Model.Attributes) {
+        switch (attr.Type.Name)
+        {
+            case "EAC__int":
+#>
+        <div>
+            <mat-form-field>
+                <mat-label><#= attr.Tags["Description"] #></mat-label>
+                <input formControlName="<#= attr.Name.ToCamelCase() #>" type="number" matInput  >
+            </mat-form-field>
+        </div>
+<#
+                break;
+
+            case "EAC__String":
+#>
+        <div>
+            <mat-form-field>
+                <mat-label><#= attr.Tags["Description"] #></mat-label>
+                <input formControlName="<#= attr.Name.ToCamelCase() #>" matInput  >
+            </mat-form-field>
+        </div>
+<#
+                break;
+
+            case "EAC__Boolean":
+#>
+        <div>
+            <p><mat-slide-toggle formControlName="<#= attr.Name.ToCamelCase() #>"><#= attr.Tags["Description"] #></mat-slide-toggle></p>
+        </div>
+<#
+                break;
+
+            default:
+#>
+        <div>
+            <mat-form-field>
+                <mat-label><#= attr.Tags["Description"] #></mat-label>
+                <input formControlName="<#= attr.Name.ToCamelCase() #>Id" type="number" matInput  >
+            </mat-form-field>
+        </div>
+<#
+                break;
+
+        }
+    }
+#>
+        
+
+
+        <ul>
+            @for (error of errors; track error) {
+                <li style="color: red;">
+                    {{ error }}
+                </li>
+              }
+        </ul>
+
+        
+
+    </form>
+
+
+
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button (click)="ok()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
+
+
+
+<#+
+public Element Model { get; set; }
+
+
+#>

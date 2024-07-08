@@ -1,0 +1,45 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CaseExtensions" #>
+<div>
+    
+<button mat-button (click)="add()">
+    Add
+</button>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<# foreach (var attr in Model.Attributes) { #>
+        <ng-container matColumnDef="<#= attr.Name.ToCamelCase() #>">
+          <th mat-header-cell *matHeaderCellDef> <#= attr.Tags["Description"] #> </th>
+          <td mat-cell *matCellDef="let element"> {{element.<#= attr.Name.ToCamelCase() #>}} </td>
+        </ng-container>
+<# } #>       
+      
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="edit(element.id)">
+                    Edit
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
+  </div>
+
+  
+<#+
+
+public Element Model { get; set; }
+
+#>

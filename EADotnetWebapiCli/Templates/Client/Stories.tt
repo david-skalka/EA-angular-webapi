@@ -1,0 +1,76 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CaseExtensions" #>
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
+import { <#= Model.Name  #>ListComponent } from '../app/<#= Model.Name.ToKebabCase()  #>-list/<#= Model.Name.ToKebabCase()  #>-list.component';
+import { Api } from '../api';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { applicationConfig } from '@storybook/angular';
+import { importProvidersFrom } from '@angular/core';
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+const meta: Meta<<#= Model.Name  #>ListComponent> = {
+  title: '<#= Model.Name  #>/List',
+  component: <#= Model.Name  #>ListComponent,
+  decorators: [
+    moduleMetadata({
+      providers: [
+       
+      ],
+      imports: [MatIconModule]
+    }),
+      applicationConfig({
+        providers: [
+          // Use `provideAnimations` if your Angular version supports it
+          provideAnimations(),
+          BrowserModule,
+          // If `provideAnimations` is not supported, use `importProvidersFrom`
+          importProvidersFrom(BrowserAnimationsModule),
+          { provide: Api, useFactory: () => new Api({ baseUrl: 'http://localhost:6006/api', customFetch: fetch }) }
+        ],
+      }),
+    
+  ]
+  , parameters: {
+    layout: 'centered',
+  }
+};
+
+export default meta;
+type Story = StoryObj<<#= Model.Name  #>ListComponent>;
+
+
+export const Default: Story = {
+
+  
+
+};
+
+export const OverrideApi: Story = {
+
+  parameters: {
+    mockData: [
+      {
+        url: 'http://localhost:6006/api/<#= Model.Name #>',
+        method: 'PUT',
+        status: 400,
+        response:
+          {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"Name":["The Name field is required."]},"traceId":"00-f58504593e134cfa3e926ec858fffa4f-f48fc68a96ebb8b4-00"},
+      },
+    ],
+  }
+
+};
+
+
+
+<#+
+public Element Model { get; set; }
+
+
+#>

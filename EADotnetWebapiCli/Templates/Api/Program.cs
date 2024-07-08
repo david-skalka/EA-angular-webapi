@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace EADotnetWebapiCli.Templates
+namespace EADotnetWebapiCli.Templates.Api
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class Controller : ControllerBase
+    public partial class Program : ProgramBase
     {
 #line hidden
         /// <summary>
@@ -28,149 +28,69 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.AspNetCore.Mvc;\r\nusing ");
+            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
+            #line 7 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Models;\r\nnamespace ");
-            
-            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Controllers\r\n{\r\n    [ApiController]\r\n    [Route(\"[controller]\")]\r\n    public cla" +
-                    "ss ");
-            
-            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Controller : ControllerBase\r\n    {\r\n\r\n        private readonly ILogger<");
-            
-            #line 15 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Controller> _logger;\r\n        private readonly ApplicationDbContext _applicationD" +
-                    "bContext;\r\n\r\n        public ");
-            
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Controller(ILogger<");
-            
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Controller> logger, ApplicationDbContext applicationDbContext)\r\n        {\r\n      " +
-                    "      _logger = logger;\r\n            _applicationDbContext = applicationDbContex" +
-                    "t;\r\n        }\r\n\r\n        [HttpGet]\r\n        public IEnumerable<");
-            
-            #line 25 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> Get()\r\n        {\r\n             return _applicationDbContext.");
-            
-            #line 27 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(".ToList();\r\n        }\r\n\r\n        [HttpGet(\"{id:int}\")]\r\n        public ActionResu" +
-                    "lt<");
-            
-            #line 31 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> Get(int id)\r\n        {\r\n            return _applicationDbContext.");
-            
-            #line 33 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(".Single(x=>x.Id==id);\r\n        }\r\n\r\n        [HttpPost]\r\n        public ActionResu" +
-                    "lt<");
-            
-            #line 37 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> Create(");
-            
-            #line 37 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(" data)\r\n        {\r\n            _applicationDbContext.");
-            
-            #line 39 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(".Add(data);\r\n            _applicationDbContext.SaveChanges();\r\n            return" +
-                    " data;\r\n        }\r\n\r\n        [HttpPut]\r\n        public ActionResult<");
-            
-            #line 45 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> Update(");
-            
-            #line 45 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(" data)\r\n        {\r\n            _applicationDbContext.");
-            
-            #line 47 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(".Update(data);\r\n            _applicationDbContext.SaveChanges();\r\n            ret" +
-                    "urn data;\r\n        }\r\n\r\n        [HttpDelete(\"{id:int}\")]\r\n        public ActionR" +
-                    "esult Delete(int id)\r\n        {\r\n            _applicationDbContext.");
-            
-            #line 55 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(".Remove(_applicationDbContext.");
-            
-            #line 55 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(".Single(x=>x.Id==id));\r\n            _applicationDbContext.SaveChanges();\r\n       " +
-                    "     return Ok();\r\n        }\r\n\r\n\r\n    }\r\n}\r\n\r\n\r\n");
+            this.Write(@";
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+
+        var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddControllers();
+
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+
+
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(""Data Source=mydb.db;"")
+                );
+
+
+        var app = builder.Build();
+
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+
+
+        app.UseHttpsRedirection();
+
+
+        app.MapControllerRoute(name: ""default"", pattern: ""{controller}/{action=Index}/{id?}"");
+
+
+        using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+        {
+            var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.EnsureCreated();
+        }
+
+
+        app.Run();
+
+    }
+}
+
+");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 65 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Controller.tt"
+        #line 56 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
 
-public Element Model { get; set; }
+
 public String ProjectName { get; set; }
 
 
@@ -186,7 +106,7 @@ public String ProjectName { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class ControllerBase
+    public class ProgramBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

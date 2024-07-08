@@ -10,12 +10,26 @@ namespace EADotnetWebapiCli
     public class EAXmiParser
     {
 
+        static XmlDocument LoadXmlDocumentWithEncoding(string filePath, Encoding encoding)
+        {
+            // Create a StreamReader with the specified encoding
+            using (StreamReader reader = new StreamReader(filePath, encoding))
+            {
+                // Read the content of the file
+                string xmlContent = reader.ReadToEnd();
+
+                // Load the content into an XmlDocument
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(xmlContent);
+                return xmlDoc;
+            }
+        }
+
 
         public Element[] Parse(string path)
         {
 
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(File.ReadAllText(path));
+            var xmlDoc = LoadXmlDocumentWithEncoding(path, Encoding.Latin1);
 
             XmlNamespaceManager namespaceManager = new XmlNamespaceManager(xmlDoc.NameTable);
             namespaceManager.AddNamespace("xmi", "http://schema.omg.org/spec/XMI/2.1");
@@ -66,9 +80,11 @@ namespace EADotnetWebapiCli
 
                 var stereotypeNode = node.SelectSingleNode("//xmi:XMI/uml:Model/*[@base_Property='" + attr.Attributes!["xmi:id"]!.Value + "']", namespaceManager);
 
+                var attrId = attr.Attributes!["xmi:id"]!.Value;
 
+                var tags = xmlDoc.SelectNodes("//xmi:Extension/elements/element[@xmi:idref='" + node.Attributes!["xmi:id"]!.Value + "']/attributes/attribute[@xmi:idref='" + attrId + "']/tags/*", namespaceManager)!.Cast<XmlNode>().ToDictionary(tag => tag.Attributes!["name"]!.Value, tag => tag.Attributes!["value"]!=null ? tag.Attributes!["value"]!.Value : "");
 
-                return new Attribute(attr.Attributes!["name"]!.Value, type, isId, lowerBound, upperBound, stereotypeNode!=null ? stereotypeNode.Name : null);
+                return new Attribute(attr.Attributes!["name"]!.Value, type, isId, lowerBound, upperBound, stereotypeNode != null ? stereotypeNode.Name : null, tags);
             });
 
             var stereotypeNode = node.SelectSingleNode("//xmi:XMI/uml:Model/*[@base_Class='"+ node.Attributes!["xmi:id"]!.Value + "']", namespaceManager);

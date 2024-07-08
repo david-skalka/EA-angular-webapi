@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace EADotnetWebapiCli.Templates
+namespace EADotnetWebapiCli.Templates.Client.Storybook
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\Main.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class DbContext : DbContextBase
+    public partial class Main : MainBase
     {
 #line hidden
         /// <summary>
@@ -28,73 +28,27 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
-            
-            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Models;\r\n\r\nnamespace ");
-            
-            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(@"
-{
-    public class ApplicationDbContext : DbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options) { }
+            this.Write(@"import type { StorybookConfig } from ""@storybook/angular"";
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
+const config: StorybookConfig = {
+  stories: [""../src/**/*.mdx"", ""../src/**/*.stories.@(js|jsx|mjs|ts|tsx)""],
+  addons: [
+    ""@storybook/addon-links"",
+    ""@storybook/addon-essentials"",
+    ""@chromatic-com/storybook"",
+    ""@storybook/addon-interactions"",
+    ""storybook-addon-mock""
+  ],
+  framework: {
+    name: ""@storybook/angular"",
+    options: {},
+  },
+  staticDirs: [/*'../public'*/]
+};
+export default config;
 ");
-            
-            #line 21 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
- foreach (var model in Entities) { 
-            
-            #line default
-            #line hidden
-            this.Write("        public DbSet<");
-            
-            #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> ");
-            
-            #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(" { get; set; } = null!;\r\n\r\n");
-            
-            #line 24 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    }\r\n}\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
-        
-        #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\DbContext.tt"
-
-public Element[] Entities { get; set; }
-
-public String ProjectName { get; set; }
-
-        
-        #line default
-        #line hidden
     }
     
     #line default
@@ -104,7 +58,7 @@ public String ProjectName { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class DbContextBase
+    public class MainBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

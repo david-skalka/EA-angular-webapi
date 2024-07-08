@@ -61,6 +61,7 @@ namespace EADotnetWebapiCli
             process.StartInfo.FileName = filename;
             process.StartInfo.Arguments = args;
             process.StartInfo.WorkingDirectory = cwd;
+            process.StartInfo.UseShellExecute=true;
             process.Start();
             process.WaitForExit();
         }
@@ -69,19 +70,48 @@ namespace EADotnetWebapiCli
 
     public class RmGeneratorCommand : IGeneratorCommand
     {
-        private string filename;
+        private string searchPattern;
 
-        public RmGeneratorCommand(string filename)
+        private string directoryPath;
+
+        public RmGeneratorCommand(string directoryPath, string searchPattern)
         {
-            this.filename = filename;
+            this.directoryPath = directoryPath;
+            this.searchPattern = searchPattern;
+            
         }
 
         public void Execute()
         {
-            File.Delete(filename);
+            var files = Directory.GetFiles(directoryPath, searchPattern);
+
+            foreach (var item in files)
+            {
+                File.Delete(item);
+            }
         }
     }
 
+
+
+    public class RmDirGeneratorCommand : IGeneratorCommand
+    {
+  
+
+        private string directoryPath;
+
+        public RmDirGeneratorCommand(string directoryPath)
+        {
+            this.directoryPath = directoryPath;
+  
+
+        }
+
+        public void Execute()
+        {
+            Directory.Delete(directoryPath, true);
+        }
+    }
 
 
     public class MkdirGeneratorCommand : IGeneratorCommand
@@ -96,6 +126,33 @@ namespace EADotnetWebapiCli
         public void Execute()
         {
             Directory.CreateDirectory(path);
+        }
+    }
+
+
+
+
+    public class JsonCommand : IGeneratorCommand
+    {
+        private string path;
+
+        private Func<dynamic, dynamic> func;
+
+        public JsonCommand(string path, Func<dynamic, dynamic> func)
+        {
+            this.path = path;
+            this.func = func;
+        }
+
+        public void Execute()
+        {
+            var des = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(path))!;
+
+            var output = func(des);
+
+            File.WriteAllText(path, Newtonsoft.Json.JsonConvert.SerializeObject(output, Newtonsoft.Json.Formatting.Indented));
+
+            
         }
     }
 }

@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace EADotnetWebapiCli.Templates
+namespace EADotnetWebapiCli.Templates.Api
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace EADotnetWebapiCli.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class ISeeder : ISeederBase
+    public partial class CustomWebApplicationFactory : CustomWebApplicationFactoryBase
     {
 #line hidden
         /// <summary>
@@ -28,35 +28,46 @@ namespace EADotnetWebapiCli.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing Microsoft.Extensions.DependencyInject" +
-                    "ion;\r\nusing NUnit.Framework.Interfaces;\r\nusing ");
+            this.Write("using System.Data.Common;\r\nusing Microsoft.AspNetCore.Hosting;\r\nusing Microsoft.A" +
+                    "spNetCore.Mvc.Testing;\r\nusing Microsoft.Data.Sqlite;\r\nusing Microsoft.EntityFram" +
+                    "eworkCore;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing ");
             
-            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+            #line 12 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(";\r\nusing ");
+            this.Write(";\r\n\r\nnamespace ");
             
-            #line 10 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Models;\r\n\r\nnamespace ");
-            
-            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write("IntegrationTest\r\n{\r\n    public interface ISeeder\r\n    {\r\n        void Clear(Appli" +
-                    "cationDbContext applicationDbContext);\r\n        void Seed(ApplicationDbContext d" +
-                    "bContext);\r\n    }\r\n  \r\n}\r\n\r\n");
+            this.Write("IntegrationTest\r\n{\r\n    public class CustomWebApplicationFactory<TProgram> : WebA" +
+                    "pplicationFactory<TProgram>\r\n        where TProgram : class\r\n    {\r\n        prot" +
+                    "ected override void ConfigureWebHost(IWebHostBuilder builder)\r\n        {\r\n      " +
+                    "      builder.ConfigureServices(services =>\r\n            {\r\n                var " +
+                    "dbContextDescriptor = services.SingleOrDefault(d =>\r\n                    d.Servi" +
+                    "ceType == typeof(DbContextOptions<ApplicationDbContext>)\r\n                );\r\n\r\n" +
+                    "                services.Remove(dbContextDescriptor!);\r\n\r\n                var db" +
+                    "ConnectionDescriptor = services.SingleOrDefault(d =>\r\n                    d.Serv" +
+                    "iceType == typeof(DbConnection)\r\n                );\r\n\r\n                services." +
+                    "Remove(dbConnectionDescriptor!);\r\n\r\n                // Create open SqliteConnect" +
+                    "ion so EF won\'t automatically close it.\r\n                services.AddSingleton<D" +
+                    "bConnection>(container =>\r\n                {\r\n                    var connection" +
+                    " = new SqliteConnection(\"DataSource=:memory:\");\r\n                    connection." +
+                    "Open();\r\n\r\n                    return connection;\r\n                });\r\n\r\n      " +
+                    "          services.AddDbContext<ApplicationDbContext>(\r\n                    (con" +
+                    "tainer, options) =>\r\n                    {\r\n                        var connecti" +
+                    "on = container.GetRequiredService<DbConnection>();\r\n                        opti" +
+                    "ons.UseSqlite(connection);\r\n                    }\r\n                );\r\n         " +
+                    "   });\r\n\r\n            builder.UseEnvironment(\"Development\");\r\n        }\r\n\r\n    }" +
+                    "\r\n}\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 22 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\ISeeder.tt"
+        #line 59 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
 
 
 public String ProjectName { get; set; }
@@ -74,7 +85,7 @@ public String ProjectName { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class ISeederBase
+    public class CustomWebApplicationFactoryBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

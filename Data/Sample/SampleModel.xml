@@ -104,7 +104,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_8FEF_BBBD6EE0EB4D" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_8FEF_BBBD6EE0EB4D" name="Description" value="Obsah"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={F4B00CAF-D3A6-4b47-A909-5FF0522CABE0}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={460F598D-38BD-4762-A536-B5CBB1BE323C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -121,7 +121,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_9163_D7310EE8362C" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_9163_D7310EE8362C" name="Description" value="Id"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={23D98640-9BB5-4144-8879-5A2CD45721FD}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={F0421A78-ACB1-4739-8954-025E8AE33FC8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -138,7 +138,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_AD9E_82512CE42263" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_AD9E_82512CE42263" name="Description" value="Produkt"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={7C66E79B-ED3B-4a20-ACC1-3D8EF2C67FAC}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={ABF5699A-A9B4-49a1-8552-A5CD4310592A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -155,7 +155,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_9CAE_3762B19718C5" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_9CAE_3762B19718C5" name="Description" value="Nadpis"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={4EF94521-3107-4074-9E6F-934DF831AC1B}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={45E833C7-B99D-421e-8D8B-E003D6AF8C85}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -184,7 +184,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_B911_0051469465B4" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_B911_0051469465B4" name="Description" value="Id"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={F46D76E8-AA90-46ad-A561-D992C57A88DA}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={36D51A7D-3ACB-4494-8636-7D65CD6B6B04}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -201,7 +201,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_BA61_689662C02590" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_BA61_689662C02590" name="Description" value="Jméno"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={B32E5A41-4BC7-47e7-A4D3-954CB67407DD}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={8A3EC4F0-342F-4d2f-B081-BF30EDC6F9A8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -218,7 +218,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_B49C_BA6AED754776" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_B49C_BA6AED754776" name="Description" value="Poznámka"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={797A331B-F5A2-4349-8689-67B95F9CCB83}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={895D21E6-AA82-4a0e-B758-ABE2EDA655B7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -235,7 +235,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_88AE_70E78502C6B5" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_88AE_70E78502C6B5" name="Description" value="Cena"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={626A1141-201F-41f4-B6BE-6726EFFE9D27}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={CC392280-D8E7-4d0f-B451-AD7B15BC8104}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -252,7 +252,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_AF04_109413ED7C16" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_AF04_109413ED7C16" name="Description" value="Vip"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={90B54C42-51D7-4451-9333-2D3A07CF9C3E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={A5962F69-FCF4-4709-BEE9-5AE0DD0E100D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>

@@ -2,7 +2,7 @@
   "profiles": {
     "EADotnetWebapiCli": {
       "commandName": "Project",
-      "commandLineArgs": "initialize -o \"EASampleProj\" -n \"DotnetWebapiSample\""
+      "commandLineArgs": "entity -o \"C:\\\\tmp\\\\EASampleProj\" -n \"DotnetAngularSample\" -x \"..\\\\..\\\\..\\\\..\\\\Data\\\\Sample\\\\SampleModel.xml\" -e Product,Comment"
     }
   }
 }
