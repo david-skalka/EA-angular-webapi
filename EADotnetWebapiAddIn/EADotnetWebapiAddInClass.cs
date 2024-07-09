@@ -19,7 +19,9 @@ namespace EADotnetWebapiAddIn
         const string menuInitializeSolution = "&Initialize solution";
         const string menuGenerateDbContext = "&Generate db-context";
         const string menuGenerateSeeder = "&Generate seeder";
+        const string menuGenerateGlobalMockData = "&Generate global mock data";
         const string menuGenerateEntities = "&Generate entities";
+
         const string menuSettings = "&Settings";
 
         public static string ConfigPath;
@@ -57,7 +59,7 @@ namespace EADotnetWebapiAddIn
                 case "":
                     return menuHeader;
                 case menuHeader:
-                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateSeeder, menuGenerateEntities, menuSettings };
+                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateSeeder, menuGenerateGlobalMockData, menuGenerateEntities, menuSettings };
             }
             return "";
         }
@@ -148,6 +150,37 @@ namespace EADotnetWebapiAddIn
                         { "-e", string.Join(",", entityDialog.SelectedItems) },
                         { "-x", xmiPath },
                         { "-n",  (string)settingsService.GetValue("project-name") }
+                    });
+                }
+                },
+                { menuGenerateGlobalMockData, () => {
+
+                    var validationResult = ValidateDiagram(repository);
+
+                    if (validationResult.Any())
+                    {
+                        DisplayValidationErrors(validationResult);
+                        return;
+                    }
+
+                    var entityDialog = new EntitesDialog(repository);
+
+                    entityDialog.ShowDialog();
+
+                    if (entityDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
+
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
+                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
+
+                    ExecuteCli("global-mock-data", new Dictionary<string, string>
+                    {
+                        { "-o", (string)settingsService.GetValue("output-dir")  },
+                        { "-e", string.Join(",", entityDialog.SelectedItems) },
+                        { "-x", xmiPath },
+                         { "-n",  (string)settingsService.GetValue("project-name") }
                     });
                 }
                 },

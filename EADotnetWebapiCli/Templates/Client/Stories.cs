@@ -19,7 +19,7 @@ namespace EADotnetWebapiCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class Stories : StoriesBase
     {
@@ -32,21 +32,21 @@ namespace EADotnetWebapiCli.Templates.Client
             this.Write("import { moduleMetadata, type Meta, type StoryObj } from \'@storybook/angular\';\r\ni" +
                     "mport { ");
             
-            #line 8 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent } from \'../app/");
             
-            #line 8 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list/");
             
-            #line 8 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
@@ -62,21 +62,21 @@ import { importProvidersFrom } from '@angular/core';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<");
             
-            #line 17 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 17 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent> = {\r\n  title: \'");
             
-            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("/List\',\r\n  component: ");
             
-            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 19 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -109,7 +109,7 @@ const meta: Meta<");
 export default meta;
 type Story = StoryObj<");
             
-            #line 45 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 45 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -118,7 +118,7 @@ type Story = StoryObj<");
                     "OverrideApi: Story = {\r\n\r\n  parameters: {\r\n    mockData: [\r\n      {\r\n        url" +
                     ": \'http://localhost:6006/api/");
             
-            #line 59 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+            #line 59 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -140,7 +140,7 @@ type Story = StoryObj<");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 72 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
+        #line 72 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Stories.tt"
 
 public Element Model { get; set; }
 

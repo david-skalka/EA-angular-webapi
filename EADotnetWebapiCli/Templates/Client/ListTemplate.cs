@@ -19,7 +19,7 @@ namespace EADotnetWebapiCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class ListTemplate : ListTemplateBase
     {
@@ -32,35 +32,35 @@ namespace EADotnetWebapiCli.Templates.Client
             this.Write("<div>\r\n    \r\n<button mat-button (click)=\"add()\">\r\n    Add\r\n</button>\r\n\r\n    <tabl" +
                     "e mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n");
             
-            #line 15 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+            #line 15 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
  foreach (var attr in Model.Attributes) { 
             
             #line default
             #line hidden
             this.Write("        <ng-container matColumnDef=\"");
             
-            #line 16 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+            #line 16 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("\">\r\n          <th mat-header-cell *matHeaderCellDef> ");
             
-            #line 17 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+            #line 17 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Tags["Description"]));
             
             #line default
             #line hidden
             this.Write(" </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.");
             
-            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("}} </td>\r\n        </ng-container>\r\n");
             
-            #line 20 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+            #line 20 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
  } 
             
             #line default
@@ -90,7 +90,7 @@ namespace EADotnetWebapiCli.Templates.Client
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 41 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
+        #line 41 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListTemplate.tt"
 
 
 public Element Model { get; set; }

@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates.Api
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class CustomWebApplicationFactory : CustomWebApplicationFactoryBase
     {
@@ -32,14 +32,14 @@ namespace EADotnetWebapiCli.Templates.Api
                     "spNetCore.Mvc.Testing;\r\nusing Microsoft.Data.Sqlite;\r\nusing Microsoft.EntityFram" +
                     "eworkCore;\r\nusing Microsoft.Extensions.DependencyInjection;\r\nusing ");
             
-            #line 12 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
+            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\nnamespace ");
             
-            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
+            #line 14 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -67,7 +67,7 @@ namespace EADotnetWebapiCli.Templates.Api
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 59 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
+        #line 59 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\CustomWebApplicationFactory.tt"
 
 
 public String ProjectName { get; set; }

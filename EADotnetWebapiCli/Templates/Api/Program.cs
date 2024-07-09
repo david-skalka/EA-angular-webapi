@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates.Api
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class Program : ProgramBase
     {
@@ -30,7 +30,7 @@ namespace EADotnetWebapiCli.Templates.Api
         {
             this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
             
-            #line 7 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
+            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -88,7 +88,7 @@ public class Program
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 56 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
+        #line 56 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
 
 
 public String ProjectName { get; set; }
