@@ -2,16 +2,11 @@
 
 using CommandLine;
 using EADotnetWebapiCli;
-using EADotnetWebapiCli.Templates;
 using Medallion.Collections;
-using System.Reflection;
 using EADotnetWebapiCli.Templates.Api;
-using System.Text.Json.Nodes;
-using EADotnetWebapiCli.Templates.Client.Storybook;
 using EADotnetWebapiCli.Templates.Client;
 using CaseExtensions;
-using System.Windows.Input;
-using System.IO;
+using Newtonsoft.Json.Linq;
 IEnumerable<string> GetDependencies(IEnumerable<Element> diagram, string name)
 {
     var retD = diagram.Single(x => x.Name == name).Attributes.Where(x => !x.Type.IsPrimitive).Select(x => x.Type.Name);
@@ -52,12 +47,16 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 
 
         new ShellGeneratorCommand("npx", "@angular/cli@18.0.7 new " + options.ProjectName + "Client --style scss --ssr false", outputDir),
+        new JsonCommand(Path.Combine(clientProjectPath, "angular.json"), (dynamic des)=>{
+            ((JObject)des).Add("cli", JToken.FromObject(new { analytics=false }));
+            return des;
+        }),
         new ShellGeneratorCommand("npx", "storybook@8.1.11 init --disable-telemetry --yes --no-dev",clientProjectPath),
-        new ShellGeneratorCommand("npx", "@angular/cli@18.0.7 add @angular/material --skip-confirmation", clientProjectPath),
-        new ShellGeneratorCommand("npx", "i swagger-typescript-api@13.0.12 -D", clientProjectPath),
-        new ShellGeneratorCommand("npx", "i storybook-addon-mock@5.0.0 -D", clientProjectPath),
+        new ShellGeneratorCommand("npx", "@angular/cli@18.0.7 add @angular/material --skip-confirmation --defaults", clientProjectPath),
+        new ShellGeneratorCommand("npm", "i swagger-typescript-api@13.0.12 -D", clientProjectPath),
+        new ShellGeneratorCommand("npm", "i storybook-addon-mock@5.0.0 -D", clientProjectPath),
         new JsonCommand(Path.Combine(clientProjectPath, "tsconfig.json"), (dynamic des)=>{
-            ((Newtonsoft.Json.Linq.JArray)des.compilerOptions.lib).Add("dom.iterable");
+            ((JArray)des.compilerOptions.lib).Add("dom.iterable");
             return des;
         }),
         new RmGeneratorCommand(Path.Combine(clientProjectPath, ".storybook"), "main.ts"),
@@ -69,7 +68,10 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
             return des;
         }),
 
-        new RmGeneratorCommand(Path.Combine(clientProjectPath, "src", "stories"), "*.ts"),
+
+
+
+    new RmGeneratorCommand(Path.Combine(clientProjectPath, "src", "stories"), "*.ts"),
         new RmGeneratorCommand(Path.Combine(clientProjectPath, "src", "stories"), "*.css"),
         new RmGeneratorCommand(Path.Combine(clientProjectPath, "src", "stories"), "*.mdx"),
         new RmDirGeneratorCommand(Path.Combine(clientProjectPath, "src", "stories", "assets")),
@@ -150,7 +152,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 
 
     var pipeline = new[] {
-        new WriteCallbackResultGeneratorCommand(() => new GlobalMockData(){}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"))
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.GlobalMockData(){}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"))
     };
     Generate(pipeline);
     return 0;

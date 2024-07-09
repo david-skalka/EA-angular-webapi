@@ -13,7 +13,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {FormGroup, FormControl} from '@angular/forms';
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Api, Product } from '../../api';
+import { Api, <#= Model.Name  #> } from '../../api';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-new-page-edit',

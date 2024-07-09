@@ -19,7 +19,7 @@ namespace EADotnetWebapiCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class ListComponent : ListComponentBase
     {
@@ -29,8 +29,14 @@ namespace EADotnetWebapiCli.Templates.Client
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"import { Component, OnInit, ViewChild } from '@angular/core';
-import { Api, Product } from '../../api';
+            this.Write("import { Component, OnInit, ViewChild } from \'@angular/core\';\r\nimport { Api, ");
+            
+            #line 8 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write(@" } from '../../api';
 import { CommonModule } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -42,21 +48,21 @@ import {
 } from '@angular/material/dialog';
 import { ");
             
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent } from \'../");
             
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-edit/");
             
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
@@ -65,34 +71,44 @@ import { ");
                     "rue,\r\n  imports: [MatSlideToggleModule, MatTableModule, MatPaginatorModule, Comm" +
                     "onModule, MatButtonModule],\r\n  templateUrl: \'./");
             
-            #line 25 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list.component.html\',\r\n  styleUrl: \'./");
             
-            #line 26 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 26 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list.component.scss\'\r\n})\r\nexport class ");
             
-            #line 28 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write(@"ListComponent implements OnInit {
-
-  @ViewChild(MatPaginator) paginator: MatPaginator  | null = null;
-  @ViewChild(MatSort) sort: MatSort | null = null;
-
-  dataSource: MatTableDataSource<Product> = new MatTableDataSource<Product>([]);
-  displayedColumns: string[] = [");
+            this.Write("ListComponent implements OnInit {\r\n\r\n  @ViewChild(MatPaginator) paginator: MatPag" +
+                    "inator  | null = null;\r\n  @ViewChild(MatSort) sort: MatSort | null = null;\r\n\r\n  " +
+                    "dataSource: MatTableDataSource<");
             
-            #line 34 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write("> = new MatTableDataSource<");
+            
+            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            
+            #line default
+            #line hidden
+            this.Write(">([]);\r\n  displayedColumns: string[] = [");
+            
+            #line 34 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", Model.Attributes.Select(x=> "'" + x.Name.ToCamelCase()  + "'" ))));
             
             #line default
@@ -101,14 +117,14 @@ import { ");
                     "MatDialog) { }\r\n\r\n  async ngOnInit(): Promise<void> {\r\n    this.dataSource.data=" +
                     "(await this.api.");
             
-            #line 40 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 40 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 40 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 40 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
@@ -117,14 +133,14 @@ import { ");
                     "rce.sort = this.sort;\r\n    this.dataSource.paginator = this.paginator;\r\n  }\r\n\r\n " +
                     " edit(id: number): void {\r\n    this.matDialog.open(");
             
-            #line 49 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 49 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent, { data: id });\r\n  }\r\n\r\n  add(): void {\r\n    this.matDialog.open(");
             
-            #line 53 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 53 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -133,7 +149,7 @@ import { ");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 60 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+        #line 60 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
 
 
 public Element Model { get; set; }
