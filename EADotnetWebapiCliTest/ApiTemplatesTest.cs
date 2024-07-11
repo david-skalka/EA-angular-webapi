@@ -66,5 +66,16 @@ namespace EADotnetWebapiCliTest
             var content = new Test() { Model = diagram.Single(x => x.Name == "Comment"), ProjectName = "Sample"  }.TransformText();
             Console.WriteLine(content);
         }
+
+
+
+
+        [Test]
+        public void ObjectInitializer()
+        {
+            var model = diagram.Single(x => x.Name == "Comment");
+            var content = new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new Dictionary<string, object?> { { "Product", null} }) }.TransformText();
+            Console.WriteLine(content);
+        }
     }
 }

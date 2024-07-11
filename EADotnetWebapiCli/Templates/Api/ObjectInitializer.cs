@@ -12,15 +12,16 @@ namespace EADotnetWebapiCli.Templates.Api
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
+    using System.Globalization;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\ObjectInitializer.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class Seeder : SeederBase
+    public partial class ObjectInitializer : ObjectInitializerBase
     {
 #line hidden
         /// <summary>
@@ -28,169 +29,34 @@ namespace EADotnetWebapiCli.Templates.Api
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Microsoft.EntityFrameworkCore;\r\nusing ");
+            this.Write("\r\n");
             
-            #line 7 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\nusing ");
-            
-            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Models;\r\n\r\nnamespace ");
-            
-            #line 10 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write("IntegrationTest.Seeders\r\n{\r\n\r\n    public class DefaultSeeder : ISeeder\r\n    {\r\n\r\n" +
-                    "");
-            
-            #line 16 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- foreach (var model in Entities) { 
-            
-            #line default
-            #line hidden
-            this.Write("   \r\n");
-            
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-
-var _override = model.Attributes.Where(x=> !x.Type.IsPrimitive).ToDictionary(attr => attr.Name+"Id", attr=>(object)1);
-
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n    virtual protected List<");
-            
-            #line 23 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> ");
-            
-            #line 23 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n    {\r\n            get\r\n            {\r\n                return new List<");
-            
-            #line 27 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
-            
-            #line default
-            #line hidden
-            this.Write(">{\r\n");
-            
-            #line 28 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- for(var i=0; i< Count; i++) { 
-            
-            #line default
-            #line hidden
-            
-            #line 29 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- var _overrideLocal=_override.ToDictionary(x=>x.Key, x=>x.Value); _overrideLocal.Add("Id", i+1); 
-            
-            #line default
-            #line hidden
-            this.Write("                ");
-            
-            #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, _overrideLocal) }.TransformText()));
-            
-            #line default
-            #line hidden
-            this.Write(",\r\n");
-            
-            #line 31 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("            };\r\n        }\r\n    }\r\n\r\n\r\n");
-            
-            #line 37 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n\r\n    public virtual List<object> GetAll()\r\n    {\r\n        var retD = new List<" +
-                    "object>();\r\n");
-            
-            #line 43 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- foreach(var entity in Entities) { 
-            
-            #line default
-            #line hidden
-            this.Write("        retD.AddRange(");
-            
-            #line 44 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write(");\r\n");
-            
-            #line 45 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write(@"        return retD;
-    }
-
-
-    public void Seed(ApplicationDbContext dbContext)
-    {
-        GetAll().ForEach(x =>
-        {
-            dbContext.AddRange(x);
-            dbContext.SaveChanges();
-        });
-    }
-
-    public void Clear(ApplicationDbContext dbContext)
-    {
-        var tables = GetAll().Select((x => x.GetType())).Distinct().Reverse();
-        foreach (var table in tables)
-        {
-            var myClassTableName = dbContext.Model.FindEntityType(table);
-
-            if (myClassTableName != null)
-                dbContext.Database.ExecuteSqlRaw(
-                    ""DELETE FROM "" + myClassTableName.GetTableName()
-                );
-        }
-    }
-
+            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\ObjectInitializer.tt"
  
+Dictionary<string, Func<object, string>> _valueFormaters = new() {
+            { "EAC__String", (value) => "\"" + ((string)value) + "\"" },
+            { "EAC__int", (value) => ((int)value).ToString() },
+            { "EAC__Boolean", (value) => ((bool)value) ? "true" : "false"},
+            { "EAC__Decimal", (value) => ((decimal)value).ToString(new CultureInfo("en-US"))+ "m" }
+};
 
-}
-
-
-
-
-}
-
-
-");
+            
+            #line default
+            #line hidden
+            
+            #line 16 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\ObjectInitializer.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture("new " + Model.Name + "() { " + string.Join(", ", Model.Attributes.Where(x=>x.Type.IsPrimitive).Where(x=>Values[x.Name]!=null).Select(x => x.Name + '=' +  _valueFormaters[x.Type.Name]( Values[x.Name] ))) + " }"));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 83 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
+        #line 17 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\ObjectInitializer.tt"
 
-public Element[] Entities { get; set; }
-
-public String ProjectName { get; set; }
-
-public int Count { get; set; }
+public Element Model { get; set; }
+public Dictionary<string, object?> Values { get; set; }
 
 
         
@@ -205,7 +71,7 @@ public int Count { get; set; }
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class SeederBase
+    public class ObjectInitializerBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

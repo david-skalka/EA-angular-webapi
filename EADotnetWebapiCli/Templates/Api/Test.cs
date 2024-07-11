@@ -153,7 +153,7 @@ namespace EADotnetWebapiCli.Templates.Api
             this.Write("            var arg = ");
             
             #line 93 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Test.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new FakerObjectInitializer(Model, createOverride)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = Model, Values = ElementAutoFaker.GenerateFromElement(Model, createOverride) }.TransformText()));
             
             #line default
             #line hidden
@@ -189,7 +189,7 @@ namespace EADotnetWebapiCli.Templates.Api
             this.Write("            var arg = ");
             
             #line 103 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Test.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new FakerObjectInitializer(Model, updateOverride)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = Model, Values = ElementAutoFaker.GenerateFromElement(Model, updateOverride) }.TransformText()));
             
             #line default
             #line hidden

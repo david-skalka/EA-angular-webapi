@@ -1,5 +1,6 @@
 using EADotnetWebapiCli;
 using EADotnetWebapiCli.Templates.Client;
+using EADotnetWebapiCli.Templates.Client.Storybook;
 
 
 namespace EADotnetWebapiCliTest
@@ -53,6 +54,25 @@ namespace EADotnetWebapiCliTest
         public void StoriesTemplateTest()
         {
             var content = new Stories() { Model = diagram.Single(x => x.Name == "Comment"), }.TransformText();
+            Console.WriteLine(content);
+        }
+
+
+
+        [Test]
+        public void ObjectInitializer()
+        {
+            var model = diagram.Single(x => x.Name == "Product");
+            var content = new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new Dictionary<string, object?> { { "Product", null } }) }.TransformText();
+            Console.WriteLine(content);
+        }
+
+
+        [Test]
+        public void GlobalMockData()
+        {
+            
+            var content = new GlobalMockData() { Entities = diagram }.TransformText();
             Console.WriteLine(content);
         }
 

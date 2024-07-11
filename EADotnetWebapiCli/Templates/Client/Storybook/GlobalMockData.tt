@@ -3,32 +3,39 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-import { Product } from "../src/api";
-export default [{
-    url: 'http://localhost:6006/api/Product',
+import { Product, Comment } from "../src/api";
+export default [
+<# foreach (var model in Entities) { #>
+{
+    url: 'http://localhost:6006/api/<#= model.Name #>',
     method: 'GET',
     status: 200,
-    response:
-      [{ id: 1, name: "Product 21", note: null, price: 99, vip: false }] as Product[],
+    response:[ <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #>] as <#= model.Name #>[],
   },{
-    url: 'http://localhost:6006/api/Product/1',
+    url: 'http://localhost:6006/api/<#= model.Name #>/1',
     method: 'GET',
     status: 200,
-    response:
-      { id: 1, name: "Product 21", note: null, price: 99, vip: false } as Product,
+    response: <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #> as <#= model.Name #>,
   },
   {
-    url: 'http://localhost:6006/api/Product',
+    url: 'http://localhost:6006/api/<#= model.Name #>',
     method: 'PUT',
     status: 200,
-    response:
-      [{ id: 1, name: "Product 21", note: null, price: 99, vip: false }] as Product[],
+    response: <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #> as <#= model.Name #>,
   },
   {
-    url: 'http://localhost:6006/api/Product',
+    url: 'http://localhost:6006/api/<#= model.Name #>',
     method: 'POST',
     status: 200,
-    response:
-      [{ id: 1, name: "Product 21", note: null, price: 99, vip: false }] as Product[],
+    response: <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #> as <#= model.Name #>,
   }
+<# } #>
+
 ];
+
+<#+
+public Element[] Entities { get; set; }
+
+
+
+#>
