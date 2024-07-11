@@ -74,7 +74,7 @@ namespace EADotnetWebapiCliTest
         public void ObjectInitializer()
         {
             var model = diagram.Single(x => x.Name == "Comment");
-            var content = new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new Dictionary<string, object?> { { "Product", null} }) }.TransformText();
+            var content = new ObjectInitializer(model, ElementAutoFaker.GenerateFromElement(model, new Dictionary<string, object?> { { "Product", null } })) { }.ToText();
             Console.WriteLine(content);
         }
     }

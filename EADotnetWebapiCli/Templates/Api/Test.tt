@@ -90,7 +90,7 @@ namespace <#= ProjectName #>IntegrationTest
         public async Task <#= Model.Name #>CreateTest()
         {
 <# var createOverride = Model.Attributes.Where(x => !x.Type.IsPrimitive).ToDictionary(x=>x.Name + "Id",x=>(object)1); createOverride["Id"] = null; #>
-            var arg = <#= new ObjectInitializer() { Model = Model, Values = ElementAutoFaker.GenerateFromElement(Model, createOverride) }.TransformText()  #>; 
+            var arg = <#= new ObjectInitializer(Model, ElementAutoFaker.GenerateFromElement(Model, createOverride)).ToText()  #>; 
             var defaultPage = await Client.PostAsJsonAsync("/<#= Model.Name #>", arg); 
             defaultPage.EnsureSuccessStatusCode();
         }
@@ -100,7 +100,7 @@ namespace <#= ProjectName #>IntegrationTest
         public async Task <#= Model.Name #>UpdateTest()
         {
 <# var updateOverride = Model.Attributes.Where(x => !x.Type.IsPrimitive).ToDictionary(x=>x.Name + "Id", x=>(object)1); updateOverride["Id"] = 1; #>
-            var arg = <#=  new ObjectInitializer() { Model = Model, Values = ElementAutoFaker.GenerateFromElement(Model, updateOverride) }.TransformText()  #>; 
+            var arg = <#=  new ObjectInitializer(Model, ElementAutoFaker.GenerateFromElement(Model, updateOverride) ).ToText()  #>; 
             var defaultPage = await Client.PutAsJsonAsync("/<#= Model.Name #>", arg); 
             defaultPage.EnsureSuccessStatusCode();
         }

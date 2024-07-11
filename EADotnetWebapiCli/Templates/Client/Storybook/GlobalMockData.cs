@@ -18,7 +18,7 @@ namespace EADotnetWebapiCli.Templates.Client.Storybook
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class GlobalMockData : GlobalMockDataBase
     {
@@ -30,98 +30,104 @@ namespace EADotnetWebapiCli.Templates.Client.Storybook
         {
             this.Write("import { Product, Comment } from \"../src/api\";\r\nexport default [\r\n");
             
-            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 8 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+ var _override = new Dictionary<string, object>{{"Id", 1}}; 
+            
+            #line default
+            #line hidden
+            
+            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
  foreach (var model in Entities) { 
             
             #line default
             #line hidden
             this.Write("{\r\n    url: \'http://localhost:6006/api/");
             
-            #line 10 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 11 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("\',\r\n    method: \'GET\',\r\n    status: 200,\r\n    response:[ ");
             
-            #line 13 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()));
+            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer( model, ElementAutoFaker.GenerateFromElement(model, _override)) .ToText()));
             
             #line default
             #line hidden
             this.Write("] as ");
             
-            #line 13 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("[],\r\n  },{\r\n    url: \'http://localhost:6006/api/");
             
-            #line 15 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 16 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("/1\',\r\n    method: \'GET\',\r\n    status: 200,\r\n    response: ");
             
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()));
+            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer(model,  ElementAutoFaker.GenerateFromElement(model, _override)) .ToText()));
             
             #line default
             #line hidden
             this.Write(" as ");
             
-            #line 18 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write(",\r\n  },\r\n  {\r\n    url: \'http://localhost:6006/api/");
             
-            #line 21 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 22 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("\',\r\n    method: \'PUT\',\r\n    status: 200,\r\n    response: ");
             
-            #line 24 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()));
+            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer( model, ElementAutoFaker.GenerateFromElement(model, _override) ) {}.ToText()));
             
             #line default
             #line hidden
             this.Write(" as ");
             
-            #line 24 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write(",\r\n  },\r\n  {\r\n    url: \'http://localhost:6006/api/");
             
-            #line 27 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("\',\r\n    method: \'POST\',\r\n    status: 200,\r\n    response: ");
             
-            #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()));
+            #line 31 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(new ObjectInitializer(model,  ElementAutoFaker.GenerateFromElement(model, _override) ).ToText()));
             
             #line default
             #line hidden
             this.Write(" as ");
             
-            #line 30 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 31 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
-            this.Write(",\r\n  }\r\n");
+            this.Write(",\r\n  },\r\n");
             
-            #line 32 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
  } 
             
             #line default
@@ -130,7 +136,7 @@ namespace EADotnetWebapiCli.Templates.Client.Storybook
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 36 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+        #line 37 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
 
 public Element[] Entities { get; set; }
 

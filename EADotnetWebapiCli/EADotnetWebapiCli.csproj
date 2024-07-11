@@ -32,10 +32,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ISeeder.cs</LastGenOutput>
     </None>
-    <None Update="Templates\Api\ObjectInitializer.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ObjectInitializer.cs</LastGenOutput>
-    </None>
     <None Update="Templates\Api\Program.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Program.cs</LastGenOutput>
@@ -59,10 +55,6 @@
     <None Update="Templates\Client\ListTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Client\ObjectInitializer.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ObjectInitializer.cs</LastGenOutput>
     </None>
     <None Update="Templates\Client\Stories.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -118,11 +110,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ISeeder.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\Api\ObjectInitializer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ObjectInitializer.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\Api\Program.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -152,11 +139,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ListTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Client\ObjectInitializer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ObjectInitializer.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Client\Stories.cs">
       <DesignTime>True</DesignTime>

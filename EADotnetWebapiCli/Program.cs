@@ -152,7 +152,7 @@ Parser.Default.ParseArguments<InitializeOptions, DbContextOptions, EntityOptions
 
 
     var pipeline = new[] {
-        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.GlobalMockData(){}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"))
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.GlobalMockData(){ Entities=diagram}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"))
     };
     Generate(pipeline);
     return 0;

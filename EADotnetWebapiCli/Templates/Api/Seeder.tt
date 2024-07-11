@@ -27,7 +27,7 @@ var _override = model.Attributes.Where(x=> !x.Type.IsPrimitive).ToDictionary(att
                 return new List<<#= model.Name  #>>{
 <# for(var i=0; i< Count; i++) { #>
 <# var _overrideLocal=_override.ToDictionary(x=>x.Key, x=>x.Value); _overrideLocal.Add("Id", i+1); #>
-                <#=new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, _overrideLocal) }.TransformText()  #>,
+                <#=new ObjectInitializer(model,  ElementAutoFaker.GenerateFromElement(model, _overrideLocal)) .ToText()  #>,
 <# } #>
             };
         }

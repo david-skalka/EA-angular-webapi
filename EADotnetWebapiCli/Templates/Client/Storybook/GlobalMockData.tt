@@ -5,30 +5,31 @@
 <#@ import namespace="System.Collections.Generic" #>
 import { Product, Comment } from "../src/api";
 export default [
+<# var _override = new Dictionary<string, object>{{"Id", 1}}; #>
 <# foreach (var model in Entities) { #>
 {
     url: 'http://localhost:6006/api/<#= model.Name #>',
     method: 'GET',
     status: 200,
-    response:[ <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #>] as <#= model.Name #>[],
+    response:[ <#= new ObjectInitializer( model, ElementAutoFaker.GenerateFromElement(model, _override)) .ToText()  #>] as <#= model.Name #>[],
   },{
     url: 'http://localhost:6006/api/<#= model.Name #>/1',
     method: 'GET',
     status: 200,
-    response: <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #> as <#= model.Name #>,
+    response: <#= new ObjectInitializer(model,  ElementAutoFaker.GenerateFromElement(model, _override)) .ToText()  #> as <#= model.Name #>,
   },
   {
     url: 'http://localhost:6006/api/<#= model.Name #>',
     method: 'PUT',
     status: 200,
-    response: <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #> as <#= model.Name #>,
+    response: <#= new ObjectInitializer( model, ElementAutoFaker.GenerateFromElement(model, _override) ) {}.ToText()  #> as <#= model.Name #>,
   },
   {
     url: 'http://localhost:6006/api/<#= model.Name #>',
     method: 'POST',
     status: 200,
-    response: <#= new ObjectInitializer() { Model = model, Values = ElementAutoFaker.GenerateFromElement(model, new ()) }.TransformText()  #> as <#= model.Name #>,
-  }
+    response: <#= new ObjectInitializer(model,  ElementAutoFaker.GenerateFromElement(model, _override) ).ToText()  #> as <#= model.Name #>,
+  },
 <# } #>
 
 ];
