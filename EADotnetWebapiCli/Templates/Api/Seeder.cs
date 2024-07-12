@@ -87,7 +87,7 @@ namespace EADotnetWebapiCli.Templates.Api
             #line hidden
             
             #line 25 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Seeder.tt"
- var values= ElementAutoFaker.GenerateFromElement(model); model.Attributes.Where(x=> !x.Type.IsPrimitive).ToList().ForEach(attr => values.Add(attr.Name+"Id", 1)); values["Id"]= i+1; 
+ var values= ElementAutoFaker.GenerateFromElement(model); model.Attributes.Where(x=> !x.Type.IsPrimitive).ToList().ForEach(attr => values[attr.Name+"Id"]=1); values["Id"]= i+1; 
             
             #line default
             #line hidden

@@ -55,7 +55,7 @@ namespace EADotnetWebapiCliTest
         [Test]
         public void SeederTest()
         {
-            var content = new Seeder() { Entities = diagram,  ProjectName = "Sample" }.TransformText();
+            var content = new Seeder() { Entities = diagram,  ProjectName = "Sample", Count=10 }.TransformText();
             Console.WriteLine(content);
         }
 

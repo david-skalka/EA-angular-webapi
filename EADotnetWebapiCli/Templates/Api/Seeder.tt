@@ -22,7 +22,7 @@ namespace <#= ProjectName #>IntegrationTest.Seeders
             {
                 return new List<<#= model.Name  #>>{
 <# for(var i=0; i< Count; i++) { #>
-<# var values= ElementAutoFaker.GenerateFromElement(model); model.Attributes.Where(x=> !x.Type.IsPrimitive).ToList().ForEach(attr => values.Add(attr.Name+"Id", 1)); values["Id"]= i+1; #>
+<# var values= ElementAutoFaker.GenerateFromElement(model); model.Attributes.Where(x=> !x.Type.IsPrimitive).ToList().ForEach(attr => values[attr.Name+"Id"]=1); values["Id"]= i+1; #>
                 <#=new ObjectInitializer(model.Name,  values) .ToText()  #>,
 <# } #>
             };
