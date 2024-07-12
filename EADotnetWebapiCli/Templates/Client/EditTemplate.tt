@@ -13,7 +13,7 @@
     foreach (var attr in Model.Attributes) {
         switch (attr.Type.Name)
         {
-            case "EAC__int":
+            case "EAC__int": case "EAC__Decimal":
 #>
         <div>
             <mat-form-field>

@@ -13,27 +13,25 @@ namespace EADotnetWebapiCli.Templates.Client
     public class ObjectInitializer
     {
 
-
-        public Element model;
-        public Dictionary<string, object?> values;
+        
+        public Dictionary<string, object> values;
 
         
-        public ObjectInitializer(Element model, Dictionary<string, object?> values)
+        public ObjectInitializer(Dictionary<string, object> values)
         {
-            this.model = model;
             this.values = values;
         }
 
-        Dictionary<string, Func<object, string>> _valueFormaters = new() {
-            { "EAC__String", (value) => "\"" + ((string)value) + "\"" },
-            { "EAC__int", (value) => ((int)value).ToString() },
-            { "EAC__Boolean", (value) => ((bool)value) ? "true" : "false"},
-            { "EAC__Decimal", (value) => ((decimal)value).ToString(new CultureInfo("en-US")) }
+        Dictionary<Type, Func<object, string>> _valueFormaters = new() {
+            { typeof(string), (value) => "\"" + ((string)value) + "\"" },
+            { typeof(int), (value) => ((int)value).ToString() },
+            { typeof(bool), (value) => ((bool)value) ? "true" : "false"},
+            { typeof(decimal), (value) => ((decimal)value).ToString(new CultureInfo("en-US")) }
 };
 
         public string ToText()
         {
-            return "{ " + string.Join(", ", model.Attributes.Where(x => x.Type.IsPrimitive).Where(x => values[x.Name] != null).Select(x => x.Name.ToCamelCase() + ':' + _valueFormaters[x.Type.Name](values[x.Name]!))) + " }";
+            return "{ " + string.Join(", ", values.Select(x => x.Key.ToCamelCase() + ":  " + _valueFormaters[x.Value.GetType()](x.Value))) + " }";
         }
 
     }

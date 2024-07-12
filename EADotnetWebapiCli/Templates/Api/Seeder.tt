@@ -14,11 +14,7 @@ namespace <#= ProjectName #>IntegrationTest.Seeders
     {
 
 <# foreach (var model in Entities) { #>
-   
-<#
-var _override = model.Attributes.Where(x=> !x.Type.IsPrimitive).ToDictionary(attr => attr.Name+"Id", attr=>(object)1);
-#>
-
+  
 
     virtual protected List<<#= model.Name  #>> <#= model.Name #>
     {
@@ -26,8 +22,8 @@ var _override = model.Attributes.Where(x=> !x.Type.IsPrimitive).ToDictionary(att
             {
                 return new List<<#= model.Name  #>>{
 <# for(var i=0; i< Count; i++) { #>
-<# var _overrideLocal=_override.ToDictionary(x=>x.Key, x=>x.Value); _overrideLocal.Add("Id", i+1); #>
-                <#=new ObjectInitializer(model,  ElementAutoFaker.GenerateFromElement(model, _overrideLocal)) .ToText()  #>,
+<# var values= ElementAutoFaker.GenerateFromElement(model); model.Attributes.Where(x=> !x.Type.IsPrimitive).ToList().ForEach(attr => values.Add(attr.Name+"Id", 1)); values["Id"]= i+1; #>
+                <#=new ObjectInitializer(model.Name,  values) .ToText()  #>,
 <# } #>
             };
         }

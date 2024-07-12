@@ -37,7 +37,7 @@ namespace EADotnetWebapiCli.Templates.Client
     foreach (var attr in Model.Attributes) {
         switch (attr.Type.Name)
         {
-            case "EAC__int":
+            case "EAC__int": case "EAC__Decimal":
 
             
             #line default

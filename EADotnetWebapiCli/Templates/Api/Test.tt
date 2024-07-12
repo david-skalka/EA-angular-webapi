@@ -89,8 +89,8 @@ namespace <#= ProjectName #>IntegrationTest
         [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>CreateTest()
         {
-<# var createOverride = Model.Attributes.Where(x => !x.Type.IsPrimitive).ToDictionary(x=>x.Name + "Id",x=>(object)1); createOverride["Id"] = null; #>
-            var arg = <#= new ObjectInitializer(Model, ElementAutoFaker.GenerateFromElement(Model, createOverride)).ToText()  #>; 
+<# var createValues = ElementAutoFaker.GenerateFromElement(Model); Model.Attributes.Where(x => !x.Type.IsPrimitive).ToList().ForEach(x=> createValues[x.Name + "Id"]=1); createValues.Remove("Id"); #>
+            var arg = <#= new ObjectInitializer(Model.Name, createValues).ToText()  #>; 
             var defaultPage = await Client.PostAsJsonAsync("/<#= Model.Name #>", arg); 
             defaultPage.EnsureSuccessStatusCode();
         }
@@ -99,8 +99,8 @@ namespace <#= ProjectName #>IntegrationTest
         [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>UpdateTest()
         {
-<# var updateOverride = Model.Attributes.Where(x => !x.Type.IsPrimitive).ToDictionary(x=>x.Name + "Id", x=>(object)1); updateOverride["Id"] = 1; #>
-            var arg = <#=  new ObjectInitializer(Model, ElementAutoFaker.GenerateFromElement(Model, updateOverride) ).ToText()  #>; 
+<# var updateValues = ElementAutoFaker.GenerateFromElement(Model); Model.Attributes.Where(x => !x.Type.IsPrimitive).ToList().ForEach(x=> createValues[x.Name + "Id"]=1); createValues["Id"]=1; #>
+            var arg = <#=  new ObjectInitializer(Model.Name, updateValues ).ToText()  #>; 
             var defaultPage = await Client.PutAsJsonAsync("/<#= Model.Name #>", arg); 
             defaultPage.EnsureSuccessStatusCode();
         }

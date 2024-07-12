@@ -6,7 +6,7 @@ namespace EADotnetWebapiCli
 
     public static class ElementAutoFaker
     {
-        public static Dictionary<string, object?> GenerateFromElement(Element el, Dictionary<string, object?> _override)
+        public static Dictionary<string, object> GenerateFromElement(Element el)
         {
             var retD = new Dictionary<string, object>();
 
@@ -22,12 +22,7 @@ namespace EADotnetWebapiCli
                     retD.Add(attr.Name + "Id", AutoFaker.Generate<int>());
                 }
             }
-
-
-            foreach (var item in _override)
-            {
-                retD[item.Key] = item.Value;
-            }
+            
 
             return retD;
         }
