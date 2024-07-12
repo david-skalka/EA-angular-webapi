@@ -31,7 +31,7 @@ namespace EADotnetWebapiCli.Templates.Api
 
         public string ToText()
         {
-            return "new " + name + "() { " + string.Join(", ", values.Select(x => x.Key.ToCamelCase() + "= " + _valueFormaters[x.Value.GetType()](x.Value))) + " }";
+            return "new " + name + "() { " + string.Join(", ", values.Select(x => x.Key + "= " + _valueFormaters[x.Value.GetType()](x.Value))) + " }";
         }
 
     }
