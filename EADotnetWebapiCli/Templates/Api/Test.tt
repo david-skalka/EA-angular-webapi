@@ -99,7 +99,7 @@ namespace <#= ProjectName #>IntegrationTest
         [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>UpdateTest()
         {
-<# var updateValues = ElementAutoFaker.GenerateFromElement(Model); Model.Attributes.Where(x => !x.Type.IsPrimitive).ToList().ForEach(x=> createValues[x.Name + "Id"]=1); createValues["Id"]=1; #>
+<# var updateValues = ElementAutoFaker.GenerateFromElement(Model); Model.Attributes.Where(x => !x.Type.IsPrimitive).ToList().ForEach(x=> updateValues[x.Name + "Id"]=1); updateValues["Id"]=1; #>
             var arg = <#=  new ObjectInitializer(Model.Name, updateValues ).ToText()  #>; 
             var defaultPage = await Client.PutAsJsonAsync("/<#= Model.Name #>", arg); 
             defaultPage.EnsureSuccessStatusCode();
