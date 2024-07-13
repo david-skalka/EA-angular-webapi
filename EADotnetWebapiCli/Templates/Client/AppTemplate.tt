@@ -1,0 +1,19 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CaseExtensions" #>
+<mat-toolbar>
+  <span><#= ProjectName #></span>
+  <span class="example-spacer"></span>
+<# foreach (var model in Entities) { #>
+    <a mat-button href="/<#= model.Name.ToKebabCase() #>" ><#= model.Name #></a>
+<# } #> 
+</mat-toolbar>
+
+<router-outlet />
+<#+
+public Element[] Entities { get; set; }
+public string ProjectName { get; set; }
+#>

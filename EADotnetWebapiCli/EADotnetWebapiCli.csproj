@@ -44,6 +44,22 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Test.cs</LastGenOutput>
     </None>
+    <None Update="Templates\Client\AppComponent.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AppComponent.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\AppConfig.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AppConfig.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\AppRoutes.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AppRoutes.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\AppTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AppTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\Client\EditComponent.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EditComponent.cs</LastGenOutput>
@@ -55,6 +71,10 @@
     <None Update="Templates\Client\ListTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\Client\ProxyConf.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ProxyConf.cs</LastGenOutput>
     </None>
     <None Update="Templates\Client\Stories.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -125,6 +145,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Test.tt</DependentUpon>
     </Compile>
+    <Compile Update="Templates\Client\AppComponent.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppComponent.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\AppConfig.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppConfig.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\AppRoutes.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppRoutes.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\AppTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\Client\EditComponent.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -139,6 +179,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ListTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\ProxyConf.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProxyConf.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\Client\Stories.cs">
       <DesignTime>True</DesignTime>

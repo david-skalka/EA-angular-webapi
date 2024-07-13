@@ -76,5 +76,24 @@ namespace EADotnetWebapiCliTest
             Console.WriteLine(content);
         }
 
+
+
+        [Test]
+        public void AppRoutes()
+        {
+
+            var content = new AppRoutes() { Entities = diagram }.TransformText();
+            Console.WriteLine(content);
+        }
+
+
+        [Test]
+        public void AppTemplate()
+        {
+
+            var content = new AppTemplate() { Entities = diagram, ProjectName="Sample" }.TransformText();
+            Console.WriteLine(content);
+        }
+
     }
 }
