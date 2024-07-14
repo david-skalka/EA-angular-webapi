@@ -2,7 +2,7 @@
   "profiles": {
     "EADotnetWebapiCli": {
       "commandName": "Project",
-      "commandLineArgs": "global-mock-data -o \"C:\\\\tmp\\\\EASampleProj\" -n \"DotnetAngularSample\" -x \"..\\\\..\\\\..\\\\..\\\\Data\\\\Sample\\\\SampleModel.xml\" -e Product -f"
+      "commandLineArgs": "global-mock-data -o \"C:\\\\tmp\\\\EASampleProj\" -n \"DotnetAngularSample\" -x \"..\\\\..\\\\..\\\\..\\\\Data\\\\Sample\\\\SampleModel.xml\" -e Product"
     }
   }
 }
