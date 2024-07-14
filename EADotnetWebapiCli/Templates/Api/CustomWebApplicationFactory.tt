@@ -50,7 +50,7 @@ namespace <#= ProjectName #>IntegrationTest
                 );
             });
 
-            builder.UseEnvironment("Development");
+            builder.UseEnvironment("Integration");
         }
 
     }

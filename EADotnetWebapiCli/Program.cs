@@ -36,13 +36,6 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.6", Path.Combine(outputDir, options.ProjectName)),
         new RmGeneratorCommand(Path.Combine(outputDir, options.ProjectName), "Program.cs"),
         new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Api.Program(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(outputDir,  options.ProjectName, "Program.cs")),
-        
-        new JsonCommand(Path.Combine(outputDir, options.ProjectName, "appsettings.json"), (dynamic des)=>{
-            ((JObject)des).Add("Urls", "http://localhost:5291;https://localhost:7002");
-            return des;
-        }),
-        
-
         new ShellGeneratorCommand("dotnet", "new nunit -f net8.0 -n " + options.ProjectName + "IntegrationTest -o \"" + testProjectPath, null),
         new MkdirGeneratorCommand(Path.Combine(testProjectPath, "Seeders")),
         new ShellGeneratorCommand("dotnet", "add package Microsoft.AspNetCore.Mvc.Testing --version 8.0.6", testProjectPath),

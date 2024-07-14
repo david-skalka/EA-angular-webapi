@@ -44,6 +44,7 @@ public class Program
         {
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.Urls.Add("https://localhost:7002");
         }
 
 
