@@ -22,12 +22,12 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
 {
     var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
 
-    var clientProjectPath = Path.Combine(outputDir, options.ProjectName + "Client");
+    
 
     var testProjectPath = Path.Combine(outputDir, options.ProjectName + "IntegrationTest");
 
     var pipeline = new IGeneratorCommand[] {
-
+        
         new ShellGeneratorCommand("dotnet", "new sln -n " + options.ProjectName + " -o " + outputDir + '"', null),
         new ShellGeneratorCommand("dotnet", "new webapi -f net8.0 -n " + options.ProjectName + " -o " + Path.Combine(outputDir, options.ProjectName), null),
         new MkdirGeneratorCommand(Path.Combine(outputDir, options.ProjectName, "Models")),
@@ -36,6 +36,12 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.6", Path.Combine(outputDir, options.ProjectName)),
         new RmGeneratorCommand(Path.Combine(outputDir, options.ProjectName), "Program.cs"),
         new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Api.Program(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(outputDir,  options.ProjectName, "Program.cs")),
+        
+        new JsonCommand(Path.Combine(outputDir, options.ProjectName, "appsettings.json"), (dynamic des)=>{
+            ((JObject)des).Add("Urls", "http://localhost:5291;https://localhost:7002");
+            return des;
+        }),
+        
 
         new ShellGeneratorCommand("dotnet", "new nunit -f net8.0 -n " + options.ProjectName + "IntegrationTest -o \"" + testProjectPath, null),
         new MkdirGeneratorCommand(Path.Combine(testProjectPath, "Seeders")),
@@ -47,6 +53,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         new WriteCallbackResultGeneratorCommand(() => new CustomWebApplicationFactory(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(testProjectPath, "CustomWebApplicationFactory.cs")),
 
         new ShellGeneratorCommand("dotnet", "dotnet sln " + options.ProjectName + ".sln add "+options.ProjectName+" " + testProjectPath, outputDir)
+        
     };
 
 
@@ -81,8 +88,11 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
             return des;
         }),
        
+         new RmGeneratorCommand(Path.Combine(clientProjectPath), "proxy.conf.json"),
          new WriteCallbackResultGeneratorCommand(() => new ProxyConf(){ }.TransformText(), Path.Combine(clientProjectPath, "proxy.conf.json")),
-         
+         new RmGeneratorCommand( Path.Combine(outputDir, options.ProjectName+ "Client", "src", "app"), "app.config.ts"),
+         new WriteCallbackResultGeneratorCommand(() => new AppConfig().TransformText(), Path.Combine(outputDir, options.ProjectName+ "Client", "src", "app", "app.config.ts")),
+
 
         new ShellGeneratorCommand("npx", "storybook@8.1.11 init --disable-telemetry --yes --no-dev",clientProjectPath),
         new ShellGeneratorCommand("npx", "@angular/cli@18.0.7 add @angular/material --skip-confirmation --defaults", clientProjectPath),
@@ -145,8 +155,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
             new WriteCallbackResultGeneratorCommand(() => "", Path.Combine(outputDir, options.ProjectName+ "Client", "src", "app", entity.ToKebabCase() + "-list" , entity.ToKebabCase() + "-list.component.scss")),
             new WriteCallbackResultGeneratorCommand(() => new Stories(){Model = diagram.Single(x => x.Name == entity)}.TransformText(), Path.Combine(outputDir, options.ProjectName+ "Client", "src", "stories", entity.ToKebabCase() + "-list.stories.ts")),
 
-            new WriteCallbackResultGeneratorCommand(() => new ProxyConf().TransformText(), Path.Combine(outputDir, options.ProjectName+ "Client", "proxy.conf.json")),
-            new WriteCallbackResultGeneratorCommand(() => new AppConfig().TransformText(), Path.Combine(outputDir, options.ProjectName+ "Client", "src", "app", "app.config.ts")),
+
 
         };
         Generate(pipeline);
@@ -194,8 +203,8 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
     var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
 
     var pipeline = new[] {
-        new WriteCallbackResultGeneratorCommand(() => new AppComponent(){ }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "app", "app.component.ts")),
-        new WriteCallbackResultGeneratorCommand(() => new AppTemplate(){ }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "app", "app.component.html"))
+        new WriteCallbackResultGeneratorCommand(() => new AppComponent(){ }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "src", "app", "app.component.ts")),
+        new WriteCallbackResultGeneratorCommand(() => new AppTemplate(){Entities=diagram , ProjectName=options.ProjectName }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "src", "app", "app.component.html"))
     };
     Generate(pipeline);
     return 0;
@@ -208,21 +217,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
     var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
 
     var pipeline = new[] {
-        new WriteCallbackResultGeneratorCommand(() => new AppRoutes(){ Entities=diagram }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "app", "app.routes.ts")),
-    };
-    Generate(pipeline);
-    return 0;
-},
-(AppComponentOptions options) =>
-{
-
-    var diagram = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray();
-
-    var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
-
-    var pipeline = new[] {
-        new WriteCallbackResultGeneratorCommand(() => new AppComponent(){ }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "app", "app.component.ts")),
-        new WriteCallbackResultGeneratorCommand(() => new AppTemplate(){  Entities=diagram, ProjectName=options.ProjectName }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "app", "app.component.html")),
+        new WriteCallbackResultGeneratorCommand(() => new AppRoutes(){ Entities=diagram }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "src", "app", "app.routes.ts")),
     };
     Generate(pipeline);
     return 0;

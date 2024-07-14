@@ -17,10 +17,13 @@ namespace EADotnetWebapiAddIn
         // Define menu constants
         const string menuHeader = "-&Dotnet Webapi";
         const string menuInitializeSolution = "&Initialize solution";
+        const string menuInitializeAngular = "&Initialize Angular";
         const string menuGenerateDbContext = "&Generate db-context";
         const string menuGenerateSeeder = "&Generate seeder";
         const string menuGenerateGlobalMockData = "&Generate global mock data";
         const string menuGenerateEntities = "&Generate entities";
+        const string menuGenerateAppComponent = "&Generate app.component";
+        const string menuGenerateAppRoutes = "&Generate app.routes";
 
         const string menuSettings = "&Settings";
 
@@ -59,7 +62,7 @@ namespace EADotnetWebapiAddIn
                 case "":
                     return menuHeader;
                 case menuHeader:
-                    return new string[] { menuInitializeSolution, menuGenerateDbContext, menuGenerateSeeder, menuGenerateGlobalMockData, menuGenerateEntities, menuSettings };
+                    return new string[] { menuInitializeSolution, menuInitializeAngular, menuGenerateDbContext, menuGenerateSeeder, menuGenerateGlobalMockData, menuGenerateEntities, menuGenerateAppComponent, menuGenerateAppRoutes, menuSettings };
             }
             return "";
         }
@@ -85,7 +88,16 @@ namespace EADotnetWebapiAddIn
             {
                 {
                     menuInitializeSolution,
-                    () => ExecuteCli("initialize", new Dictionary<string, string>
+                    () => ExecuteCli("initialize-solution", new Dictionary<string, string>
+                    {
+                        { "-o", (string)settingsService.GetValue("output-dir")  },
+                        { "-n", (string)settingsService.GetValue("project-name") }
+                    })
+
+                },
+                {
+                    menuInitializeAngular,
+                    () => ExecuteCli("initialize-angular", new Dictionary<string, string>
                     {
                         { "-o", (string)settingsService.GetValue("output-dir")  },
                         { "-n", (string)settingsService.GetValue("project-name") }
@@ -213,7 +225,66 @@ namespace EADotnetWebapiAddIn
                         { "-n", (string)settingsService.GetValue("project-name") }
                     });
 
+                } },{ menuGenerateAppComponent, () => {
+
+                    var validationResult = ValidateDiagram(repository);
+
+                    if (validationResult.Any())
+                    {
+                        DisplayValidationErrors(validationResult);
+                        return;
+                    }
+
+                    var entityDialog = new EntitesDialog(repository);
+                    entityDialog.ShowDialog();
+
+                    if (entityDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
+
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
+                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
+
+                    ExecuteCli("app-component", new Dictionary<string, string>
+                    {
+                        { "-o",  (string)settingsService.GetValue("output-dir") },
+                        { "-e", string.Join(",", entityDialog.SelectedItems) },
+                        { "-x", xmiPath },
+                        { "-n", (string)settingsService.GetValue("project-name") }
+                    });
+
+                } },{ menuGenerateAppRoutes, () => {
+
+                    var validationResult = ValidateDiagram(repository);
+
+                    if (validationResult.Any())
+                    {
+                        DisplayValidationErrors(validationResult);
+                        return;
+                    }
+
+                    var entityDialog = new EntitesDialog(repository);
+                    entityDialog.ShowDialog();
+
+                    if (entityDialog.DialogResult != DialogResult.OK)
+                    {
+                        return;
+                    }
+
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
+                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
+
+                    ExecuteCli("app-routes", new Dictionary<string, string>
+                    {
+                        { "-o",  (string)settingsService.GetValue("output-dir") },
+                        { "-e", string.Join(",", entityDialog.SelectedItems) },
+                        { "-x", xmiPath },
+                        { "-n", (string)settingsService.GetValue("project-name") }
+                    });
+
                 } },
+
                 { menuSettings, () =>
                 {
                     var settingsDialog = new SettingsDialogs(ConfigPath);

@@ -43,26 +43,27 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
+import { lastValueFrom } from 'rxjs';
 import {
   MatDialog,
 } from '@angular/material/dialog';
 import { ");
             
-            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent } from \'../");
             
-            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-edit/");
             
-            #line 18 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 19 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
@@ -71,21 +72,21 @@ import { ");
                     "rue,\r\n  imports: [MatSlideToggleModule, MatTableModule, MatPaginatorModule, Comm" +
                     "onModule, MatButtonModule],\r\n  templateUrl: \'./");
             
-            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 26 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list.component.html\',\r\n  styleUrl: \'./");
             
-            #line 26 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 27 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list.component.scss\'\r\n})\r\nexport class ");
             
-            #line 28 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 29 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -94,62 +95,64 @@ import { ");
                     "inator  | null = null;\r\n  @ViewChild(MatSort) sort: MatSort | null = null;\r\n\r\n  " +
                     "dataSource: MatTableDataSource<");
             
-            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 34 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("> = new MatTableDataSource<");
             
-            #line 33 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 34 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write(">([]);\r\n  displayedColumns: string[] = [");
             
-            #line 34 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 35 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", Model.Attributes.Select(x=> "'" + x.Name.ToCamelCase()  + "'" ))));
             
             #line default
             #line hidden
             this.Write(", \'actions\'];\r\n  \r\n\r\n  constructor(private api: Api<unknown>, private matDialog: " +
-                    "MatDialog) { }\r\n\r\n  async ngOnInit(): Promise<void> {\r\n    this.dataSource.data=" +
-                    "(await this.api.");
+                    "MatDialog) { }\r\n\r\n  async ngOnInit(): Promise<void> {\r\n    await this.loadData()" +
+                    ";\r\n  }\r\n\r\n  async loadData() {\r\n    this.dataSource.data=(await this.api.");
             
-            #line 40 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 45 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 40 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 45 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("List()).data; \r\n  }\r\n\r\n  async afterViewInit(): Promise<void> {\r\n    this.dataSou" +
                     "rce.sort = this.sort;\r\n    this.dataSource.paginator = this.paginator;\r\n  }\r\n\r\n " +
-                    " edit(id: number): void {\r\n    this.matDialog.open(");
+                    " async edit(id: number) {\r\n    await lastValueFrom( this.matDialog.open(");
             
-            #line 49 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 54 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write("EditComponent, { data: id });\r\n  }\r\n\r\n  add(): void {\r\n    this.matDialog.open(");
+            this.Write("EditComponent, { data: id }).afterClosed());\r\n    await this.loadData();\r\n  }\r\n\r\n" +
+                    "  async add() {\r\n    await lastValueFrom( this.matDialog.open(");
             
-            #line 53 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+            #line 59 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write("EditComponent, { data: null });\r\n  }\r\n\r\n}\r\n\r\n\r\n\r\n");
+            this.Write("EditComponent, { data: null }).afterClosed());\r\n    await this.loadData();\r\n  }\r\n" +
+                    "\r\n}\r\n\r\n\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 60 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
+        #line 67 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\ListComponent.tt"
 
 
 public Element Model { get; set; }

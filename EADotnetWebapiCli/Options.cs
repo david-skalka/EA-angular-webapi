@@ -11,7 +11,7 @@ namespace EADotnetWebapiCli
 
 
 
-    [Verb("initialize-api", HelpText = "Initialize api project")]
+    [Verb("initialize-solution", HelpText = "Initialize solution")]
     class InitializeApiOptions
     {
         [Option('o', "output-dir", Required = true)]
@@ -22,7 +22,7 @@ namespace EADotnetWebapiCli
     }
 
 
-    [Verb("initialize-client", HelpText = "Initialize client project")]
+    [Verb("initialize-angular", HelpText = "Initialize angular project")]
     class InitializeClientOptions
     {
         [Option('o', "output-dir", Required = true)]
