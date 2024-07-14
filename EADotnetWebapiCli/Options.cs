@@ -48,6 +48,9 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
     }
 
 
@@ -65,6 +68,9 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
     }
 
 
@@ -83,6 +89,9 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
     }
 
 
@@ -101,6 +110,9 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
 
     }
 
@@ -121,6 +133,9 @@ namespace EADotnetWebapiCli
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
 
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
+
     }
 
 
@@ -139,6 +154,9 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
 
     }
 
@@ -160,6 +178,9 @@ namespace EADotnetWebapiCli
 
         [Option('n', "project-name", Required = true)]
         public string ProjectName { get; set; } = String.Empty;
+
+        [Option('f', "force", Default = false)]
+        public bool Force { get; set; } = false;
 
     }
 

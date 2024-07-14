@@ -19,22 +19,25 @@ namespace EADotnetWebapiCli
 
         public string path;
 
+        private readonly bool force;
 
-        public WriteCallbackResultGeneratorCommand(Func<string> callback, string path)
+        public WriteCallbackResultGeneratorCommand(Func<string> callback, string path, bool force)
         {
             this.callback = callback;
             this.path = path;
+            this.force = force;
         }
 
         public void Execute()
         {
-            if (File.Exists(path))
+            if (!force && File.Exists(path))
             {
                 Console.WriteLine("File " + path + " already exists. Do you want to overwrite it? (y/n)");
                 var key = Console.ReadKey();
                 if (key.Key != ConsoleKey.Y)
                 {
                     Console.WriteLine("Aborted");
+                    return;
                 }
             }
             File.WriteAllText(path, callback());
