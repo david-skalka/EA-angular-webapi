@@ -4,6 +4,9 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Extensions;
 using <#= ProjectName #>;
 
 public class Program
@@ -25,6 +28,16 @@ public class Program
 
 
         var app = builder.Build();
+
+
+        if(app.Environment.EnvironmentName=="swagger-gen")
+        {
+            ISwaggerProvider sw = app.Services.GetRequiredService<ISwaggerProvider>();
+            OpenApiDocument doc = sw.GetSwagger("v1", null, "/");
+            string swaggerFile = doc.SerializeAsJson(Microsoft.OpenApi.OpenApiSpecVersion.OpenApi3_0);
+            Console.Write(swaggerFile);
+            return;
+        }
 
 
         if (app.Environment.IsDevelopment())
