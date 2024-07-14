@@ -33,12 +33,13 @@ jobs:
     - name: Generate a sample project
       shell: pwsh
       run: | 
-        $outputDir = "DotnetWebapiSample"
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize-solution -n DotnetWebapiSample -o $outputDir
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize-angular -n DotnetWebapiSample -o $outputDir
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe entity -x "data\\Sample\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x "data\\Sample\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
-        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe seeder -x "data\\Sample\\SampleModel.xml" -n DotnetWebapiSample -o $outputDir -e "Product,Comment"
+        $projectName = "DotnetWebapiSample"
+        $xmi = "data\\Sample\\SampleModel.xml"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize-solution -n $projectName -o $projectName
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe initialize-angular -n $projectName -o $projectName
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe entity -x $xmi -n $projectName -o $projectName -e "Product,Comment"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x $xmi -n $projectName -o $projectName -e "Product,Comment"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe seeder -x $xmi -n $projectName -o $projectName -e "Product,Comment"
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj
     - name: Build Installer
