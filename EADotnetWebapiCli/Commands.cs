@@ -30,14 +30,18 @@ namespace EADotnetWebapiCli
 
         public void Execute()
         {
-            var forceWriter = (string path, string data)=> File.WriteAllText(path, data);
-
-
+            
             var confirmWriter = (string path, string data) =>
             {
+                if (!File.Exists(path))
+                {
+                    File.WriteAllText(path, data);
+                    return;   
+                }
+
                 Console.WriteLine("File " + path + " already exists. Do you want to overwrite it? (y/n)");
                 var key = Console.ReadKey();
-                if (key.Key == ConsoleKey.Y)
+                if(key.Key != ConsoleKey.Y)
                 {
                     File.WriteAllText(path, data);
                 }
@@ -45,7 +49,7 @@ namespace EADotnetWebapiCli
             };
 
 
-            if (force) forceWriter(path, callback()); else confirmWriter(path, callback());
+            if (force) File.WriteAllText(path, callback()); else confirmWriter(path, callback());
         }
     }
 
