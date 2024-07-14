@@ -97,7 +97,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         
         new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.Preview(){ }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "preview.ts"), true),
         new JsonCommand(Path.Combine(clientProjectPath, "package.json"), (dynamic des)=>{
-            des.scripts["update-api"]= "cross-env ASPNETCORE_ENVIRONMENT=swagger-gen && ..\\"+options.ProjectName+"\\bin\\debug\\net8.0\\"+options.ProjectName+".exe > swagger.json  && swagger-typescript-api -p swagger.json -o ./src -n api.ts && del swagger.json";
+            des.scripts["update-api"]= "cross-env ASPNETCORE_ENVIRONMENT=swagger-gen && ..\\"+options.ProjectName+"\\bin\\debug\\net8.0\\"+options.ProjectName+".exe > swagger.json";
             return des;
         }),
         new ShellGeneratorCommand("npm", "i cross-env -D", clientProjectPath),
