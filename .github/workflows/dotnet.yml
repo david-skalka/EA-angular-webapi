@@ -40,6 +40,9 @@ jobs:
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe entity -x $xmi -n $projectName -o $projectName -e "Product,Comment"
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe db-context -x $xmi -n $projectName -o $projectName -e "Product,Comment"
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe seeder -x $xmi -n $projectName -o $projectName -e "Product,Comment"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe global-mock-data -x $xmi -n $projectName -o $projectName -e "Product,Comment"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe app-component -x $xmi -n $projectName -o $projectName -e "Product,Comment"
+        EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe app-routes -x $xmi -n $projectName -o $projectName -e "Product,Comment"
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj
     - name: Build Installer
