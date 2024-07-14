@@ -45,6 +45,12 @@ jobs:
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe app-routes -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj
+    - name: Build Angular sample project
+      run: npm run build
+      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
+    - name: Build Storybook sample project
+      run: npm run build-storybook
+      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
     - name: Build Installer
       run: iscc EADotnetWebapiInstaller.iss /F"EADotnetWebapiInstaller" 
       working-directory: EADotnetWebapiInstaller
