@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bogus.DataSets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,28 +29,36 @@ namespace EADotnetWebapiCli
             this.force = force;
         }
 
+       bool canWrite()
+        {
+            if (!File.Exists(path))
+            {
+                return true;
+            }
+
+            if (force)
+            {
+                return true;
+            }
+
+            Console.WriteLine("File " + path + " already exists. Do you want to overwrite it? (y/n)");
+            var key = Console.ReadKey();
+            if (key.Key == ConsoleKey.Y)
+            {
+                return true;
+            }
+
+
+            return false;
+        }
+
+
         public void Execute()
         {
-            
-            var confirmWriter = (string path, string data) =>
+            if(canWrite())
             {
-                if (!File.Exists(path))
-                {
-                    File.WriteAllText(path, data);
-                    return;   
-                }
-
-                Console.WriteLine("File " + path + " already exists. Do you want to overwrite it? (y/n)");
-                var key = Console.ReadKey();
-                if(key.Key != ConsoleKey.Y)
-                {
-                    File.WriteAllText(path, data);
-                }
-
-            };
-
-
-            if (force) File.WriteAllText(path, callback()); else confirmWriter(path, callback());
+                File.WriteAllText(path, callback());
+            }
         }
     }
 
