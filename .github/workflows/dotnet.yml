@@ -45,6 +45,9 @@ jobs:
         EADotnetWebapiCli/bin/Debug/net6.0/EADotnetWebapiCli.exe app-routes -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
     - name: Test sample project
       run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj
+    - name: Update Angular api
+      run: npm run update-api
+      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
     - name: Build Angular sample project
       run: npm run build
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
