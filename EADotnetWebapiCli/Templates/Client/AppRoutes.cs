@@ -19,7 +19,7 @@ namespace EADotnetWebapiCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AppRoutes : AppRoutesBase
     {
@@ -31,63 +31,63 @@ namespace EADotnetWebapiCli.Templates.Client
         {
             this.Write("import { Routes } from \'@angular/router\';\r\n");
             
-            #line 8 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
  foreach (var model in Entities) { 
             
             #line default
             #line hidden
             this.Write("    import { ");
             
-            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent } from \'./");
             
-            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list/");
             
-            #line 9 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-list.component\';\r\n");
             
-            #line 10 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 10 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
  } 
             
             #line default
             #line hidden
             this.Write(" \r\n\r\n\r\nexport const routes: Routes = [\r\n");
             
-            #line 14 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 14 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
  foreach (var model in Entities) { 
             
             #line default
             #line hidden
             this.Write("    {path: \'");
             
-            #line 15 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 15 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("\', component: ");
             
-            #line 15 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 15 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent},\r\n");
             
-            #line 16 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+            #line 16 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
  } 
             
             #line default
@@ -96,7 +96,7 @@ namespace EADotnetWebapiCli.Templates.Client
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 20 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
+        #line 20 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppRoutes.tt"
 
 public Element[] Entities { get; set; }
 
