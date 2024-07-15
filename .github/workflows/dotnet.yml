@@ -48,8 +48,6 @@ jobs:
     - name: Update Angular api
       run: npm run update-api
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
-      env: 
-        ASPNETCORE_ENVIRONMENT: swagger-gen
     - name: Build Angular sample project
       run: npm run build
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
