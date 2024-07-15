@@ -53,7 +53,7 @@ jobs:
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
     - name: Serve Storybook and run tests
       run: |
-          npx --yes concurrently -k -s first -n "SB,TEST" -c "magenta,blue"  "npx --yes http-server storybook-static --port 6006" "npx --yes wait-on tcp:6006"
+          npx --yes concurrently -k -s first -n "SB,TEST" -c "magenta,blue"  "npx --yes http-server storybook-static --port 6006" "npx --yes wait-on http://127.0.0.1:6006/"
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
     - name: Build Installer
       run: iscc EADotnetWebapiInstaller.iss /F"EADotnetWebapiInstaller" 
