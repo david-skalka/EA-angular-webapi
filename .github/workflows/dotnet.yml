@@ -48,7 +48,6 @@ jobs:
     - name: Update Angular api
       run: npm run update-api
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
-      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
     - name: Build Storybook sample project
       run: npm run build-storybook  --quiet
       working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
