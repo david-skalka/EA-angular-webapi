@@ -28,7 +28,14 @@ namespace EADotnetWebapiCli.Templates.Client.Storybook
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("import { Product, Comment } from \"../src/api\";\r\nexport default [\r\n\r\n");
+            this.Write("import { ");
+            
+            #line 6 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", Entities.Select(x=>x.Name))));
+            
+            #line default
+            #line hidden
+            this.Write(" } from \"../src/api\";\r\nexport default [\r\n\r\n");
             
             #line 9 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\Storybook\GlobalMockData.tt"
  foreach (var model in Entities) { 

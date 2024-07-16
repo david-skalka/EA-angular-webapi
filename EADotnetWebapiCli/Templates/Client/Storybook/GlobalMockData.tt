@@ -3,7 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-import { Product, Comment } from "../src/api";
+import { <#= string.Join(", ", Entities.Select(x=>x.Name)) #> } from "../src/api";
 export default [
 
 <# foreach (var model in Entities) { #>
