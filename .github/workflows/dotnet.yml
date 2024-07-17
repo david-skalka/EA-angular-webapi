@@ -42,7 +42,7 @@ jobs:
         EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe app-component -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
         EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe app-routes -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
     - name: Test sample project
-      run: dotnet test DotnetAngularSample/DotnetAngularSampleIntegrationTest/DotnetAngularSampleIntegrationTest.csproj
+      run: dotnet test
     - name: Update Angular api
       run: npm run update-api
       working-directory: DotnetAngularSample/DotnetAngularSampleClient
@@ -64,14 +64,6 @@ jobs:
       with:
         name: AddIn
         path: EADotnetAngularAddIn/bin/Debug/*
-    - uses: actions/upload-artifact@v4
-      with:
-        name: Sample
-        path: |
-          DotnetAngularSample/**
-          !**/bin/**
-          !**/obj/**
-          !**/node_modules/**
     - uses: actions/upload-artifact@v4
       with:
         name: Installer
