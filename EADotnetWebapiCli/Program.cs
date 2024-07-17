@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using System.Text;
 using Bogus.DataSets;
 using System.IO;
+using System.Collections.Generic;
 IEnumerable<string> GetDependencies(IEnumerable<Element> diagram, string name)
 {
     var retD = diagram.Single(x => x.Name == name).Attributes.Where(x => !x.Type.IsPrimitive).Select(x => x.Type.Name);
@@ -107,7 +108,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         
         new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.Preview(){ }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "preview.ts"), true),
         new JsonCommand(Path.Combine(clientProjectPath, "package.json"), (dynamic des)=>{
-            des.scripts["update-api"]= "cross-env ASPNETCORE_ENVIRONMENT=swagger-gen ..\\"+options.ProjectName+"\\bin\\debug\\net8.0\\"+options.ProjectName+".exe > swagger.json  && swagger-typescript-api -p swagger.json -o ./src -n api.ts && del swagger.json";
+            des.scripts["update-api"]= "npx --yes concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\"  \"cd..\\"+options.ProjectName+"\\ && dotnet run --environment Development --urls https://localhost:7064;http://localhost:5195\" \"npx --yes wait-on http-get://127.0.0.1:5195/swagger/v1/swagger.json && swagger-typescript-api -p http://127.0.0.1:5195/swagger/v1/swagger.json -o ./src -n api.ts\"";
             return des;
         }),
         new ShellGeneratorCommand("npm", "i cross-env -D", clientProjectPath),

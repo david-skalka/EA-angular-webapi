@@ -36,30 +36,59 @@ namespace EADotnetWebapiCli.Templates.Api
             
             #line default
             #line hidden
-            this.Write(";\r\n\r\npublic class Program\r\n{\r\n    public static void Main(string[] args)\r\n    {\r\n" +
-                    "\r\n        var builder = WebApplication.CreateBuilder(args);\r\n\r\n        builder.S" +
-                    "ervices.AddControllers();\r\n\r\n        builder.Services.AddEndpointsApiExplorer();" +
-                    "\r\n        builder.Services.AddSwaggerGen();\r\n\r\n\r\n        builder.Services.AddDbC" +
-                    "ontext<ApplicationDbContext>(options =>\r\n                    options.UseSqlite(\"" +
-                    "Data Source=mydb.db;\")\r\n                );\r\n\r\n\r\n        var app = builder.Build(" +
-                    ");\r\n\r\n\r\n        if(app.Environment.EnvironmentName==\"swagger-gen\")\r\n        {\r\n " +
-                    "           ISwaggerProvider sw = app.Services.GetRequiredService<ISwaggerProvide" +
-                    "r>();\r\n            OpenApiDocument doc = sw.GetSwagger(\"v1\", null, \"/\");\r\n      " +
-                    "      string swaggerFile = doc.SerializeAsJson(Microsoft.OpenApi.OpenApiSpecVers" +
-                    "ion.OpenApi3_0);\r\n            Console.Write(swaggerFile);\r\n            return;\r\n" +
-                    "        }\r\n\r\n\r\n        if (app.Environment.IsDevelopment())\r\n        {\r\n        " +
-                    "    app.UseSwagger();\r\n            app.UseSwaggerUI();\r\n            app.Urls.Add" +
-                    "(\"https://localhost:7002\");\r\n        }\r\n\r\n\r\n\r\n        app.UseHttpsRedirection();" +
-                    "\r\n\r\n\r\n        app.MapControllerRoute(name: \"default\", pattern: \"{controller}/{ac" +
-                    "tion=Index}/{id?}\");\r\n\r\n\r\n        using (var serviceScope = app.Services.GetRequ" +
-                    "iredService<IServiceScopeFactory>().CreateScope())\r\n        {\r\n            var c" +
-                    "ontext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>()" +
-                    ";\r\n            context.Database.EnsureCreated();\r\n        }\r\n\r\n\r\n        app.Run" +
-                    "();\r\n\r\n    }\r\n}\r\n\r\n");
+            this.Write(@";
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+
+        var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddControllers();
+
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+
+
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(""Data Source=mydb.db;"")
+                );
+
+
+        var app = builder.Build();
+
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+
+        app.UseHttpsRedirection();
+
+
+        app.MapControllerRoute(name: ""default"", pattern: ""{controller}/{action=Index}/{id?}"");
+
+
+        using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+        {
+            var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.EnsureCreated();
+        }
+
+
+        app.Run();
+
+    }
+}
+
+");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 70 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
+        #line 58 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Api\Program.tt"
 
 
 public String ProjectName { get; set; }
