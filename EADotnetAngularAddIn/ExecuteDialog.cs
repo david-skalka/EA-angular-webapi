@@ -93,5 +93,22 @@ namespace EADotnetAngularAddIn
 
 
         }
+
+        private void invertEntities_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < listEntities.Items.Count; i++)
+            {
+                listEntities.SetSelected(i, !listEntities.GetSelected(i));
+            }
+        }
+
+        private void invertParts_Click(object sender, EventArgs e)
+        {
+            // invert selection
+            for (int i = 0; i < listPart.Items.Count; i++)
+            {
+                listPart.SetSelected(i, !listPart.GetSelected(i));
+            }
+        }
     }
 }
