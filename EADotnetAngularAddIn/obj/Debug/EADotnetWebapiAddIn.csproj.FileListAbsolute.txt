@@ -1,0 +1,12 @@
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.csproj.AssemblyReference.cache
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.EntitesDialog.resources
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.SettingsDialogs.resources
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.csproj.GenerateResource.cache
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.csproj.CoreCompileInputs.cache
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\bin\Debug\EADotnetWebapiAddIn.dll
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\bin\Debug\EADotnetWebapiAddIn.pdb
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\bin\Debug\Newtonsoft.Json.dll
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\bin\Debug\Newtonsoft.Json.xml
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnet.2BFEF0BD.Up2Date
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.dll
+C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiAddIn\obj\Debug\EADotnetWebapiAddIn.pdb
