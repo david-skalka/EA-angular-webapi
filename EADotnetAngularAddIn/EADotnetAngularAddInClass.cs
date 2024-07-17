@@ -90,12 +90,6 @@ namespace EADotnetAngularAddIn
                     var settingsDialog = new SettingsDialogs(ConfigPath);
                     settingsDialog.ShowDialog();
 
-                     if (settingsDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-
                     settingsService.Load();
                 }
                 },
@@ -107,26 +101,7 @@ namespace EADotnetAngularAddIn
 
         }
 
-        private string[] ValidateDiagram(Repository repository)
-        {
-            var retD = new List<string>();
-            var selectedDiagram = repository.GetCurrentDiagram();
-            if (selectedDiagram == null)
-            {
-                retD.Add("Please select a diagram");
-            }
-
-            return retD.ToArray();
-        }
-
-
-        private void DisplayValidationErrors(string[] message)
-        {
-            
-            MessageBox.Show(string.Join("\n", message), "Validation errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-
+     
 
         ///
         /// EA calls this operation when it exists. Can be used to do some cleanup work.
