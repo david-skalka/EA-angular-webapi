@@ -26,7 +26,6 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
 {
     var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
 
-    
 
     var testProjectPath = Path.Combine(outputDir, options.ProjectName + "IntegrationTest");
 
