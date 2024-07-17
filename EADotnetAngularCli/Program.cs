@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using CommandLine;
-using EADotnetWebapiCli;
+using EADotnetAngularCli;
 using Medallion.Collections;
-using EADotnetWebapiCli.Templates.Api;
-using EADotnetWebapiCli.Templates.Client;
+using EADotnetAngularCli.Templates.Api;
+using EADotnetAngularCli.Templates.Client;
 using CaseExtensions;
 using Newtonsoft.Json.Linq;
 using System.Text;
@@ -38,7 +38,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         new MkdirGeneratorCommand(Path.Combine(outputDir, options.ProjectName, "Controllers")),
         new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore --version 8.0.6", Path.Combine(outputDir, options.ProjectName)),
         new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.6", Path.Combine(outputDir, options.ProjectName)),
-        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Api.Program(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(outputDir,  options.ProjectName, "Program.cs"), true),
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Api.Program(){ ProjectName = options.ProjectName }.TransformText(), Path.Combine(outputDir,  options.ProjectName, "Program.cs"), true),
         new ShellGeneratorCommand("dotnet", "new nunit -f net8.0 -n " + options.ProjectName + "IntegrationTest -o \"" + testProjectPath, null),
         new MkdirGeneratorCommand(Path.Combine(testProjectPath, "Seeders")),
         new ShellGeneratorCommand("dotnet", "add package Microsoft.AspNetCore.Mvc.Testing --version 8.0.6", testProjectPath),
@@ -104,9 +104,9 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
             return des;
         }),
         
-        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.Main(){ }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "main.ts"), true),
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.Main(){ }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "main.ts"), true),
         
-        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.Preview(){ }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "preview.ts"), true),
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.Preview(){ }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "preview.ts"), true),
         new JsonCommand(Path.Combine(clientProjectPath, "package.json"), (dynamic des)=>{
             des.scripts["update-api"]= "npx --yes concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\"  \"cd..\\"+options.ProjectName+"\\ && dotnet run --environment Development --urls https://localhost:7064;http://localhost:5195\" \"npx --yes wait-on http-get://127.0.0.1:5195/swagger/v1/swagger.json && swagger-typescript-api -p http://127.0.0.1:5195/swagger/v1/swagger.json -o ./src -n api.ts\"";
             return des;
@@ -194,7 +194,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
 
 
     var pipeline = new[] {
-        new WriteCallbackResultGeneratorCommand(() => new EADotnetWebapiCli.Templates.Client.Storybook.GlobalMockData(){ Entities=diagram}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"),options.Force)
+        new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.GlobalMockData(){ Entities=diagram}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"),options.Force)
     };
     Generate(pipeline);
     return 0;

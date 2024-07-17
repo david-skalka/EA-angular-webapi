@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4S2LY5Ddufni4gxPxuGiNooKkbxYL1SFue3j35qh3xEGsOXzjkyYs4Oxqg6n640KCDmA5A73ynkOqOnm6QBI2g==",
+  "dgSpecHash": "/kXv1aQoIDUB1r10ekiyRy+rVAgAhtRH5mIvfJpWLw+o7+y3IY+Xp6t/307sK1dpLWclMBAxL+WR97E1m7b+yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCliTest\\EADotnetWebapiCliTest.csproj",
+  "projectFilePath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCliTest\\EADotnetAngularCliTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\autobogus\\2.13.1\\autobogus.2.13.1.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\bogus\\31.0.3\\bogus.31.0.3.nupkg.sha512",

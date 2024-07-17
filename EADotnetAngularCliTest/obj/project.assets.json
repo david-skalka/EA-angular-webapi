@@ -472,7 +472,7 @@
           }
         }
       },
-      "EADotnetWebapiCli/1.0.0": {
+      "EADotnetAngularCli/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -484,10 +484,10 @@
           "System.CodeDom": "8.0.0"
         },
         "compile": {
-          "bin/placeholder/EADotnetWebapiCli.dll": {}
+          "bin/placeholder/EADotnetAngularCli.dll": {}
         },
         "runtime": {
-          "bin/placeholder/EADotnetWebapiCli.dll": {}
+          "bin/placeholder/EADotnetAngularCli.dll": {}
         }
       }
     }
@@ -1527,15 +1527,15 @@
         "version.txt"
       ]
     },
-    "EADotnetWebapiCli/1.0.0": {
+    "EADotnetAngularCli/1.0.0": {
       "type": "project",
-      "path": "../EADotnetWebapiCli/EADotnetWebapiCli.csproj",
-      "msbuildProject": "../EADotnetWebapiCli/EADotnetWebapiCli.csproj"
+      "path": "../EADotnetAngularCli/EADotnetAngularCli.csproj",
+      "msbuildProject": "../EADotnetAngularCli/EADotnetAngularCli.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "EADotnetWebapiCli >= 1.0.0",
+      "EADotnetAngularCli >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
       "NUnit >= 3.13.3",
       "NUnit.Analyzers >= 3.3.0",
@@ -1549,11 +1549,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCliTest\\EADotnetWebapiCliTest.csproj",
-      "projectName": "EADotnetWebapiCliTest",
-      "projectPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCliTest\\EADotnetWebapiCliTest.csproj",
+      "projectUniqueName": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCliTest\\EADotnetAngularCliTest.csproj",
+      "projectName": "EADotnetAngularCliTest",
+      "projectPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCliTest\\EADotnetAngularCliTest.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCliTest\\obj\\",
+      "outputPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCliTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1570,8 +1570,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCli\\EADotnetWebapiCli.csproj": {
-              "projectPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCli\\EADotnetWebapiCli.csproj"
+            "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCli\\EADotnetAngularCli.csproj": {
+              "projectPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCli\\EADotnetAngularCli.csproj"
             }
           }
         }

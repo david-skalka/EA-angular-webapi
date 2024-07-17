@@ -1,10 +1,10 @@
-EADotnetWebapiAddIn/bin
-EADotnetWebapiAddIn/obj
-EADotnetWebapiCli/bin
-EADotnetWebapiCli/obj
-EADotnetWebapiCliTest/bin
-EADotnetWebapiCliTest/obj
-EADotnetWebapiInstaller/Output
+EADotnetAngularAddIn/bin
+EADotnetAngularAddIn/obj
+EADotnetAngularCli/bin
+EADotnetAngularCli/obj
+EADotnetAngularCliTest/bin
+EADotnetAngularCliTest/obj
+EADotnetAngularInstaller/Output
 
 *.code-workspace
 .vs

@@ -7,15 +7,15 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace EADotnetWebapiAddIn
+namespace EADotnetAngularAddIn
 {
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
     [Guid("D3D3D3D3-D3D3-D3D3-D3D3-D3D3D3D3D3D3")]
-    public class EADotnetWebapiAddInClass
+    public class EADotnetAngularAddInClass
     {
         // Define menu constants
-        const string menuHeader = "-&Dotnet Webapi";
+        const string menuHeader = "-&Dotnet Angular";
         const string menuInitializeSolution = "&Initialize solution";
         const string menuInitializeAngular = "&Initialize Angular";
         const string menuGenerateDbContext = "&Generate db-context";
@@ -34,7 +34,7 @@ namespace EADotnetWebapiAddIn
         public String EA_Connect(EA.Repository repository)
         {
 
-            ConfigPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetWebapiAddIn", "config.json");
+            ConfigPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "EADotnetAngularAddIn", "config.json");
             settingsService = new SettingsService(ConfigPath);
             settingsService.Load();
 
@@ -329,7 +329,7 @@ namespace EADotnetWebapiAddIn
             
 
             var process = new Process();
-            var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Sparx Systems\EAAddins64\EADotnetWebapiAddIn");
+            var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Sparx Systems\EAAddins64\EADotnetAngularAddIn");
 
            process.StartInfo.FileName = (string)key.GetValue("CliInstallLocation");
 

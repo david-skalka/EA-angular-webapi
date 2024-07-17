@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace EADotnetWebapiAddIn
+namespace EADotnetAngularAddIn
 {
     public partial class SettingsDialogs : Form
     {

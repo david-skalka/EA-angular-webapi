@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace EADotnetWebapiCli.Templates.Client
+namespace EADotnetAngularCli.Templates.Client
 {
     using System.Linq;
     using System.Text;

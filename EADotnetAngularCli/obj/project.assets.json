@@ -289,11 +289,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCli\\EADotnetWebapiCli.csproj",
-      "projectName": "EADotnetWebapiCli",
-      "projectPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCli\\EADotnetWebapiCli.csproj",
+      "projectUniqueName": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCli\\EADotnetAngularCli.csproj",
+      "projectName": "EADotnetAngularCli",
+      "projectPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCli\\EADotnetAngularCli.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetWebapiCli\\obj\\",
+      "outputPath": "C:\\Users\\David\\source\\repos\\EA-dotnet-webapi\\EADotnetAngularCli\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",

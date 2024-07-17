@@ -1,6 +1,6 @@
 ﻿using AutoBogus;
 
-namespace EADotnetWebapiCli
+namespace EADotnetAngularCli
 {
 
 

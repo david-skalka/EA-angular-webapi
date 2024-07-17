@@ -1,9 +1,9 @@
-using EADotnetWebapiCli;
-using EADotnetWebapiCli.Templates.Client;
-using EADotnetWebapiCli.Templates.Client.Storybook;
+using EADotnetAngularCli;
+using EADotnetAngularCli.Templates.Client;
+using EADotnetAngularCli.Templates.Client.Storybook;
 
 
-namespace EADotnetWebapiCliTest
+namespace EADotnetAngularCliTest
 {
     public class ClientTemplatesTest
     {

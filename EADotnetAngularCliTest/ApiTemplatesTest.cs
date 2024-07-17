@@ -1,7 +1,7 @@
-using EADotnetWebapiCli;
-using EADotnetWebapiCli.Templates.Api;
+using EADotnetAngularCli;
+using EADotnetAngularCli.Templates.Api;
 
-namespace EADotnetWebapiCliTest
+namespace EADotnetAngularCliTest
 {
     public class ApiTemplatesTest
     {

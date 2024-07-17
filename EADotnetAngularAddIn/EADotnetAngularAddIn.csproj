@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EADotnetWebapiAddInClass.cs" />
+    <Compile Include="EADotnetAngularAddInClass.cs" />
     <Compile Include="EntitesDialog.cs">
       <SubType>Form</SubType>
     </Compile>

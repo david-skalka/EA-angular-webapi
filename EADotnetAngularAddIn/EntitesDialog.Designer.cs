@@ -1,4 +1,4 @@
-﻿namespace EADotnetWebapiAddIn
+﻿namespace EADotnetAngularAddIn
 {
     partial class EntitesDialog
     {

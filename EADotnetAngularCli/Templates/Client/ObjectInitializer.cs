@@ -1,5 +1,5 @@
 ﻿using CaseExtensions;
-using EADotnetWebapiCli.Templates.Api;
+using EADotnetAngularCli.Templates.Api;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EADotnetWebapiCli.Templates.Client
+namespace EADotnetAngularCli.Templates.Client
 {
     public class ObjectInitializer
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EADotnetWebapiCli
+namespace EADotnetAngularCli
 {
     public class Element
     {
