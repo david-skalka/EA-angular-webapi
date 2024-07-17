@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EADotnetWebapiCli\EADotnetWebapiCli.csproj" />
+    <ProjectReference Include="..\EADotnetAngularCli\EADotnetAngularCli.csproj" />
   </ItemGroup>
 
 </Project>

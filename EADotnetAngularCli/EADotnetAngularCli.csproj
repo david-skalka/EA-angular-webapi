@@ -1,6 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <PackageReference Include="AutoBogus" Version="2.13.1" />
     <PackageReference Include="CaseExtensions" Version="1.1.0" />
@@ -9,8 +8,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.CodeDom" Version="8.0.0" />
   </ItemGroup>
-
-
   <ItemGroup>
     <None Update="Templates\Api\Controller.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -97,13 +94,9 @@
       <LastGenOutput>Preview.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
-
-
   <ItemGroup>
     <Compile Update="Templates\Api\Controller.cs">
       <DesignTime>True</DesignTime>
@@ -211,12 +204,10 @@
       <DependentUpon>Preview.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
 </Project>
