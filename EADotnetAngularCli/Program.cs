@@ -20,11 +20,11 @@ Parser.Default.ParseArguments<Options>(args)
                   .WithParsed(options =>
                   {
 
-                      var parts = new Dictionary<string, Func<Options, IGeneratorCommand[]>> {
-                          { "initialize-solution", (Options options)=>{
+                      var parts = new Dictionary<string, Func<PipelineOptions, IGeneratorCommand[]>> {
+                          { "initialize-solution", (PipelineOptions options)=>{
 
 
-                               var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                               var outputDir = options.OutputDir;
 
                                 var testProjectPath = Path.Combine(outputDir, options.ProjectName + "IntegrationTest");
 
@@ -55,10 +55,10 @@ Parser.Default.ParseArguments<Options>(args)
 
                           
 
-                          { "initialize-angular", (Options options)=>{
+                          { "initialize-angular", (PipelineOptions options)=>{
 
 
-                                var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                                var outputDir = options.OutputDir;
 
                                 var clientProjectPath = Path.Combine(outputDir, options.ProjectName + "Client");
 
@@ -124,25 +124,24 @@ Parser.Default.ParseArguments<Options>(args)
 
                           } },
 
-                          { "db-context", (Options options)=>{
+                          { "db-context", (PipelineOptions options)=>{
 
-                                    var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
                                     return new[] {
-                                        new WriteCallbackResultGeneratorCommand(() => new DbContext(){ProjectName = options.ProjectName, Entities = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray() }.TransformText(), Path.Combine(outputDir, options.ProjectName, "ApplicationDbContext.cs"), options.Force)
+                                        new WriteCallbackResultGeneratorCommand(() => new DbContext(){ProjectName = options.ProjectName, Entities = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray() }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName, "ApplicationDbContext.cs"), options.Force)
                                     };
 
                           } },
-                           { "entity", (Options options)=>{
+                           { "entity", (PipelineOptions options)=>{
 
-                                    var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                                    var outputDir = options.OutputDir;
 
 
-                                    var parser = new EAXmiParser();
-                                    var diagram = parser.Parse(options.Xmi);
+                                    
+                                    var diagram = options.Elements;
 
                                     var retD = new List<IGeneratorCommand>();                                
 
-                                    foreach (var entity in options.Entities.Split(","))
+                                    foreach (var entity in options.Entities)
                                     {
                                         var pipeline = new IGeneratorCommand[] {
                                             new WriteCallbackResultGeneratorCommand(() => new EfModel(){ Model = diagram.Single(x => x.Name == entity), ProjectName = options.ProjectName }.TransformText(), Path.Combine(outputDir, options.ProjectName, "Models", entity + ".cs"),options.Force),
@@ -167,58 +166,56 @@ Parser.Default.ParseArguments<Options>(args)
                                     }
                                     return retD.ToArray();
                           } },
-                            { "seeder", (Options options)=>{
+                            { "seeder", (PipelineOptions options)=>{
 
-                                        var diagram = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray();
+                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
                                         var sortedTypes = diagram.Select(x => x.Name).OrderTopologicallyBy(name => GetDependencies(diagram, name)).ToList();
 
                                         var diagramSorted = sortedTypes.Select(x => diagram.Single(y => y.Name == x)).ToArray();
 
-                                        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                                        
 
                                         return new[] {
-                                            new WriteCallbackResultGeneratorCommand(() => new Seeder(){Entities = diagramSorted, ProjectName = options.ProjectName,  Count = 10 }.TransformText(), Path.Combine(outputDir, options.ProjectName + "IntegrationTest",  "Seeders", "DefaultSeeder.cs"),options.Force)
+                                            new WriteCallbackResultGeneratorCommand(() => new Seeder(){Entities = diagramSorted, ProjectName = options.ProjectName,  Count = 10 }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName + "IntegrationTest",  "Seeders", "DefaultSeeder.cs"),options.Force)
                                         };
 
                           } },
 
-                             { "global-mock-data", (Options options)=>{
+                             { "global-mock-data", (PipelineOptions options)=>{
 
-                                        var diagram = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray();
-
-                                        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
 
 
                                         return new[] {
-                                            new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.GlobalMockData(){ Entities=diagram}.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"),options.Force)
+                                            new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.GlobalMockData(){ Entities=diagram}.TransformText(), Path.Combine(options.OutputDir, options.ProjectName + "Client", ".storybook", "global-mock-data.ts"),options.Force)
                                         };
 
                           } },
-                             { "app-component", (Options options) =>
+                             { "app-component", (PipelineOptions options) =>
                              {
 
-                                        var diagram = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray();
+                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
-                                        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                                        
 
                                         return new[] {
-                                            new WriteCallbackResultGeneratorCommand(() => new AppComponent(){ }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "src", "app", "app.component.ts"),options.Force),
-                                            new WriteCallbackResultGeneratorCommand(() => new AppTemplate(){Entities=diagram , ProjectName=options.ProjectName }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "src", "app", "app.component.html"),options.Force)
+                                            new WriteCallbackResultGeneratorCommand(() => new AppComponent(){ }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName + "Client", "src", "app", "app.component.ts"),options.Force),
+                                            new WriteCallbackResultGeneratorCommand(() => new AppTemplate(){Entities=diagram , ProjectName=options.ProjectName }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName + "Client", "src", "app", "app.component.html"),options.Force)
                                         };
 
                             } },
 
 
-                            { "app-routes", (Options options) =>
+                            { "app-routes", (PipelineOptions options) =>
                              {
-                                    var diagram = new EAXmiParser().Parse(options.Xmi).Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Split(",").Contains(x.Name)).ToArray();
+                                    var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
-                                    var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                                    
 
                                     return new[] {
-                                        new WriteCallbackResultGeneratorCommand(() => new AppRoutes(){ Entities=diagram }.TransformText(), Path.Combine(outputDir, options.ProjectName + "Client", "src", "app", "app.routes.ts"),options.Force),
+                                        new WriteCallbackResultGeneratorCommand(() => new AppRoutes(){ Entities=diagram }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName + "Client", "src", "app", "app.routes.ts"),options.Force),
                                     };
 
                             } },
@@ -227,9 +224,11 @@ Parser.Default.ParseArguments<Options>(args)
                       };
 
 
+                      var pipelineOptions = new PipelineOptions(options.Parts.Split(","), Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir), options.Entities.Split(","), new EAXmiParser().Parse(options.Xmi), options.ProjectName, options.Force);
+
                       foreach (var part in options.Parts.Split(","))
                       {
-                          parts[part](options).ToList().ForEach(x => x.Execute());
+                          parts[part](pipelineOptions).ToList().ForEach(x => x.Execute());
                       }
 
                   });
@@ -258,6 +257,35 @@ class Options
 
     [Option('f', "force", Default = false)]
     public bool Force { get; set; } = false;
+
+}
+
+
+
+class PipelineOptions
+{
+    
+    public string[] Parts { get; set; }
+
+    public string OutputDir { get; set; }
+
+    public string[] Entities { get; set; }
+
+    public Element[] Elements { get; set; }
+
+    public string ProjectName { get; set; }
+
+    public bool Force { get; set; }
+
+    public PipelineOptions(string[] parts, string outputDir, string[] entities, Element[] elements, string projectName, bool force)
+    {
+        Parts = parts;
+        OutputDir = outputDir;
+        Entities = entities;
+        Elements = elements;
+        ProjectName = projectName;
+        Force = force;
+    }
 
 }
 
