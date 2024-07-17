@@ -41,17 +41,17 @@ jobs:
         EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe app-component -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
         EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe app-routes -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
     - name: Test sample project
-      run: dotnet test DotnetWebapiSample/DotnetWebapiSampleIntegrationTest/DotnetWebapiSampleIntegrationTest.csproj
+      run: dotnet test DotnetAngularSample/DotnetAngularSampleIntegrationTest/DotnetAngularSampleIntegrationTest.csproj
     - name: Update Angular api
       run: npm run update-api
-      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
+      working-directory: DotnetAngularSample/DotnetAngularSampleClient
     - name: Build Storybook sample project
       run: npm run build-storybook  --quiet
-      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
+      working-directory: DotnetAngularSample/DotnetAngularSampleClient
     - name: Serve Storybook and run tests
       run: |
           npx --yes concurrently -k -s first -n "SB,TEST" -c "magenta,blue"  "npx --yes http-server storybook-static --port 6006 --silent" "npx --yes wait-on http://127.0.0.1:6006 && npm run test-storybook"
-      working-directory: DotnetWebapiSample/DotnetWebapiSampleClient
+      working-directory: DotnetAngularSample/DotnetAngularSampleClient
     - name: Build Installer
       run: iscc EADotnetAngularInstaller.iss /F"EADotnetAngularInstaller" 
       working-directory: EADotnetAngularInstaller
@@ -67,7 +67,7 @@ jobs:
       with:
         name: Sample
         path: |
-          DotnetWebapiSample/**
+          DotnetAngularSample/**
           !**/bin/**
           !**/obj/**
           !**/node_modules/**
