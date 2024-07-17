@@ -8,6 +8,8 @@ using EADotnetWebapiCli.Templates.Client;
 using CaseExtensions;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using Bogus.DataSets;
+using System.IO;
 IEnumerable<string> GetDependencies(IEnumerable<Element> diagram, string name)
 {
     var retD = diagram.Single(x => x.Name == name).Attributes.Where(x => !x.Type.IsPrimitive).Select(x => x.Type.Name);
@@ -87,6 +89,7 @@ Parser.Default.ParseArguments<InitializeApiOptions, InitializeClientOptions, DbC
         new ShellGeneratorCommand("npm", "i swagger-typescript-api@13.0.12 -D", clientProjectPath),
         new ShellGeneratorCommand("npm", "i storybook-addon-mock@5.0.0 -D", clientProjectPath),
         new ShellGeneratorCommand("npm", "i @storybook/test-runner@0.19.1 -D", clientProjectPath),
+        new ShellGeneratorCommand("npx", "--yes playwright install --with-deps", clientProjectPath),
 
 
         new JsonCommand(Path.Combine(clientProjectPath, "package.json"), (dynamic des)=>{
