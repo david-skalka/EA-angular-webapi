@@ -16,16 +16,8 @@ namespace EADotnetAngularAddIn
     {
         // Define menu constants
         const string menuHeader = "-&Dotnet Angular";
-        const string menuInitializeSolution = "&Initialize solution";
-        const string menuInitializeAngular = "&Initialize Angular";
-        const string menuGenerateDbContext = "&Generate db-context";
-        const string menuGenerateSeeder = "&Generate seeder";
-        const string menuGenerateGlobalMockData = "&Generate global mock data";
-        const string menuGenerateEntities = "&Generate entities";
-        const string menuGenerateAppComponent = "&Generate app.component";
-        const string menuGenerateAppRoutes = "&Generate app.routes";
-
-        const string menuSettings = "&Settings";
+        const string menuExecuteGenerator = "&Execute generator";
+        const string menuShowSettings = "&Show settings";
 
         public static string ConfigPath;
 
@@ -62,7 +54,7 @@ namespace EADotnetAngularAddIn
                 case "":
                     return menuHeader;
                 case menuHeader:
-                    return new string[] { menuInitializeSolution, menuInitializeAngular, menuGenerateDbContext, menuGenerateSeeder, menuGenerateGlobalMockData, menuGenerateEntities, menuGenerateAppComponent, menuGenerateAppRoutes, menuSettings };
+                    return new string[] { menuExecuteGenerator, menuShowSettings };
             }
             return "";
         }
@@ -70,10 +62,7 @@ namespace EADotnetAngularAddIn
 
 
 
-        void ExportXmi(EA.Repository repository, EA.Diagram diagram, string xmiPath)
-        {
-            repository.GetProjectInterface().ExportPackageXMI(repository.GetPackageByID(diagram.PackageID).PackageGUID, EnumXMIType.xmiEA21, 0, 0, 0, 0, xmiPath);
-        }
+
 
 
 
@@ -81,211 +70,22 @@ namespace EADotnetAngularAddIn
 
         public void EA_MenuClick(EA.Repository repository, string Location, string MenuName, string ItemName)
         {
-            
-            
 
             var commands = new Dictionary<string, Action>
             {
+
+                { menuExecuteGenerator, () =>
                 {
-                    menuInitializeSolution,
-                    () => ExecuteCli("initialize-solution", new Dictionary<string, string>
-                    {
-                        { "-o", (string)settingsService.GetValue("output-dir")  },
-                        { "-n", (string)settingsService.GetValue("project-name") }
-                    })
+                    var settingsDialog = new ExecuteDialog(repository, settingsService);
+                    settingsDialog.ShowDialog();
 
-                },
-                {
-                    menuInitializeAngular,
-                    () => ExecuteCli("initialize-angular", new Dictionary<string, string>
-                    {
-                        { "-o", (string)settingsService.GetValue("output-dir")  },
-                        { "-n", (string)settingsService.GetValue("project-name") }
-                    })
+                     
 
-                },
-                { menuGenerateDbContext, () => {
 
-                   var validationResult = ValidateDiagram(repository);
-
-                    if (validationResult.Any())
-                    {
-                        DisplayValidationErrors(validationResult);
-                        return;
-                    }
-
-                   var entityDialog = new EntitesDialog(repository);
-                    entityDialog.ShowDialog();
-
-                    if (entityDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
-                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
-
-                    ExecuteCli("db-context", new Dictionary<string, string>
-                    {
-                        { "-o", (string)settingsService.GetValue("output-dir")  },
-                        { "-e", string.Join(",", entityDialog.SelectedItems) },
-                        { "-x", xmiPath },
-                        { "-n",  (string)settingsService.GetValue("project-name") }
-                    });
                 }
                 },
-                { menuGenerateSeeder, () => {
 
-                    var validationResult = ValidateDiagram(repository);
-
-                    if (validationResult.Any())
-                    {
-                        DisplayValidationErrors(validationResult);
-                        return;
-                    }
-
-                    var entityDialog = new EntitesDialog(repository);
-
-                    entityDialog.ShowDialog();
-
-                    if (entityDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
-                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
-
-                    ExecuteCli("seeder", new Dictionary<string, string>
-                    {
-                        { "-o", (string)settingsService.GetValue("output-dir")  },
-                        { "-e", string.Join(",", entityDialog.SelectedItems) },
-                        { "-x", xmiPath },
-                        { "-n",  (string)settingsService.GetValue("project-name") }
-                    });
-                }
-                },
-                { menuGenerateGlobalMockData, () => {
-
-                    var validationResult = ValidateDiagram(repository);
-
-                    if (validationResult.Any())
-                    {
-                        DisplayValidationErrors(validationResult);
-                        return;
-                    }
-
-                    var entityDialog = new EntitesDialog(repository);
-
-                    entityDialog.ShowDialog();
-
-                    if (entityDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
-                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
-
-                    ExecuteCli("global-mock-data", new Dictionary<string, string>
-                    {
-                        { "-o", (string)settingsService.GetValue("output-dir")  },
-                        { "-e", string.Join(",", entityDialog.SelectedItems) },
-                        { "-x", xmiPath },
-                         { "-n",  (string)settingsService.GetValue("project-name") }
-                    });
-                }
-                },
-                { menuGenerateEntities, () => {
-
-                    var validationResult = ValidateDiagram(repository);
-
-                    if (validationResult.Any())
-                    {
-                        DisplayValidationErrors(validationResult);
-                        return;
-                    }
-
-                    var entityDialog = new EntitesDialog(repository);
-                    entityDialog.ShowDialog();
-
-                    if (entityDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
-                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
-
-                    ExecuteCli("entity", new Dictionary<string, string>
-                    {
-                        { "-o",  (string)settingsService.GetValue("output-dir") },
-                        { "-e", string.Join(",", entityDialog.SelectedItems) },
-                        { "-x", xmiPath },
-                        { "-n", (string)settingsService.GetValue("project-name") }
-                    });
-
-                } },{ menuGenerateAppComponent, () => {
-
-                    var validationResult = ValidateDiagram(repository);
-
-                    if (validationResult.Any())
-                    {
-                        DisplayValidationErrors(validationResult);
-                        return;
-                    }
-
-                    var entityDialog = new EntitesDialog(repository);
-                    entityDialog.ShowDialog();
-
-                    if (entityDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
-                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
-
-                    ExecuteCli("app-component", new Dictionary<string, string>
-                    {
-                        { "-o",  (string)settingsService.GetValue("output-dir") },
-                        { "-e", string.Join(",", entityDialog.SelectedItems) },
-                        { "-x", xmiPath },
-                        { "-n", (string)settingsService.GetValue("project-name") }
-                    });
-
-                } },{ menuGenerateAppRoutes, () => {
-
-                    var validationResult = ValidateDiagram(repository);
-
-                    if (validationResult.Any())
-                    {
-                        DisplayValidationErrors(validationResult);
-                        return;
-                    }
-
-                    var entityDialog = new EntitesDialog(repository);
-                    entityDialog.ShowDialog();
-
-                    if (entityDialog.DialogResult != DialogResult.OK)
-                    {
-                        return;
-                    }
-
-                    var xmiPath = Path.Combine(Path.GetTempPath(), @"model.xmi");
-                    ExportXmi(repository, repository.GetCurrentDiagram(), xmiPath);
-
-                    ExecuteCli("app-routes", new Dictionary<string, string>
-                    {
-                        { "-o",  (string)settingsService.GetValue("output-dir") },
-                        { "-e", string.Join(",", entityDialog.SelectedItems) },
-                        { "-x", xmiPath },
-                        { "-n", (string)settingsService.GetValue("project-name") }
-                    });
-
-                } },
-
-                { menuSettings, () =>
+                { menuShowSettings, () =>
                 {
                     var settingsDialog = new SettingsDialogs(ConfigPath);
                     settingsDialog.ShowDialog();
@@ -303,6 +103,8 @@ namespace EADotnetAngularAddIn
             };
 
             commands[ItemName]();
+
+
         }
 
         private string[] ValidateDiagram(Repository repository)
@@ -324,20 +126,6 @@ namespace EADotnetAngularAddIn
             MessageBox.Show(string.Join("\n", message), "Validation errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        void ExecuteCli(string command, Dictionary<string, string> args)
-        {
-            
-
-            var process = new Process();
-            var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Sparx Systems\EAAddins64\EADotnetAngularAddIn");
-
-           process.StartInfo.FileName = (string)key.GetValue("CliInstallLocation");
-
-            process.StartInfo.Arguments = command + " " + string.Join(" ", args.Select(x => x.Key + " \"" + x.Value + "\""));
-
-            process.Start();
-            process.WaitForExit();
-        }
 
 
         ///

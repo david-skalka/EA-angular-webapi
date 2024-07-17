@@ -31,16 +31,7 @@ jobs:
     - name: Generate a sample project
       shell: pwsh
       run: | 
-        $projectName = "DotnetAngularSample"
-        $xmi = "data\\Sample\\SampleModel.xml"
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe initialize-solution -n $projectName -o $projectName
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe initialize-angular -n $projectName -o $projectName
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe entity -x $xmi -n $projectName -o $projectName -e "Product,Comment"
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe db-context -x $xmi -n $projectName -o $projectName -e "Product,Comment"
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe seeder -x $xmi -n $projectName -o $projectName -e "Product,Comment"
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe global-mock-data -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe app-component -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe app-routes -x $xmi -n $projectName -o $projectName -e "Product,Comment" -f
+        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe -p "initialize-solution,initialize-angular,db-context,entity,seeder,global-mock-data,app-component,app-routes" -x "data\\Sample\\SampleModel.xml" -n DotnetAngularSample -o DotnetAngularSample -e "Product,Comment" -f
     - name: Test sample project
       run: dotnet test
     - name: Update Angular api
