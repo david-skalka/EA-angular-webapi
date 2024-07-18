@@ -6,6 +6,7 @@
   </a>
 </p>
 An Add-in for Enteprise Architect that generates a test-driven development-ready .NET Core CRUD application from a UML model. Its generate itegration tests for api development and storybook cases for angular development, both with autogenetate fake data using autobogus. Inspired by the JHipster and Yellicode bookstore tutorial, it is minimalistic and intended to be modified for your own model-driven generator technology. 
+
 ### 🏠 [Homepage](https://github.com/david-skalka/EA-dotnet-webapi)
 
 ## Motivation
