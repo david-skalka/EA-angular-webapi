@@ -57,7 +57,7 @@ namespace EADotnetAngularCli
             Tags = tags;
         }
 
-        public bool isNullable
+        public bool IsNullable
         {
             get
             {

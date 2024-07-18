@@ -51,7 +51,7 @@ export const Default: Story = {
 
 };
 
-export const OverrideApi: Story = {
+export const NonValid: Story = {
 
   parameters: {
     mockData: [
@@ -60,7 +60,7 @@ export const OverrideApi: Story = {
         method: 'PUT',
         status: 400,
         response:
-          {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"Name":["The Name field is required."]},"traceId":"00-f58504593e134cfa3e926ec858fffa4f-f48fc68a96ebb8b4-00"},
+          {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors": {<#= string.Join(", ", Model.Attributes.Where(x=>x.IsNullable).Select(x=>"\""+x.Name+"\":[\"The "+x.Name+" field is required.\"]")) #>},"traceId":"00-f58504593e134cfa3e926ec858fffa4f-f48fc68a96ebb8b4-00"},
       },
     ],
   }

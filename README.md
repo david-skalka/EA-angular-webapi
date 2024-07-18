@@ -9,6 +9,26 @@ An Add-in for Enteprise Architect that generates a test-driven development-ready
 
 ### 🏠 [Homepage](https://github.com/david-skalka/EA-dotnet-webapi)
 
+## Screenshots
+
+### Enteprise architect model
+<a href="images/ea.png">
+  <img src="images/ea.png" width="400" >
+</a>
+
+### Api development environment ( ingration test )
+<a href="images/integration-test.png">
+  <img src="images/integration-test.png" width="400" >
+</a>
+
+### Angular development environment ( storybook case )
+<a href="images/storybook.png">
+  <img src="images/storybook.png" width="400" >
+</a>
+
+
+
+
 ## Motivation
 
 Model-Driven Development (MDD) generators enhance productivity, improve code quality, and foster better collaboration and communication. By leveraging MDD generators, development speed can be accelerated by 2 to 5 times or more compared to traditional software development approaches.

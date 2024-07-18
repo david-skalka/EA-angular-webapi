@@ -10,7 +10,7 @@
     <form [formGroup]="editForm" >
 
 <#
-    foreach (var attr in Model.Attributes) {
+    foreach (var attr in Model.Attributes.Where(x=>!x.IsId)) {
         switch (attr.Type.Name)
         {
             case "EAC__int": case "EAC__Decimal":

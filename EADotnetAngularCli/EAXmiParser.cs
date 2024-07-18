@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -56,7 +57,10 @@ namespace EADotnetAngularCli
                 string? typeId = attr.SelectSingleNode("type")!.Attributes!["xmi:idref"]!.Value;
 
 
-                var isId = attr.Attributes!["isID"]?.Value == "true";
+                
+
+                
+
                 
 
                 var lowerBoundNode = attr.SelectNodes("lowerValue");
@@ -82,7 +86,18 @@ namespace EADotnetAngularCli
 
                 var attrId = attr.Attributes!["xmi:id"]!.Value;
 
-                var tags = xmlDoc.SelectNodes("//xmi:Extension/elements/element[@xmi:idref='" + node.Attributes!["xmi:id"]!.Value + "']/attributes/attribute[@xmi:idref='" + attrId + "']/tags/*", namespaceManager)!.Cast<XmlNode>().ToDictionary(tag => tag.Attributes!["name"]!.Value, tag => tag.Attributes!["value"]!=null ? tag.Attributes!["value"]!.Value : "");
+                var extension = xmlDoc.SelectSingleNode("//xmi:Extension/elements/element[@xmi:idref='" + node.Attributes!["xmi:id"]!.Value + "']/attributes/attribute[@xmi:idref='" + attrId + "']", namespaceManager);
+
+                var tags= extension!.SelectNodes("tags/*", namespaceManager)!.Cast<XmlNode>().ToDictionary(tag => tag.Attributes!["name"]!.Value, tag => tag.Attributes!["value"] != null ? tag.Attributes!["value"]!.Value : "");
+
+                
+
+                var xref = extension!.SelectSingleNode("xrefs", namespaceManager)!.Attributes!["value"]!.Value;
+                
+                
+                var idMatch = Regex.Match(xref, @";\$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=(.*)@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;");
+                var isId = idMatch.Groups[1].Value=="1";
+
 
                 return new Attribute(attr.Attributes!["name"]!.Value, type, isId, lowerBound, upperBound, stereotypeNode != null ? stereotypeNode.Name : null, tags);
             });

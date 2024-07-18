@@ -19,7 +19,7 @@ namespace EADotnetAngularCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class EditTemplate : EditTemplateBase
     {
@@ -32,9 +32,9 @@ namespace EADotnetAngularCli.Templates.Client
             this.Write("<h2 mat-dialog-title>Edit</h2>\r\n<mat-dialog-content >\r\n\r\n    <form [formGroup]=\"e" +
                     "ditForm\" >\r\n\r\n");
             
-            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 12 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
-    foreach (var attr in Model.Attributes) {
+    foreach (var attr in Model.Attributes.Where(x=>!x.IsId)) {
         switch (attr.Type.Name)
         {
             case "EAC__int": case "EAC__Decimal":
@@ -44,21 +44,21 @@ namespace EADotnetAngularCli.Templates.Client
             #line hidden
             this.Write("        <div>\r\n            <mat-form-field>\r\n                <mat-label>");
             
-            #line 20 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 20 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Tags["Description"]));
             
             #line default
             #line hidden
             this.Write("</mat-label>\r\n                <input formControlName=\"");
             
-            #line 21 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 21 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("\" type=\"number\" matInput  >\r\n            </mat-form-field>\r\n        </div>\r\n");
             
-            #line 24 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 24 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
                 break;
 
@@ -69,21 +69,21 @@ namespace EADotnetAngularCli.Templates.Client
             #line hidden
             this.Write("        <div>\r\n            <mat-form-field>\r\n                <mat-label>");
             
-            #line 31 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 31 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Tags["Description"]));
             
             #line default
             #line hidden
             this.Write("</mat-label>\r\n                <input formControlName=\"");
             
-            #line 32 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 32 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("\" matInput  >\r\n            </mat-form-field>\r\n        </div>\r\n");
             
-            #line 35 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 35 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
                 break;
 
@@ -94,21 +94,21 @@ namespace EADotnetAngularCli.Templates.Client
             #line hidden
             this.Write("        <div>\r\n            <p><mat-slide-toggle formControlName=\"");
             
-            #line 41 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 41 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 41 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 41 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Tags["Description"]));
             
             #line default
             #line hidden
             this.Write("</mat-slide-toggle></p>\r\n        </div>\r\n");
             
-            #line 43 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 43 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
                 break;
 
@@ -119,21 +119,21 @@ namespace EADotnetAngularCli.Templates.Client
             #line hidden
             this.Write("        <div>\r\n            <mat-form-field>\r\n                <mat-label>");
             
-            #line 50 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 50 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Tags["Description"]));
             
             #line default
             #line hidden
             this.Write("</mat-label>\r\n                <input formControlName=\"");
             
-            #line 51 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 51 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("Id\" type=\"number\" matInput  >\r\n            </mat-form-field>\r\n        </div>\r\n");
             
-            #line 54 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+            #line 54 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
                 break;
 
@@ -175,7 +175,7 @@ namespace EADotnetAngularCli.Templates.Client
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 88 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditTemplate.tt"
+        #line 88 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
 public Element Model { get; set; }
 

@@ -30,10 +30,10 @@ namespace <#= ProjectName #>.Models
         
 <# foreach (var attribute in Model.Attributes) { #>
 <# if(attribute.Type.IsPrimitive) { #>
-        <#= !attribute.isNullable ? "[Required]" : "" #>
-        public <#= primitivesMap[attribute.Type.Name] + (attribute.isNullable ? "?" : "") #> <#= attribute.Name #> { get; set; } <#= defaultValues.ContainsKey(attribute.Type.Name) ? "= " + defaultValues[attribute.Type.Name] + ";" : "" #>
+        <#= !attribute.IsNullable ? "[Required]" : "" #>
+        public <#= primitivesMap[attribute.Type.Name] + (attribute.IsNullable ? "?" : "") #> <#= attribute.Name #> { get; set; } <#= defaultValues.ContainsKey(attribute.Type.Name) ? "= " + defaultValues[attribute.Type.Name] + ";" : "" #>
 <# } else {  #>
-        <#= !attribute.isNullable ? "[Required]" : "" #> 
+        <#= !attribute.IsNullable ? "[Required]" : "" #> 
         public int <#= attribute.Name #>Id { get; set; }
 
         public <#= attribute.Name #>? <#= attribute.Type.Name #> { get; set; }
