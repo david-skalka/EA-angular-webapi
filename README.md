@@ -21,7 +21,7 @@ An Add-in for Enteprise Architect that generates a test-driven development-ready
   <img src="Images/integration-test.png" width="400" >
 </a>
 
-### Angular development environment ( storybook case )
+### Angular development environment ( Storybook case )
 <a href="Images/storybook.png">
   <img src="Images/storybook.png" width="400" >
 </a>
