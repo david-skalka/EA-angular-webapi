@@ -127,7 +127,7 @@ Parser.Default.ParseArguments<Options>(args)
                           { "db-context", (PipelineOptions options)=>{
 
                                     return new[] {
-                                        new WriteCallbackResultGeneratorCommand(() => new DbContext(){ProjectName = options.ProjectName, Entities = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray() }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName, "ApplicationDbContext.cs"), options.Force)
+                                        new WriteCallbackResultGeneratorCommand(() => new DbContext(){ProjectName = options.ProjectName, Entities = options.Elements.Where(x => x.Stereotype == "DotnetAngular:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray() }.TransformText(), Path.Combine(options.OutputDir, options.ProjectName, "ApplicationDbContext.cs"), options.Force)
                                     };
 
                           } },
@@ -168,7 +168,7 @@ Parser.Default.ParseArguments<Options>(args)
                           } },
                             { "seeder", (PipelineOptions options)=>{
 
-                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
+                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetAngular:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
                                         var sortedTypes = diagram.Select(x => x.Name).OrderTopologicallyBy(name => GetDependencies(diagram, name)).ToList();
 
@@ -184,7 +184,7 @@ Parser.Default.ParseArguments<Options>(args)
 
                              { "global-mock-data", (PipelineOptions options)=>{
 
-                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
+                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetAngular:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
 
 
@@ -196,7 +196,7 @@ Parser.Default.ParseArguments<Options>(args)
                              { "app-component", (PipelineOptions options) =>
                              {
 
-                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
+                                        var diagram = options.Elements.Where(x => x.Stereotype == "DotnetAngular:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
                                         
 
@@ -210,7 +210,7 @@ Parser.Default.ParseArguments<Options>(args)
 
                             { "app-routes", (PipelineOptions options) =>
                              {
-                                    var diagram = options.Elements.Where(x => x.Stereotype == "DotnetWebapi:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
+                                    var diagram = options.Elements.Where(x => x.Stereotype == "DotnetAngular:Entity").Where(x => options.Entities.Contains(x.Name)).ToArray();
 
                                     
 

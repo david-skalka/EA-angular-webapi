@@ -1,100 +1,100 @@
 <?xml  version='1.0' encoding='windows-1252' ?>
-<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:DotnetWebapi="http://www.sparxsystems.com/profiles/DotnetWebapi/1.0">
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:DotnetAngular="http://www.sparxsystems.com/profiles/DotnetAngular/1.0">
 	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5" exporterID="1628"/>
 	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
-		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C" name="Starter Class Diagram" visibility="public">
-			<packagedElement xmi:type="uml:Class" xmi:id="EAID_DCACFA6D_2CAE_434b_BC47_D49DC07537EB" name="Comment" visibility="public">
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_F0421A78_ACB1_4739_8954_025E8AE33FC8" name="Id" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000001_ACB1_4739_8954_025E8AE33FC8" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000002_ACB1_4739_8954_025E8AE33FC8" value="1"/>
+		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" name="MainPackage" visibility="public">
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_5C996373_6470_4324_91A8_D7FC17258484" name="Comment" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_5CBA24C4_4EAF_40f2_911B_584716E9C2BA" name="Id" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000001_4EAF_40f2_911B_584716E9C2BA" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000002_4EAF_40f2_911B_584716E9C2BA" value="1"/>
 					<type xmi:idref="EAC__int"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ABF5699A_A9B4_49a1_8552_A5CD4310592A" name="Product" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<type xmi:idref="EAID_FC399707_6F6C_41d2_8BE2_534E3A50E1B0"/>
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000003_A9B4_49a1_8552_A5CD4310592A" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000004_A9B4_49a1_8552_A5CD4310592A" value="1"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_30ECBA21_196E_4882_AFA4_EA0E455CB059" name="Product" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<type xmi:idref="EAID_218024A4_6014_4888_9A54_182ACB1E137B"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000003_196E_4882_AFA4_EA0E455CB059" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000004_196E_4882_AFA4_EA0E455CB059" value="1"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_45E833C7_B99D_421e_8D8B_E003D6AF8C85" name="Title" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000005_B99D_421e_8D8B_E003D6AF8C85" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000006_B99D_421e_8D8B_E003D6AF8C85" value="1"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_E4A83865_AA13_450f_AC22_9DEA4DE5490B" name="Title" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000005_AA13_450f_AC22_9DEA4DE5490B" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000006_AA13_450f_AC22_9DEA4DE5490B" value="1"/>
 					<type xmi:idref="EAC__String"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_460F598D_38BD_4762_A536_B5CBB1BE323C" name="Content" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000007_38BD_4762_A536_B5CBB1BE323C" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000008_38BD_4762_A536_B5CBB1BE323C" value="1"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_A09FE548_0928_433b_927E_C2EAD6384A5B" name="Content" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000007_0928_433b_927E_C2EAD6384A5B" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000008_0928_433b_927E_C2EAD6384A5B" value="1"/>
 					<type xmi:idref="EAC__String"/>
 				</ownedAttribute>
 			</packagedElement>
-			<packagedElement xmi:type="uml:Class" xmi:id="EAID_FC399707_6F6C_41d2_8BE2_534E3A50E1B0" name="Product" visibility="public">
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_36D51A7D_3ACB_4494_8636_7D65CD6B6B04" name="Id" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000009_3ACB_4494_8636_7D65CD6B6B04" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000010_3ACB_4494_8636_7D65CD6B6B04" value="1"/>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_218024A4_6014_4888_9A54_182ACB1E137B" name="Product" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_F4BD9702_468B_4cbd_99A2_DFC5B5D2BDB7" name="Id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000009_468B_4cbd_99A2_DFC5B5D2BDB7" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000010_468B_4cbd_99A2_DFC5B5D2BDB7" value="1"/>
 					<type xmi:idref="EAC__int"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_8A3EC4F0_342F_4d2f_B081_BF30EDC6F9A8" name="Name" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000011_342F_4d2f_B081_BF30EDC6F9A8" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000012_342F_4d2f_B081_BF30EDC6F9A8" value="1"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_FF514BA4_A196_4697_BF80_B70E0BB0C0AC" name="Name" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000011_A196_4697_BF80_B70E0BB0C0AC" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000012_A196_4697_BF80_B70E0BB0C0AC" value="1"/>
 					<type xmi:idref="EAC__String"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_895D21E6_AA82_4a0e_B758_ABE2EDA655B7" name="Note" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000013_AA82_4a0e_B758_ABE2EDA655B7" value="0"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000014_AA82_4a0e_B758_ABE2EDA655B7" value="1"/>
-					<type xmi:idref="EAC__String"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_1502E64B_5B49_4334_8B8C_C4DD3B9C23A0" name="Note" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000013_5B49_4334_8B8C_C4DD3B9C23A0" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000014_5B49_4334_8B8C_C4DD3B9C23A0" value="1"/>
+					<type xmi:idref="EAC__int"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_CC392280_D8E7_4d0f_B451_AD7B15BC8104" name="Price" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000015_D8E7_4d0f_B451_AD7B15BC8104" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000016_D8E7_4d0f_B451_AD7B15BC8104" value="1"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_A0783383_B0F8_432d_B6BE_7D3800604AD5" name="Price" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000015_B0F8_432d_B6BE_7D3800604AD5" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000016_B0F8_432d_B6BE_7D3800604AD5" value="1"/>
 					<type xmi:idref="EAC__Decimal"/>
 				</ownedAttribute>
-				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_A5962F69_FCF4_4709_BEE9_5AE0DD0E100D" name="Vip" visibility="public" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
-					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000017_FCF4_4709_BEE9_5AE0DD0E100D" value="1"/>
-					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000018_FCF4_4709_BEE9_5AE0DD0E100D" value="1"/>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_489678F6_03D0_4883_AD5F_DFE2CC3F310A" name="Vip" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000017_03D0_4883_AD5F_DFE2CC3F310A" value="1"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_LI000018_03D0_4883_AD5F_DFE2CC3F310A" value="1"/>
 					<type xmi:idref="EAC__Boolean"/>
 				</ownedAttribute>
 			</packagedElement>
 		</packagedElement>
-		<DotnetWebapi:Entity base_Class="EAID_DCACFA6D_2CAE_434b_BC47_D49DC07537EB"/>
-		<DotnetWebapi:Field base_Property="EAID_F0421A78_ACB1_4739_8954_025E8AE33FC8"/>
-		<DotnetWebapi:Field base_Property="EAID_ABF5699A_A9B4_49a1_8552_A5CD4310592A"/>
-		<DotnetWebapi:Field base_Property="EAID_45E833C7_B99D_421e_8D8B_E003D6AF8C85"/>
-		<DotnetWebapi:Field base_Property="EAID_460F598D_38BD_4762_A536_B5CBB1BE323C"/>
-		<DotnetWebapi:Entity base_Class="EAID_FC399707_6F6C_41d2_8BE2_534E3A50E1B0"/>
-		<DotnetWebapi:Field base_Property="EAID_36D51A7D_3ACB_4494_8636_7D65CD6B6B04"/>
-		<DotnetWebapi:Field base_Property="EAID_8A3EC4F0_342F_4d2f_B081_BF30EDC6F9A8"/>
-		<DotnetWebapi:Field base_Property="EAID_895D21E6_AA82_4a0e_B758_ABE2EDA655B7"/>
-		<DotnetWebapi:Field base_Property="EAID_CC392280_D8E7_4d0f_B451_AD7B15BC8104"/>
-		<DotnetWebapi:Field base_Property="EAID_A5962F69_FCF4_4709_BEE9_5AE0DD0E100D"/>
+		<DotnetAngular:Entity base_Class="EAID_5C996373_6470_4324_91A8_D7FC17258484"/>
+		<DotnetAngular:Field base_Property="EAID_5CBA24C4_4EAF_40f2_911B_584716E9C2BA"/>
+		<DotnetAngular:Field base_Property="EAID_30ECBA21_196E_4882_AFA4_EA0E455CB059"/>
+		<DotnetAngular:Field base_Property="EAID_E4A83865_AA13_450f_AC22_9DEA4DE5490B"/>
+		<DotnetAngular:Field base_Property="EAID_A09FE548_0928_433b_927E_C2EAD6384A5B"/>
+		<DotnetAngular:Entity base_Class="EAID_218024A4_6014_4888_9A54_182ACB1E137B"/>
+		<DotnetAngular:Field base_Property="EAID_F4BD9702_468B_4cbd_99A2_DFC5B5D2BDB7"/>
+		<DotnetAngular:Field base_Property="EAID_FF514BA4_A196_4697_BF80_B70E0BB0C0AC"/>
+		<DotnetAngular:Field base_Property="EAID_1502E64B_5B49_4334_8B8C_C4DD3B9C23A0"/>
+		<DotnetAngular:Field base_Property="EAID_A0783383_B0F8_432d_B6BE_7D3800604AD5"/>
+		<DotnetAngular:Field base_Property="EAID_489678F6_03D0_4883_AD5F_DFE2CC3F310A"/>
 	</uml:Model>
 	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
 		<elements>
-			<element xmi:idref="EAPK_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C" xmi:type="uml:Package" name="Starter Class Diagram" scope="public">
-				<model package2="EAID_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C" package="EAPK_4176AA7D_AAC5_4ecc_AB38_17F9289F5300" tpos="1" ea_localid="2" ea_eleType="package"/>
+			<element xmi:idref="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" xmi:type="uml:Package" name="MainPackage" scope="public">
+				<model package2="EAID_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" package="EAPK_19387ACA_EEC3_4ddd_9B63_63B33AB91A5C" tpos="0" ea_localid="2" ea_eleType="package"/>
 				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
-				<project author="pc6vi" version="1.0" phase="1.0" created="2024-02-17 00:07:25" modified="2019-01-23 13:38:10" complexity="1" status="Proposed"/>
-				<code gentype="&lt;none&gt;"/>
+				<project author="David" version="1.0" phase="1.0" created="2024-04-02 00:01:06" modified="2024-04-02 00:01:06" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="Model"/>
-				<packageproperties version="1.0" tpos="1"/>
+				<packageproperties version="1.0"/>
 				<paths/>
-				<times created="2024-02-17 00:07:25" modified="2024-02-17 00:07:25" lastloaddate="2019-01-23 13:38:10" lastsavedate="2019-01-23 13:38:10"/>
-				<flags iscontrolled="0" isprotected="0" batchsave="0" batchload="0" usedtd="0" logxml="0"/>
+				<times created="2024-04-02 00:01:06" modified="2024-04-02 00:01:06"/>
+				<flags iscontrolled="0" isprotected="0" usedtd="0" logxml="0" packageFlags="isModel=1;VICON=3;"/>
 			</element>
-			<element xmi:idref="EAID_DCACFA6D_2CAE_434b_BC47_D49DC07537EB" xmi:type="uml:Class" name="Comment" scope="public">
-				<model package="EAPK_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C" tpos="0" ea_localid="6" ea_eleType="element"/>
+			<element xmi:idref="EAID_5C996373_6470_4324_91A8_D7FC17258484" xmi:type="uml:Class" name="Comment" scope="public">
+				<model package="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" tpos="0" ea_localid="3" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Class" nType="0" scope="public" stereotype="Entity" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="pc6vi" version="1.0" phase="1.0" created="2024-02-17 00:04:38" modified="2024-04-02 00:10:02" complexity="1" status="Proposed"/>
+				<project author="David" version="1.0" phase="1.0" created="2024-04-02 00:03:06" modified="2024-04-02 00:05:23" complexity="1" status="Proposed"/>
 				<code product_name="C#" gentype="C#"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
 				<tags/>
-				<xrefs value="$XREFPROP=$XID={CAEF9505-07ED-4b4b-9B29-6BA1CB69B74E}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Entity;FQName=DotnetWebapi::Entity;@ENDSTEREO;$DES;$CLT={DCACFA6D-2CAE-434b-BC47-D49DC07537EB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Starter Class Diagram"/>
+				<xrefs value="$XREFPROP=$XID={E958251A-26A3-4b6d-B174-C163CB03BBC2}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Entity;FQName=DotnetAngular::Entity;@ENDSTEREO;$DES;$CLT={5C996373-6470-4324-91A8-D7FC17258484}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="MainPackage"/>
 				<attributes>
-					<attribute xmi:idref="EAID_F0421A78_ACB1_4739_8954_025E8AE33FC8" name="Id" scope="Public">
+					<attribute xmi:idref="EAID_5CBA24C4_4EAF_40f2_911B_584716E9C2BA" name="Id" scope="Public">
 						<initial/>
 						<documentation/>
-						<model ea_localid="6" ea_guid="{F0421A78-ACB1-4739-8954-025E8AE33FC8}"/>
+						<model ea_localid="9" ea_guid="{5CBA24C4-4EAF-40f2-911B-584716E9C2BA}"/>
 						<properties type="int" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
 						<containment containment="Not Specified" position="0"/>
@@ -104,32 +104,78 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_9163_D7310EE8362C" name="Description" value="Id"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_825A_61C3DFA0C5A5" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={1A7C2D8C-B559-46a8-B2E1-6DC0A69111A7}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=1@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={F0421A78-ACB1-4739-8954-025E8AE33FC8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={23D98640-9BB5-4144-8879-5A2CD45721FD}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={F0421A78-ACB1-4739-8954-025E8AE33FC8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={D75FE467-D66D-43d5-B703-1415782CAF41}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=1@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5CBA24C4-4EAF-40f2-911B-584716E9C2BA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={6F8ACA99-C9F8-444c-910A-C7C287BAD8E4}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={5CBA24C4-4EAF-40f2-911B-584716E9C2BA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_ABF5699A_A9B4_49a1_8552_A5CD4310592A" name="Product" scope="Public">
+					<attribute xmi:idref="EAID_30ECBA21_196E_4882_AFA4_EA0E455CB059" name="Product" scope="Private">
 						<initial/>
 						<documentation/>
-						<model ea_localid="9" ea_guid="{ABF5699A-A9B4-49a1-8552-A5CD4310592A}"/>
+						<model ea_localid="6" ea_guid="{30ECBA21-196E-4882-AFA4-EA0E455CB059}"/>
 						<properties type="Product" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
-						<containment containment="Not Specified" position="0"/>
+						<containment containment="Not Specified" position="1"/>
 						<stereotype stereotype="Field"/>
 						<bounds lower="1" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_AD9E_82512CE42263" name="Description" value="Produkt"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_B6E3_9F919BA71871" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={7C66E79B-ED3B-4a20-ACC1-3D8EF2C67FAC}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={ABF5699A-A9B4-49a1-8552-A5CD4310592A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={DE79710E-57BD-44d0-8C8D-9AD34F2DF4C1}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={30ECBA21-196E-4882-AFA4-EA0E455CB059}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_45E833C7_B99D_421e_8D8B_E003D6AF8C85" name="Title" scope="Public">
+					<attribute xmi:idref="EAID_E4A83865_AA13_450f_AC22_9DEA4DE5490B" name="Title" scope="Private">
 						<initial/>
 						<documentation/>
-						<model ea_localid="8" ea_guid="{45E833C7-B99D-421e-8D8B-E003D6AF8C85}"/>
+						<model ea_localid="8" ea_guid="{E4A83865-AA13-450f-AC22-9DEA4DE5490B}"/>
 						<properties type="String" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
+						<coords ordered="0" scale="0"/>
+						<containment containment="Not Specified" position="2"/>
+						<stereotype stereotype="Field"/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="volatile=0;union=0;"/>
+						<tags>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_A1DE_BEC2D98C808C" name="Description"/>
+						</tags>
+						<xrefs value="$XREFPROP=$XID={030706F2-1BD4-44ab-AEFB-3960BF4DE587}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={E4A83865-AA13-450f-AC22-9DEA4DE5490B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+					</attribute>
+					<attribute xmi:idref="EAID_A09FE548_0928_433b_927E_C2EAD6384A5B" name="Content" scope="Public">
+						<initial/>
+						<documentation/>
+						<model ea_localid="10" ea_guid="{A09FE548-0928-433b-927E-C2EAD6384A5B}"/>
+						<properties type="String" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
+						<coords ordered="0" scale="0"/>
+						<containment containment="Not Specified" position="3"/>
+						<stereotype stereotype="Field"/>
+						<bounds lower="1" upper="1"/>
+						<options/>
+						<style/>
+						<styleex value="volatile=0;union=0;"/>
+						<tags>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_A7E8_6EA92897C9A9" name="Description"/>
+						</tags>
+						<xrefs value="$XREFPROP=$XID={9FDDDAA8-7A89-447d-A505-0B15057CF488}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={A09FE548-0928-433b-927E-C2EAD6384A5B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+					</attribute>
+				</attributes>
+			</element>
+			<element xmi:idref="EAID_218024A4_6014_4888_9A54_182ACB1E137B" xmi:type="uml:Class" name="Product" scope="public">
+				<model package="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" tpos="0" ea_localid="2" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Class" nType="0" scope="public" stereotype="Entity" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="David" version="1.0" phase="1.0" created="2024-04-02 00:01:34" modified="2024-04-02 00:02:13" complexity="1" status="Proposed"/>
+				<code product_name="C#" gentype="C#"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={D979CBEE-BA82-4e54-8BEC-058A2694AAD6}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Entity;FQName=DotnetAngular::Entity;@ENDSTEREO;$DES;$CLT={218024A4-6014-4888-9A54-182ACB1E137B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="MainPackage" ea_attsclassified="{30ECBA21-196E-4882-AFA4-EA0E455CB059}"/>
+				<attributes>
+					<attribute xmi:idref="EAID_F4BD9702_468B_4cbd_99A2_DFC5B5D2BDB7" name="Id" scope="Private">
+						<initial/>
+						<documentation/>
+						<model ea_localid="1" ea_guid="{F4BD9702-468B-4cbd-99A2-DFC5B5D2BDB7}"/>
+						<properties type="int" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
 						<containment containment="Not Specified" position="0"/>
 						<stereotype stereotype="Field"/>
@@ -138,14 +184,14 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_9CAE_3762B19718C5" name="Description" value="Nadpis"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_B0C0_0A0E944A1085" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={4EF94521-3107-4074-9E6F-934DF831AC1B}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={45E833C7-B99D-421e-8D8B-E003D6AF8C85}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={50B22BA6-A100-45a2-AEA4-9E53E73A4C93}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={F4BD9702-468B-4cbd-99A2-DFC5B5D2BDB7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={E2793267-7F92-4475-9974-0AE25B013474}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=1@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={F4BD9702-468B-4cbd-99A2-DFC5B5D2BDB7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_460F598D_38BD_4762_A536_B5CBB1BE323C" name="Content" scope="Public">
+					<attribute xmi:idref="EAID_FF514BA4_A196_4697_BF80_B70E0BB0C0AC" name="Name" scope="Private">
 						<initial/>
 						<documentation/>
-						<model ea_localid="7" ea_guid="{460F598D-38BD-4762-A536-B5CBB1BE323C}"/>
+						<model ea_localid="2" ea_guid="{FF514BA4-A196-4697-BF80-B70E0BB0C0AC}"/>
 						<properties type="String" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
 						<containment containment="Not Specified" position="1"/>
@@ -155,106 +201,60 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_8FEF_BBBD6EE0EB4D" name="Description" value="Obsah"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_A0BA_0FB0036B434C" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={F4B00CAF-D3A6-4b47-A909-5FF0522CABE0}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={460F598D-38BD-4762-A536-B5CBB1BE323C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={107D7910-D18D-48b1-9F5C-5E8E91C48408}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={FF514BA4-A196-4697-BF80-B70E0BB0C0AC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-				</attributes>
-			</element>
-			<element xmi:idref="EAID_FC399707_6F6C_41d2_8BE2_534E3A50E1B0" xmi:type="uml:Class" name="Product" scope="public">
-				<model package="EAPK_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C" tpos="0" ea_localid="4" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Class" nType="0" scope="public" stereotype="Entity" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
-				<project author="pc6vi" version="1.0" phase="1.0" created="2024-02-17 00:00:35" modified="2024-04-02 00:07:41" complexity="1" status="Proposed"/>
-				<code product_name="C#" gentype="C#"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={E3FCFE6F-84B6-47d7-BB2B-6069AF2BCB31}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Entity;FQName=DotnetWebapi::Entity;@ENDSTEREO;$DES;$CLT={FC399707-6F6C-41d2-8BE2-534E3A50E1B0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="Starter Class Diagram" ea_attsclassified="{ABF5699A-A9B4-49a1-8552-A5CD4310592A}"/>
-				<attributes>
-					<attribute xmi:idref="EAID_36D51A7D_3ACB_4494_8636_7D65CD6B6B04" name="Id" scope="Public">
+					<attribute xmi:idref="EAID_1502E64B_5B49_4334_8B8C_C4DD3B9C23A0" name="Note" scope="Private">
 						<initial/>
 						<documentation/>
-						<model ea_localid="1" ea_guid="{36D51A7D-3ACB-4494-8636-7D65CD6B6B04}"/>
+						<model ea_localid="3" ea_guid="{1502E64B-5B49-4334-8B8C-C4DD3B9C23A0}"/>
 						<properties type="int" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
-						<containment containment="Not Specified" position="0"/>
-						<stereotype stereotype="Field"/>
-						<bounds lower="1" upper="1"/>
-						<options/>
-						<style/>
-						<styleex value="volatile=0;union=0;"/>
-						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_B911_0051469465B4" name="Description" value="Id"/>
-						</tags>
-						<xrefs value="$XREFPROP=$XID={031E70E0-B0D4-4582-B51C-C07B7611E689}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=1@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={36D51A7D-3ACB-4494-8636-7D65CD6B6B04}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={F46D76E8-AA90-46ad-A561-D992C57A88DA}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={36D51A7D-3ACB-4494-8636-7D65CD6B6B04}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-					</attribute>
-					<attribute xmi:idref="EAID_8A3EC4F0_342F_4d2f_B081_BF30EDC6F9A8" name="Name" scope="Public">
-						<initial/>
-						<documentation/>
-						<model ea_localid="2" ea_guid="{8A3EC4F0-342F-4d2f-B081-BF30EDC6F9A8}"/>
-						<properties type="String" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
-						<coords ordered="0" scale="0"/>
-						<containment containment="Not Specified" position="0"/>
-						<stereotype stereotype="Field"/>
-						<bounds lower="1" upper="1"/>
-						<options/>
-						<style/>
-						<styleex value="volatile=0;union=0;"/>
-						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_BA61_689662C02590" name="Description" value="Jméno"/>
-						</tags>
-						<xrefs value="$XREFPROP=$XID={B32E5A41-4BC7-47e7-A4D3-954CB67407DD}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={8A3EC4F0-342F-4d2f-B081-BF30EDC6F9A8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-					</attribute>
-					<attribute xmi:idref="EAID_895D21E6_AA82_4a0e_B758_ABE2EDA655B7" name="Note" scope="Public">
-						<initial/>
-						<documentation/>
-						<model ea_localid="3" ea_guid="{895D21E6-AA82-4a0e-B758-ABE2EDA655B7}"/>
-						<properties type="String" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
-						<coords ordered="0" scale="0"/>
-						<containment containment="Not Specified" position="0"/>
+						<containment containment="Not Specified" position="2"/>
 						<stereotype stereotype="Field"/>
 						<bounds lower="0" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_B49C_BA6AED754776" name="Description" value="Poznámka"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_AD9A_13348891D80A" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={797A331B-F5A2-4349-8689-67B95F9CCB83}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={895D21E6-AA82-4a0e-B758-ABE2EDA655B7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={2E2CACC0-57D3-47ff-81C4-35933C57A079}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={1502E64B-5B49-4334-8B8C-C4DD3B9C23A0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_CC392280_D8E7_4d0f_B451_AD7B15BC8104" name="Price" scope="Public">
+					<attribute xmi:idref="EAID_A0783383_B0F8_432d_B6BE_7D3800604AD5" name="Price" scope="Private">
 						<initial/>
 						<documentation/>
-						<model ea_localid="4" ea_guid="{CC392280-D8E7-4d0f-B451-AD7B15BC8104}"/>
+						<model ea_localid="4" ea_guid="{A0783383-B0F8-432d-B6BE-7D3800604AD5}"/>
 						<properties type="Decimal" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
-						<containment containment="Not Specified" position="0"/>
+						<containment containment="Not Specified" position="3"/>
 						<stereotype stereotype="Field"/>
 						<bounds lower="1" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_88AE_70E78502C6B5" name="Description" value="Cena"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_8DE0_29122460E44A" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={626A1141-201F-41f4-B6BE-6726EFFE9D27}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={CC392280-D8E7-4d0f-B451-AD7B15BC8104}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={2F9EBE20-CCE5-461c-B558-4BB53772CD7A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={A0783383-B0F8-432d-B6BE-7D3800604AD5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
-					<attribute xmi:idref="EAID_A5962F69_FCF4_4709_BEE9_5AE0DD0E100D" name="Vip" scope="Public">
+					<attribute xmi:idref="EAID_489678F6_03D0_4883_AD5F_DFE2CC3F310A" name="Vip" scope="Private">
 						<initial/>
 						<documentation/>
-						<model ea_localid="5" ea_guid="{A5962F69-FCF4-4709-BEE9-5AE0DD0E100D}"/>
+						<model ea_localid="5" ea_guid="{489678F6-03D0-4883-AD5F-DFE2CC3F310A}"/>
 						<properties type="Boolean" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
-						<containment containment="Not Specified" position="0"/>
+						<containment containment="Not Specified" position="4"/>
 						<stereotype stereotype="Field"/>
 						<bounds lower="1" upper="1"/>
 						<options/>
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_F8B6_84f8_AF04_109413ED7C16" name="Description" value="Vip"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_95EE_FC92395E6014" name="Description"/>
 						</tags>
-						<xrefs value="$XREFPROP=$XID={90B54C42-51D7-4451-9333-2D3A07CF9C3E}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetWebapi::Field;@ENDSTEREO;$DES;$CLT={A5962F69-FCF4-4709-BEE9-5AE0DD0E100D}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+						<xrefs value="$XREFPROP=$XID={FB76AA05-80BE-4101-91EC-CC9305E03637}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={489678F6-03D0-4883-AD5F-DFE2CC3F310A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 				</attributes>
 			</element>
@@ -283,9 +283,9 @@
 			</packagedElement>
 		</primitivetypes>
 		<profiles>
-			<uml:Profile xmlns:uml="http://schema.omg.org/spec/UML/2.1/" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmi:id="F0DB09E3-8" nsPrefix="DotnetWebapi" name="DotnetWebapi" metamodelReference="mmref01">
-				<ownedComment xmi:type="uml:Comment" xmi:id="comment01" annotatedElement="F0DB09E3-8">
-					<body>DotnetWebapi Version:1.0</body>
+			<uml:Profile xmlns:uml="http://schema.omg.org/spec/UML/2.1/" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmi:id="E0F1B762-2" nsPrefix="DotnetAngular" name="DotnetAngular" metamodelReference="mmref01">
+				<ownedComment xmi:type="uml:Comment" xmi:id="comment01" annotatedElement="E0F1B762-2">
+					<body>DotnetAngular Version:1.0</body>
 				</ownedComment>
 				<packageImport xmi:id="mmref01">
 					<importedPackage href="http://schema.omg.org/spec/UML/2.1/"/>
@@ -312,20 +312,20 @@
 			</uml:Profile>
 		</profiles>
 		<diagrams>
-			<diagram xmi:id="EAID_85286832_DD1A_4840_B9B9_C9C81A78E150">
-				<model package="EAPK_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C" localID="3" owner="EAPK_A9D6EFFA_6493_48f3_BFE9_BCCA2192674C"/>
-				<properties name="Main Diagram" type="Logical"/>
-				<project author="pc6vi" version="1.0" created="2024-02-17 00:17:36" modified="2024-02-17 00:05:43"/>
-				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=827;DocSize.cy=1169;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=DotnetWebapi::DotnetWebApi;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=A71A363A;"/>
+			<diagram xmi:id="EAID_73FB4042_F096_4def_B866_C982FAA289C0">
+				<model package="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" localID="1" owner="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8"/>
+				<properties name="Model" type="Logical"/>
+				<project author="David" version="1.0" created="2024-04-02 00:01:06" modified="2024-04-02 00:06:59"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=DotnetAngular::DotnetAngular;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=A6571AFA;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
 				<extendedProperties/>
 				<persistentstyle value="DGS=On=0:CNT=8:W=120:H=40:SG=0:SGH=0:AEB=0:;AR=0;DCL=0;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;Swimlanes=locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;"/>
 				<xrefs/>
 				<elements>
-					<element geometry="Left=456;Top=153;Right=632;Bottom=268;" subject="EAID_DCACFA6D_2CAE_434b_BC47_D49DC07537EB" seqno="1" style="DUID=D19364B1;HideIcon=0;"/>
-					<element geometry="Left=152;Top=95;Right=367;Bottom=223;" subject="EAID_FC399707_6F6C_41d2_8BE2_534E3A50E1B0" seqno="2" style="DUID=BB49463D;HideIcon=0;"/>
+					<element geometry="Left=898;Top=335;Right=1156;Bottom=450;" subject="EAID_5C996373_6470_4324_91A8_D7FC17258484" seqno="1" style="DUID=2CB2DD29;HideIcon=0;"/>
+					<element geometry="Left=345;Top=120;Right=722;Bottom=248;" subject="EAID_218024A4_6014_4888_9A54_182ACB1E137B" seqno="2" style="DUID=F3CCCD06;HideIcon=0;"/>
 				</elements>
 			</diagram>
 		</diagrams>
