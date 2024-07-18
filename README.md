@@ -16,7 +16,7 @@ An Add-in for Enteprise Architect that generates a test-driven development-ready
   <img src="Images/ea.png" width="400" >
 </a>
 
-### Api development environment ( ingration test )
+### Api development environment ( integration test )
 <a href="Images/integration-test.png">
   <img src="Images/integration-test.png" width="400" >
 </a>
