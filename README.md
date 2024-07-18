@@ -12,18 +12,18 @@ An Add-in for Enteprise Architect that generates a test-driven development-ready
 ## Screenshots
 
 ### Enteprise architect model
-<a href="images/ea.png">
-  <img src="images/ea.png" width="400" >
+<a href="Images/ea.png">
+  <img src="Images/ea.png" width="400" >
 </a>
 
 ### Api development environment ( ingration test )
-<a href="images/integration-test.png">
-  <img src="images/integration-test.png" width="400" >
+<a href="Images/integration-test.png">
+  <img src="Images/integration-test.png" width="400" >
 </a>
 
 ### Angular development environment ( storybook case )
-<a href="images/storybook.png">
-  <img src="images/storybook.png" width="400" >
+<a href="Images/storybook.png">
+  <img src="Images/storybook.png" width="400" >
 </a>
 
 
