@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading.Tasks.Dataflow;
 using System.Drawing;
 using Sharprompt;
+using System.Xml.Linq;
 
 
 public partial class Program
@@ -26,39 +27,21 @@ public partial class Program
 
 
 
-
-
-    static int Main(string[] args)
+    static void Generate(Element[] elements, ICollection<string>? parts, string projectName, string outputDir, bool overwrite)
     {
 
-        return Parser.Default.ParseArguments<RunPipeline>(args)
-                    .MapResult(options =>
-                    {
+        Element[] elementsSorted = elements.Select(x => x.Name).OrderTopologicallyBy(name => GetDependencies(elements, name)).Select(x => elements.Single(y => y.Name == x)).ToArray();
 
 
-                        var projectName = options.ProjectName;
-
-                        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
-
-                        var testProjectPath = Path.Combine(outputDir, projectName + "IntegrationTest");
-
-                        var overwrite = options.Overwrite;
+        Element[] entities = elementsSorted.Where(x => x.Stereotype == "DotnetAngular:Entity").ToArray();
 
 
-                        var clientProjectPath = Path.Combine(outputDir, projectName + "Client");
+        var testProjectPath = Path.Combine(outputDir, projectName + "IntegrationTest");
+
+        var clientProjectPath = Path.Combine(outputDir, projectName + "Client");
 
 
-                        Element[] parsedXmi = new EAXmiParser().Parse(options.Xmi);
-
-                        Element[] elements = parsedXmi.Select(x => x.Name).OrderTopologicallyBy(name => GetDependencies(parsedXmi, name)).Select(x => parsedXmi.Single(y => y.Name == x)).ToArray();
-
-
-                        Element[] entities = elements.Where(x => x.Stereotype == "DotnetAngular:Entity").ToArray();
-
-
-
-
-                        var pipeline = new Dictionary<string, IGeneratorCommand[]> {
+        var pipeline = new Dictionary<string, IGeneratorCommand[]> {
                           { "initialize-solution",  new IGeneratorCommand[]{
                             new ShellGeneratorCommand("dotnet", "new sln -n " + projectName + " -o " + outputDir + '"', null) ,
                             new ShellGeneratorCommand("dotnet", "new webapi -f net8.0 -n " + projectName + " -o " + Path.Combine(outputDir, projectName), null),
@@ -131,11 +114,11 @@ public partial class Program
 
 
 
-                        foreach (var entity in entities)
-                        {
+        foreach (var entity in entities)
+        {
 
-                            pipeline.Add(string.Format("entity-{0}", entity.Name.ToKebabCase()),
-                               new IGeneratorCommand[] {
+            pipeline.Add(string.Format("entity-{0}", entity.Name.ToKebabCase()),
+               new IGeneratorCommand[] {
                             new WriteCallbackResultGeneratorCommand(() => new EfModel() { Model = entity, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName, "Models", entity.Name + ".cs"), overwrite),
                             new WriteCallbackResultGeneratorCommand(() => new Controller() { Model = entity, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName, "Controllers", entity.Name + "Controller.cs"), overwrite),
                             new WriteCallbackResultGeneratorCommand(() => new Test() { Model = entity, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName + "IntegrationTest", entity.Name + "Test.cs"), overwrite),
@@ -148,20 +131,42 @@ public partial class Program
                             new WriteCallbackResultGeneratorCommand(() => new ListTemplate() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.html"), overwrite),
                             new WriteCallbackResultGeneratorCommand(() => "", Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.scss"), overwrite),
                             new WriteCallbackResultGeneratorCommand(() => new Stories() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "stories", entity.Name.ToKebabCase() + "-list.stories.ts"), overwrite)
-                        });
+        });
 
-                        }
-
-
-                        var parts = options.Parts != null ? options.Parts.Split(",").Where(x => x != "") : Prompt.MultiSelect("Select parts", pipeline.Select(x => x.Key));
+        }
 
 
+        var selectedParts = parts != null ? parts : Prompt.MultiSelect("Select parts", pipeline.Select(x => x.Key));
 
-                        foreach (var part in parts)
-                        {
-                            pipeline[part].ToList().ForEach(x => x.Execute());
-                        }
 
+
+        foreach (var part in selectedParts)
+        {
+            pipeline[part].ToList().ForEach(x => x.Execute());
+        }
+
+
+
+
+    }
+
+
+
+    static int Main(string[] args)
+    {
+
+        return Parser.Default.ParseArguments<RunPipeline>(args)
+                    .MapResult(options =>
+                    {
+
+                        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), options.OutputDir);
+                        var xmiParser = new EAXmiParser();
+                        var parts = options.Parts != null ? options.Parts.Split(",").Where(x => x != null).ToArray() : null;
+
+
+                        Generate(xmiParser.Parse(options.Xmi), parts, options.ProjectName, outputDir, options.Overwrite);
+
+                       
 
                         return 0;
                     },error=>1);
