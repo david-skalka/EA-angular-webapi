@@ -153,7 +153,7 @@ public partial class Program
                         }
 
 
-                        var parts = options.Parts != null ? options.Parts : Prompt.MultiSelect("Select parts", pipeline.Select(x => x.Key));
+                        var parts = options.Parts != null ? options.Parts.Split(",").Where(x => x != "") : Prompt.MultiSelect("Select parts", pipeline.Select(x => x.Key));
 
 
 
@@ -190,8 +190,8 @@ class RunPipeline
     [Option('o', "overwrite", Default = false)]
     public bool Overwrite { get; set; } = false;
 
-    [Option('p', "parts", Separator =',')]
-    public IEnumerable<string>? Parts { get; set; } = null;
+    [Option('p', "parts", Default = null)]
+    public  string? Parts { get; set; } = null;
 
 
 }
