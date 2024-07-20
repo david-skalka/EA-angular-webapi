@@ -48,7 +48,7 @@ namespace EADotnetAngularCliTest
         [Test]
         public void ProgramTest()
         {
-            var content = new Program() { ProjectName = "Sample" }.TransformText();
+            var content = new EADotnetAngularCli.Templates.Api.Program() { ProjectName = "Sample" }.TransformText();
             Console.WriteLine(content);
         }
 
