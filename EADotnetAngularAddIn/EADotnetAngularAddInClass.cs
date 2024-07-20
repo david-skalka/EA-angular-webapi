@@ -62,6 +62,18 @@ namespace EADotnetAngularAddIn
 
 
 
+        private string[] ValidateDiagram(Repository repository)
+        {
+            var retD = new List<string>();
+            var selectedDiagram = repository.GetCurrentDiagram();
+            if (selectedDiagram == null)
+            {
+                retD.Add("Please select a diagram");
+            }
+
+            return retD.ToArray();
+        }
+
 
 
 
@@ -76,11 +88,36 @@ namespace EADotnetAngularAddIn
 
                 { menuExecuteGenerator, () =>
                 {
-                    var settingsDialog = new ExecuteDialog(repository, settingsService);
-                    settingsDialog.ShowDialog();
 
-                     
+                    var validationResult = ValidateDiagram(repository);
 
+                    if (validationResult.Any())
+                    {
+                        MessageBox.Show(string.Join("\n", validationResult), "Validation errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    var xmiPath = Path.Combine(Path.GetTempPath(), @"ea-dotnet-angular-model.xmi");
+                    repository.GetProjectInterface().ExportPackageXMI(repository.GetPackageByID(repository.GetCurrentDiagram().PackageID).PackageGUID, EnumXMIType.xmiEA21, 0, 0, 0, 0, xmiPath);
+
+                    var args = new Dictionary<string, string>
+                            {
+                                { "-d",  (string)settingsService.GetValue("output-dir") },
+                                { "-x", xmiPath },
+                                { "-n", (string)settingsService.GetValue("project-name") },
+                     };
+
+
+                    var process = new Process();
+                    var key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Sparx Systems\EAAddins64\EADotnetAngularAddIn");
+
+                    process.StartInfo.FileName = (string)key.GetValue("CliInstallLocation");
+                    process.StartInfo.Arguments = string.Join(" ", args.Select(x => x.Key + " \"" + x.Value + "\"")) ;
+
+
+                    process.StartInfo.UseShellExecute = true;
+                    process.Start();
+                    process.WaitForExit();
 
                 }
                 },
@@ -101,7 +138,7 @@ namespace EADotnetAngularAddIn
 
         }
 
-     
+
 
         ///
         /// EA calls this operation when it exists. Can be used to do some cleanup work.

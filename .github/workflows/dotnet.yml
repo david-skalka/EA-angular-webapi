@@ -31,7 +31,7 @@ jobs:
     - name: Generate a sample project
       shell: pwsh
       run: | 
-        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe -p "initialize-solution,initialize-angular,db-context,entity,seeder,global-mock-data,app-component,app-routes" -x "data\\Sample\\SampleModel.xml" -n DotnetAngularSample -o DotnetAngularSample -e "Product,Comment" -f
+        EADotnetAngularCli/bin/Debug/net6.0/EADotnetAngularCli.exe -p "initialize-solution,initialize-angular,db-context,seeder,global-mock-data,app-component,app-routes,entity-product,entity-comment" -x "data\\Sample\\SampleModel.xml" -n DotnetAngularSample -d DotnetAngularSample -o
     - name: Test sample project
       run: dotnet test
     - name: Update Angular api

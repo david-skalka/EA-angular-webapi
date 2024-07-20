@@ -2,7 +2,7 @@
   "profiles": {
     "EADotnetAngularCli": {
       "commandName": "Project",
-      "commandLineArgs": "-p \"db-context\" -x \"..\\\\..\\\\..\\\\..\\\\data\\\\Sample\\\\SampleModel.xml\" -n DotnetAngularSample -o DotnetAngularSample -e \"Product,Comment\" -f"
+      "commandLineArgs": "run-pipeline -x \"..\\\\..\\\\..\\\\..\\\\data\\\\Sample\\\\SampleModel.xml\" -n DotnetAngularSample -d DotnetAngularSample -o -p \"initialize-solution, initialize-angular, db-context, seeder, global-mock-data, app-component, app-routes, entity-product, entity-comment\""
     }
   }
 }

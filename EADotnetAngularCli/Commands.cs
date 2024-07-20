@@ -1,4 +1,5 @@
 ﻿using Bogus.DataSets;
+using Sharprompt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,9 +42,10 @@ namespace EADotnetAngularCli
                 return true;
             }
 
-            Console.WriteLine("File " + path + " already exists. Do you want to overwrite it? (y/n)");
-            var key = Console.ReadKey();
-            if (key.Key == ConsoleKey.Y)
+            var confirm = Prompt.Confirm("File " + path + " already exists. Do you want to overwrite it? (y/n)", defaultValue: false);
+
+            
+            if (confirm)
             {
                 return true;
             }
@@ -85,6 +87,12 @@ namespace EADotnetAngularCli
             process.StartInfo.UseShellExecute=true;
             process.Start();
             process.WaitForExit();
+
+            if (process.ExitCode != 0)
+            {
+                
+                throw new Exception("Error executing command " + filename + " " + args);
+            }
         }
     }
 
