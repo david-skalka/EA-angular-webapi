@@ -49,13 +49,13 @@ public partial class Program
                             new MkdirGeneratorCommand(Path.Combine(outputDir, projectName, "Controllers")),
                             new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore --version 8.0.6", Path.Combine(outputDir, projectName)),
                             new ShellGeneratorCommand("dotnet", "add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.6", Path.Combine(outputDir, projectName)),
-                            new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Api.Program() { ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName, "Program.cs"), true),
+                            new T4GeneratorCommand(new EADotnetAngularCli.Templates.Api.Program() { ProjectName = projectName }, Path.Combine(outputDir, projectName, "Program.cs"), true),
                             new ShellGeneratorCommand("dotnet", "new nunit -f net8.0 -n " + projectName + "IntegrationTest -o \"" + testProjectPath, null),
                             new MkdirGeneratorCommand(Path.Combine(testProjectPath, "Seeders")),
                             new ShellGeneratorCommand("dotnet", "add package Microsoft.AspNetCore.Mvc.Testing --version 8.0.6", testProjectPath),
                             new ShellGeneratorCommand("dotnet", "add reference ../" + projectName, testProjectPath),
-                            new WriteCallbackResultGeneratorCommand(() => new ISeeder() { ProjectName = projectName }.TransformText(), Path.Combine(testProjectPath, "ISeeder.cs"), true),
-                            new WriteCallbackResultGeneratorCommand(() => new CustomWebApplicationFactory() { ProjectName = projectName }.TransformText(), Path.Combine(testProjectPath, "CustomWebApplicationFactory.cs"), true),
+                            new T4GeneratorCommand(new ISeeder() { ProjectName = projectName }, Path.Combine(testProjectPath, "ISeeder.cs"), true),
+                            new T4GeneratorCommand(new CustomWebApplicationFactory() { ProjectName = projectName }, Path.Combine(testProjectPath, "CustomWebApplicationFactory.cs"), true),
                             new ShellGeneratorCommand("dotnet", "dotnet sln " + projectName + ".sln add " + projectName + " " + testProjectPath, outputDir)}
                           } ,
 
@@ -71,8 +71,8 @@ public partial class Program
                                 ((JObject)des.projects[projectName + "Client"].architect.serve).Add("options", JToken.FromObject(new { proxyConfig = "proxy.conf.json" }));
                                 return des;
                             }),
-                            new WriteCallbackResultGeneratorCommand(() => new ProxyConf() { }.TransformText(), Path.Combine(clientProjectPath, "proxy.conf.json"), true),
-                            new WriteCallbackResultGeneratorCommand(() => new AppConfig().TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", "app.config.ts"), true),
+                            new T4GeneratorCommand(new ProxyConf() { }, Path.Combine(clientProjectPath, "proxy.conf.json"), true),
+                            new T4GeneratorCommand(new AppConfig(), Path.Combine(outputDir, projectName + "Client", "src", "app", "app.config.ts"), true),
                             new ShellGeneratorCommand("npx", "storybook@8.1.11 init --disable-telemetry --yes --no-dev", clientProjectPath),
                             new ShellGeneratorCommand("npx", "@angular/cli@18.0.7 add @angular/material --skip-confirmation --defaults", clientProjectPath),
                             new ShellGeneratorCommand("npm", "i swagger-typescript-api@13.0.12 -D", clientProjectPath),
@@ -89,8 +89,8 @@ public partial class Program
                                     return des;
                                 }),
 
-                            new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.Main() { }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "main.ts"), true),
-                            new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.Preview() { }.TransformText(), Path.Combine(clientProjectPath, ".storybook", "preview.ts"), true),
+                            new T4GeneratorCommand(new EADotnetAngularCli.Templates.Client.Storybook.Main() { }, Path.Combine(clientProjectPath, ".storybook", "main.ts"), true),
+                            new T4GeneratorCommand(new EADotnetAngularCli.Templates.Client.Storybook.Preview() { }, Path.Combine(clientProjectPath, ".storybook", "preview.ts"), true),
                             new JsonCommand(Path.Combine(clientProjectPath, "package.json"), (dynamic des) => {
                                     des.scripts["update-api"] = "npx --yes concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\"  \"cd..\\" + projectName + "\\ && dotnet run --environment Development --urls https://localhost:7064;http://localhost:5195\" \"npx --yes wait-on http-get://127.0.0.1:5195/swagger/v1/swagger.json && swagger-typescript-api -p http://127.0.0.1:5195/swagger/v1/swagger.json -o ./src -n api.ts\"";
                                     return des;
@@ -104,11 +104,11 @@ public partial class Program
 
 
                           }},
-                          { "db-context", new IGeneratorCommand[]{ new WriteCallbackResultGeneratorCommand(() => new DbContext() { ProjectName = projectName, Entities = entities }.TransformText(), Path.Combine(outputDir, projectName, "ApplicationDbContext.cs"), overwrite) } } ,
-                          { "seeder",  new IGeneratorCommand[]{new WriteCallbackResultGeneratorCommand(() => new Seeder() { Entities = entities, ProjectName = projectName, Count = 10 }.TransformText(), Path.Combine(outputDir, projectName + "IntegrationTest", "Seeders", "DefaultSeeder.cs"), overwrite) }  },
-                          { "global-mock-data",  new IGeneratorCommand[]{ new WriteCallbackResultGeneratorCommand(() => new EADotnetAngularCli.Templates.Client.Storybook.GlobalMockData() { Entities = entities }.TransformText(), Path.Combine(outputDir, projectName + "Client", ".storybook", "global-mock-data.ts"), overwrite) }  },
-                          { "app-component",  new IGeneratorCommand[]{ new WriteCallbackResultGeneratorCommand(() => new AppComponent() { }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", "app.component.ts"), overwrite), new WriteCallbackResultGeneratorCommand(() => new AppTemplate() { Entities = entities, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", "app.component.html"), overwrite) }  },
-                          { "app-routes",  new IGeneratorCommand[]{ new WriteCallbackResultGeneratorCommand(() => new AppRoutes() { Entities = entities }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", "app.routes.ts"), overwrite)}  }
+                          { "db-context", new IGeneratorCommand[]{ new T4GeneratorCommand(new DbContext() { ProjectName = projectName, Entities = entities }, Path.Combine(outputDir, projectName, "ApplicationDbContext.cs"), overwrite) } } ,
+                          { "seeder",  new IGeneratorCommand[]{new T4GeneratorCommand(new Seeder() { Entities = entities, ProjectName = projectName, Count = 10 }, Path.Combine(outputDir, projectName + "IntegrationTest", "Seeders", "DefaultSeeder.cs"), overwrite) }  },
+                          { "global-mock-data",  new IGeneratorCommand[]{ new T4GeneratorCommand(new EADotnetAngularCli.Templates.Client.Storybook.GlobalMockData() { Entities = entities }, Path.Combine(outputDir, projectName + "Client", ".storybook", "global-mock-data.ts"), overwrite) }  },
+                          { "app-component",  new IGeneratorCommand[]{ new T4GeneratorCommand( new AppComponent() { }, Path.Combine(outputDir, projectName + "Client", "src", "app", "app.component.ts"), overwrite), new T4GeneratorCommand(new AppTemplate() { Entities = entities, ProjectName = projectName }, Path.Combine(outputDir, projectName + "Client", "src", "app", "app.component.html"), overwrite) }  },
+                          { "app-routes",  new IGeneratorCommand[]{ new T4GeneratorCommand( new AppRoutes() { Entities = entities }, Path.Combine(outputDir, projectName + "Client", "src", "app", "app.routes.ts"), overwrite)}  }
 
                          };
 
@@ -119,18 +119,18 @@ public partial class Program
 
             pipeline.Add(string.Format("entity-{0}", entity.Name.ToKebabCase()),
                new IGeneratorCommand[] {
-                            new WriteCallbackResultGeneratorCommand(() => new EfModel() { Model = entity, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName, "Models", entity.Name + ".cs"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => new Controller() { Model = entity, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName, "Controllers", entity.Name + "Controller.cs"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => new Test() { Model = entity, ProjectName = projectName }.TransformText(), Path.Combine(outputDir, projectName + "IntegrationTest", entity.Name + "Test.cs"), overwrite),
+                            new T4GeneratorCommand(new EfModel() { Model = entity, ProjectName = projectName }, Path.Combine(outputDir, projectName, "Models", entity.Name + ".cs"), overwrite),
+                            new T4GeneratorCommand(new Controller() { Model = entity, ProjectName = projectName }, Path.Combine(outputDir, projectName, "Controllers", entity.Name + "Controller.cs"), overwrite),
+                            new T4GeneratorCommand(new Test() { Model = entity, ProjectName = projectName }, Path.Combine(outputDir, projectName + "IntegrationTest", entity.Name + "Test.cs"), overwrite),
                             new MkdirGeneratorCommand(Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit")),
-                            new WriteCallbackResultGeneratorCommand(() => new EditComponent() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit", entity.Name.ToKebabCase() + "-edit.component.ts"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => new EditTemplate() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit", entity.Name.ToKebabCase() + "-edit.component.html"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => "", Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit", entity.Name.ToKebabCase() + "-edit.component.scss"), overwrite),
+                            new T4GeneratorCommand(new EditComponent() { Model = entity }, Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit", entity.Name.ToKebabCase() + "-edit.component.ts"), overwrite),
+                            new T4GeneratorCommand(new EditTemplate() { Model = entity }, Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit", entity.Name.ToKebabCase() + "-edit.component.html"), overwrite),
+                            new T4GeneratorCommand(new ListScss(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-edit", entity.Name.ToKebabCase() + "-edit.component.scss"), overwrite),
                             new MkdirGeneratorCommand(Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list")),
-                            new WriteCallbackResultGeneratorCommand(() => new ListComponent() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.ts"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => new ListTemplate() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.html"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => "", Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.scss"), overwrite),
-                            new WriteCallbackResultGeneratorCommand(() => new Stories() { Model = entity }.TransformText(), Path.Combine(outputDir, projectName + "Client", "src", "stories", entity.Name.ToKebabCase() + "-list.stories.ts"), overwrite)
+                            new T4GeneratorCommand(new ListComponent() { Model = entity }, Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.ts"), overwrite),
+                            new T4GeneratorCommand(new ListTemplate() { Model = entity }, Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.html"), overwrite),
+                            new T4GeneratorCommand(new ListScss(), Path.Combine(outputDir, projectName + "Client", "src", "app", entity.Name.ToKebabCase() + "-list", entity.Name.ToKebabCase() + "-list.component.scss"), overwrite),
+                            new T4GeneratorCommand(new Stories() { Model = entity }, Path.Combine(outputDir, projectName + "Client", "src", "stories", entity.Name.ToKebabCase() + "-list.stories.ts"), overwrite)
         });
 
         }

@@ -66,6 +66,14 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EditTemplate.cs</LastGenOutput>
     </None>
+    <None Update="Templates\Client\EditScss.tt">
+      <LastGenOutput>EditScss.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
+    <None Update="Templates\Client\ListScss.tt">
+      <LastGenOutput>ListScss.cs</LastGenOutput>
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+    </None>
     <None Update="Templates\Client\ListTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListTemplate.cs</LastGenOutput>
@@ -168,6 +176,16 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>EditTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\Client\EditScss.cs">
+      <DependentUpon>EditScss.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Templates\Client\ListScss.cs">
+      <DependentUpon>ListScss.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Templates\Client\ListTemplate.cs">
       <DesignTime>True</DesignTime>

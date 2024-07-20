@@ -15,17 +15,17 @@ namespace EADotnetAngularCli
     }
 
 
-    public class WriteCallbackResultGeneratorCommand : IGeneratorCommand
+    public class T4GeneratorCommand : IGeneratorCommand
     {
-        public Func<string> callback;
+        public object template;
 
         public string path;
 
         private readonly bool force;
 
-        public WriteCallbackResultGeneratorCommand(Func<string> callback, string path, bool force)
+        public T4GeneratorCommand(object template, string path, bool force)
         {
-            this.callback = callback;
+            this.template = template;
             this.path = path;
             this.force = force;
         }
@@ -59,7 +59,8 @@ namespace EADotnetAngularCli
         {
             if(canWrite())
             {
-                File.WriteAllText(path, callback());
+                string result = ((dynamic)template).TransformText();
+                File.WriteAllText(path, result );
             }
         }
     }
