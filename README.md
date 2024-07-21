@@ -16,12 +16,12 @@ An Add-in for Enteprise Architect that generates a test-driven development-ready
   <img src="Images/ea.png" width="400" >
 </a>
 
-### Api development environment ( integration test )
+### Api development environment ( integration tests )
 <a href="Images/integration-test.png">
   <img src="Images/integration-test.png" width="400" >
 </a>
 
-### Angular development environment ( Storybook case )
+### Angular development environment ( Storybook cases )
 <a href="Images/storybook.png">
   <img src="Images/storybook.png" width="400" >
 </a>
@@ -41,7 +41,7 @@ Model-Driven Development (MDD) generators enhance productivity, improve code qua
 
 ## Features
 - Generate integration tests.
-- Generate test data seeds using Faker.js.
+- Generate Storybook cases.
 - Simple and modifiable.
 - Fast t4 template development in unit test.
 
