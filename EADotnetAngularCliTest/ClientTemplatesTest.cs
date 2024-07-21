@@ -91,7 +91,7 @@ namespace EADotnetAngularCliTest
         public void AppTemplate()
         {
 
-            var content = new AppTemplate() { Entities = diagram, ProjectName="Sample" }.TransformText();
+            var content = new AppTemplate() { Entities = diagram, Info = new Info("Sample", 10) }.TransformText();
             Console.WriteLine(content);
         }
 
