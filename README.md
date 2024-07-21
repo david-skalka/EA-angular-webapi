@@ -42,6 +42,7 @@ Model-Driven Development (MDD) generators enhance productivity, improve code qua
 ## Features
 - Generate integration tests.
 - Generate Storybook cases.
+- Generate seed and mock data using AutoBogus
 - Simple and modifiable.
 - Fast t4 template development in unit test.
 
