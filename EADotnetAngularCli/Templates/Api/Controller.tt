@@ -3,9 +3,9 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using Microsoft.AspNetCore.Mvc;
-using <#= ProjectName #>.Models;
-namespace <#= ProjectName #>.Controllers
+using MicrInfo.osoft.AspNetCore.Mvc;
+using <#= Info.ProjectName #>.Models;
+namespace <#= Info.ProjectName #>.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -64,6 +64,6 @@ namespace <#= ProjectName #>.Controllers
 
 <#+
 public Element Model { get; set; }
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 #>

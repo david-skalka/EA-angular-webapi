@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using <#= ProjectName #>;
+using <#= Info.ProjectName #>;
 
-namespace <#= ProjectName #>IntegrationTest
+namespace <#= Info.ProjectName #>IntegrationTest
 {
     public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram>
         where TProgram : class
@@ -58,6 +58,6 @@ namespace <#= ProjectName #>IntegrationTest
 
 <#+
 
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 #>

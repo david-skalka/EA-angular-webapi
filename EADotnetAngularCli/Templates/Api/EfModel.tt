@@ -22,7 +22,7 @@ var defaultValues = new Dictionary<string, string>()
 using System.ComponentModel.DataAnnotations;
 
 
-namespace <#= ProjectName #>.Models
+namespace <#= Info.ProjectName #>.Models
 {
 
     public class <#= Model.Name #>
@@ -47,6 +47,6 @@ namespace <#= ProjectName #>.Models
 
 <#+
 public Element Model { get; set; }
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 #>

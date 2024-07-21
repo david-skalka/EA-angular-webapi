@@ -6,10 +6,10 @@
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using <#= ProjectName #>;
-using <#= ProjectName #>.Models;
+using <#= Info.ProjectName #>;
+using <#= Info.ProjectName #>.Models;
 
-namespace <#= ProjectName #>IntegrationTest
+namespace <#= Info.ProjectName #>IntegrationTest
 {
     public class <#= Model.Name #>Test
     {
@@ -70,7 +70,7 @@ namespace <#= ProjectName #>IntegrationTest
         }
 
 
-        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        [Test, Property("Seeder", "<#= Info.ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>GetTest()
         {
             var defaultPage = await Client.GetAsync("/<#= Model.Name #>");
@@ -79,14 +79,14 @@ namespace <#= ProjectName #>IntegrationTest
 
 
 
-        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        [Test, Property("Seeder", "<#= Info.ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>GetOneTest()
         {
             var defaultPage = await Client.GetAsync("/<#= Model.Name #>/1");
             defaultPage.EnsureSuccessStatusCode();
         }
 
-        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        [Test, Property("Seeder", "<#= Info.ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>CreateTest()
         {
 <# var createValues = ElementAutoFaker.GenerateFromElement(Model); Model.Attributes.Where(x => !x.Type.IsPrimitive).ToList().ForEach(x=> createValues[x.Name + "Id"]=1); createValues.Remove("Id"); #>
@@ -96,7 +96,7 @@ namespace <#= ProjectName #>IntegrationTest
         }
 
 
-        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        [Test, Property("Seeder", "<#= Info.ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>UpdateTest()
         {
 <# var updateValues = ElementAutoFaker.GenerateFromElement(Model); Model.Attributes.Where(x => !x.Type.IsPrimitive).ToList().ForEach(x=> updateValues[x.Name + "Id"]=1); updateValues["Id"]=1; #>
@@ -107,7 +107,7 @@ namespace <#= ProjectName #>IntegrationTest
 
 
         
-        [Test, Property("Seeder", "<#= ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
+        [Test, Property("Seeder", "<#= Info.ProjectName #>IntegrationTest.Seeders.DefaultSeeder")]
         public async Task <#= Model.Name #>DeleteTest()
         {
             var defaultPage = await Client.DeleteAsync("/<#= Model.Name #>/1"); 
@@ -125,6 +125,6 @@ namespace <#= ProjectName #>IntegrationTest
 
 <#+
 public Element Model { get; set; }
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 #>

@@ -7,6 +7,8 @@ namespace EADotnetAngularCliTest
     {
         private Element[] diagram;
 
+        private Info info= new ("Sample", 10);
+
         [SetUp]
         public void Setup()
         {
@@ -17,7 +19,7 @@ namespace EADotnetAngularCliTest
         [Test]
         public void ControllerTest()
         {
-            var content = new Controller() { Model = diagram.Single(x => x.Name == "Comment"), ProjectName = "Sample" }.TransformText();
+            var content = new Controller() { Model = diagram.Single(x => x.Name == "Comment"), Info=info }.TransformText();
             Console.WriteLine(content);
         }
 
@@ -26,7 +28,7 @@ namespace EADotnetAngularCliTest
         [Test]
         public void CustomWebApplicationFactory()
         {
-            var content = new CustomWebApplicationFactory() { ProjectName = "Sample" }.TransformText();
+            var content = new CustomWebApplicationFactory() { Info = info }.TransformText();
             Console.WriteLine(content);
         }
 
@@ -34,28 +36,28 @@ namespace EADotnetAngularCliTest
         [Test]
         public void EfModelTest()
         {
-            var content  = new EfModel() { Model = diagram.Single(x => x.Name == "Comment"), ProjectName = "Sample" }.TransformText();
+            var content  = new EfModel() { Model = diagram.Single(x => x.Name == "Comment"), Info = info }.TransformText();
             Console.WriteLine(content);
         }
 
         [Test]
         public void ISeederTest()
         {
-            var content = new ISeeder() { ProjectName = "Sample" }.TransformText();
+            var content = new ISeeder() { Info = info }.TransformText();
             Console.WriteLine(content);
         }
 
         [Test]
         public void ProgramTest()
         {
-            var content = new EADotnetAngularCli.Templates.Api.Program() { ProjectName = "Sample" }.TransformText();
+            var content = new EADotnetAngularCli.Templates.Api.Program() { Info = info }.TransformText();
             Console.WriteLine(content);
         }
 
         [Test]
         public void SeederTest()
         {
-            var content = new Seeder() { Entities = diagram,  ProjectName = "Sample", Count=10 }.TransformText();
+            var content = new Seeder() { Entities = diagram, Info = info}.TransformText();
             Console.WriteLine(content);
         }
 
@@ -63,7 +65,7 @@ namespace EADotnetAngularCliTest
         [Test]
         public void TestTest()
         {
-            var content = new Test() { Model = diagram.Single(x => x.Name == "Comment"), ProjectName = "Sample"  }.TransformText();
+            var content = new Test() { Model = diagram.Single(x => x.Name == "Comment"), Info = info }.TransformText();
             Console.WriteLine(content);
         }
 

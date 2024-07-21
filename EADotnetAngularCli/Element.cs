@@ -66,4 +66,20 @@ namespace EADotnetAngularCli
         }
     }
 
+
+
+    public class  Info
+    {
+        public string ProjectName { get; set; }
+
+        public int SeedCount { get; set; }
+
+        public Info(string projectName, int seedCount)
+        {
+            ProjectName = projectName;
+            SeedCount = seedCount;
+        }
+        
+    }
+
 }

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Extensions;
-using <#= ProjectName #>;
+using <#= Info.ProjectName #>;
 
 public class Program
 {
@@ -57,6 +57,6 @@ public class Program
 
 <#+
 
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 #>

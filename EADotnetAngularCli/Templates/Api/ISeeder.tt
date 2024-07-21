@@ -6,10 +6,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework.Interfaces;
-using <#= ProjectName #>;
-using <#= ProjectName #>.Models;
+using <#= Info.ProjectName #>;
+using <#= Info.ProjectName #>.Models;
 
-namespace <#= ProjectName #>IntegrationTest
+namespace <#= Info.ProjectName #>IntegrationTest
 {
     public interface ISeeder
     {
@@ -21,6 +21,6 @@ namespace <#= ProjectName #>IntegrationTest
 
 <#+
 
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 #>

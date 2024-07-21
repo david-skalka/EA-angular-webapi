@@ -105,6 +105,7 @@ namespace EADotnetAngularAddIn
                                 { "-d",  (string)settingsService.GetValue("output-dir") },
                                 { "-x", xmiPath },
                                 { "-n", (string)settingsService.GetValue("project-name") },
+                                { "-s", ((long)settingsService.GetValue("seed-count")).ToString() },
                      };
 
 

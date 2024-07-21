@@ -52,7 +52,7 @@ var defaultValues = new Dictionary<string, string>()
             this.Write("using System.ComponentModel.DataAnnotations;\r\n\r\n\r\nnamespace ");
             
             #line 25 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Api\EfModel.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            this.Write(this.ToStringHelper.ToStringWithCulture(Info.ProjectName));
             
             #line default
             #line hidden
@@ -160,7 +160,7 @@ var defaultValues = new Dictionary<string, string>()
         #line 48 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Api\EfModel.tt"
 
 public Element Model { get; set; }
-public String ProjectName { get; set; }
+public Info Info { get; set; }
 
 
         

@@ -19,7 +19,7 @@ namespace EADotnetAngularCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AppTemplate : AppTemplateBase
     {
@@ -31,35 +31,35 @@ namespace EADotnetAngularCli.Templates.Client
         {
             this.Write("<mat-toolbar>\r\n  <span>");
             
-            #line 8 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            #line 8 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Info.ProjectName));
             
             #line default
             #line hidden
             this.Write("</span>\r\n  <span class=\"example-spacer\"></span>\r\n");
             
-            #line 10 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
+            #line 10 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
  foreach (var model in Entities) { 
             
             #line default
             #line hidden
             this.Write("    <a mat-button href=\"/");
             
-            #line 11 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
+            #line 11 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("\" >");
             
-            #line 11 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
+            #line 11 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Name));
             
             #line default
             #line hidden
             this.Write("</a>\r\n");
             
-            #line 12 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
+            #line 12 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
  } 
             
             #line default
@@ -68,10 +68,10 @@ namespace EADotnetAngularCli.Templates.Client
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 16 "C:\Users\pc6vi\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\AppTemplate.tt"
+        #line 16 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\AppTemplate.tt"
 
 public Element[] Entities { get; set; }
-public string ProjectName { get; set; }
+public Info Info { get; set; }
 
         
         #line default
