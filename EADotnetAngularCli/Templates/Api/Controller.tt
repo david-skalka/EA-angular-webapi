@@ -3,7 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using MicrInfo.osoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using <#= Info.ProjectName #>.Models;
 namespace <#= Info.ProjectName #>.Controllers
 {
