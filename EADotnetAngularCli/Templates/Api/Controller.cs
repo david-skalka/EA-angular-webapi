@@ -28,7 +28,7 @@ namespace EADotnetAngularCli.Templates.Api
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using MicrInfo.osoft.AspNetCore.Mvc;\r\nusing ");
+            this.Write("using Microsoft.AspNetCore.Mvc;\r\nusing ");
             
             #line 7 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Api\Controller.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Info.ProjectName));

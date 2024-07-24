@@ -19,7 +19,7 @@ namespace EADotnetAngularCli.Templates.Client
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+    #line 1 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class EditComponent : EditComponentBase
     {
@@ -38,44 +38,72 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {FormGroup, FormControl} from '@angular/forms';
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Api, ");
+import { ");
             
-            #line 16 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
+            #line 16 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(string.Join(", ", Model.Attributes.Where(x=>!x.Type.IsPrimitive).Select(x=>x.Type.Name).Concat(new string[]{Model.Name, "Api"}))));
             
             #line default
             #line hidden
             this.Write(@" } from '../../api';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-new-page-edit',
   standalone: true,
-  imports: [MatButtonModule, MatDialogModule,FormsModule, MatFormFieldModule, MatInputModule, MatGridListModule, ReactiveFormsModule, MatSlideToggleModule],
+  imports: [MatButtonModule, MatDialogModule,FormsModule, MatFormFieldModule, MatInputModule, MatGridListModule, ReactiveFormsModule, MatSlideToggleModule, MatSelectModule],
   templateUrl: './");
             
-            #line 22 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 23 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-edit.component.html\',\r\n  styleUrl: \'./");
             
-            #line 23 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 24 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToKebabCase()));
             
             #line default
             #line hidden
             this.Write("-edit.component.scss\'\r\n})\r\nexport class ");
             
-            #line 25 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 26 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
-            this.Write("EditComponent implements OnInit{\r\n\r\n  errors: any[] = [];\r\n\r\n  editForm = new For" +
-                    "mGroup({\r\n");
+            this.Write("EditComponent implements OnInit{\r\n\r\n");
             
-            #line 30 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 28 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+ foreach (var attr in Model.Attributes.Where(x=>!x.Type.IsPrimitive)) { 
+            
+            #line default
+            #line hidden
+            this.Write("    ");
+            
+            #line 29 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write(": ");
+            
+            #line 29 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Type.Name));
+            
+            #line default
+            #line hidden
+            this.Write("[] = [];\r\n\r\n");
+            
+            #line 31 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n  errors: any[] = [];\r\n\r\n  editForm = new FormGroup({\r\n");
+            
+            #line 36 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
  
 
 var defaultValues = new Dictionary<string, string>(){
@@ -92,48 +120,48 @@ foreach (var attr in Model.Attributes) {
             #line hidden
             this.Write("    ");
             
-            #line 41 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 47 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
  if(defaultValues.ContainsKey(attr.Type.Name)) { 
             
             #line default
             #line hidden
             this.Write("        ");
             
-            #line 42 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 48 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(": new FormControl(");
             
-            #line 42 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 48 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(defaultValues[attr.Type.Name]));
             
             #line default
             #line hidden
             this.Write("),\r\n    ");
             
-            #line 43 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 49 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
  } else {  
             
             #line default
             #line hidden
             this.Write("        ");
             
-            #line 44 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 50 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("Id: new FormControl(0),\r\n    ");
             
-            #line 45 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 51 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 46 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 52 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
  } 
             
             #line default
@@ -141,22 +169,57 @@ foreach (var attr in Model.Attributes) {
             this.Write("    \r\n  });\r\n\r\n  constructor(@Inject(MAT_DIALOG_DATA) public data: number | null," +
                     " public dialogRef: MatDialogRef<");
             
-            #line 49 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 55 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent>, private api: Api<unknown>) { \r\n\r\n  }\r\n\r\n\r\n  async ngOnInit(): Pro" +
-                    "mise<void> {\r\n    if(this.data!==null){\r\n      const detail = await this.api.");
+                    "mise<void> {\r\n    \r\n");
             
-            #line 56 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 62 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+ foreach (var attr in Model.Attributes.Where(x=>!x.Type.IsPrimitive)) { 
+            
+            #line default
+            #line hidden
+            this.Write("    this.");
+            
+            #line 63 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write(" = (await this.api.");
+            
+            #line 63 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 63 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write("List()).data;\r\n\r\n");
+            
+            #line 65 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("    \r\n    if(this.data!==null){\r\n      const detail = await this.api.");
+            
+            #line 68 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 56 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 68 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
@@ -164,42 +227,42 @@ foreach (var attr in Model.Attributes) {
             this.Write("Detail(this.data);\r\n      this.editForm.patchValue(detail.data);\r\n    }\r\n  }\r\n\r\n\r" +
                     "\n  async ok(){\r\n   try{\r\n    \r\n    if(this.data===null){\r\n      await this.api.");
             
-            #line 66 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 78 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 66 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 78 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("Create(this.editForm.value as ");
             
-            #line 66 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 78 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
             #line hidden
             this.Write(");\r\n    } else {\r\n      await this.api.");
             
-            #line 68 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 80 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 68 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 80 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name.ToCamelCase()));
             
             #line default
             #line hidden
             this.Write("Update(this.editForm.value as ");
             
-            #line 68 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+            #line 80 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Model.Name));
             
             #line default
@@ -211,7 +274,7 @@ foreach (var attr in Model.Attributes) {
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 86 "C:\Users\David\source\repos\EA-dotnet-webapi\EADotnetWebapiCli\Templates\Client\EditComponent.tt"
+        #line 98 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditComponent.tt"
 
 
 public Element Model { get; set; }

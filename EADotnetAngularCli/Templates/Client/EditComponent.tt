@@ -13,16 +13,22 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {FormGroup, FormControl} from '@angular/forms';
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Api, <#= Model.Name  #> } from '../../api';
+import { <#=  string.Join(", ", Model.Attributes.Where(x=>!x.Type.IsPrimitive).Select(x=>x.Type.Name).Concat(new string[]{Model.Name, "Api"}))   #> } from '../../api';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-new-page-edit',
   standalone: true,
-  imports: [MatButtonModule, MatDialogModule,FormsModule, MatFormFieldModule, MatInputModule, MatGridListModule, ReactiveFormsModule, MatSlideToggleModule],
+  imports: [MatButtonModule, MatDialogModule,FormsModule, MatFormFieldModule, MatInputModule, MatGridListModule, ReactiveFormsModule, MatSlideToggleModule, MatSelectModule],
   templateUrl: './<#= Model.Name.ToKebabCase()  #>-edit.component.html',
   styleUrl: './<#= Model.Name.ToKebabCase()  #>-edit.component.scss'
 })
 export class <#= Model.Name  #>EditComponent implements OnInit{
+
+<# foreach (var attr in Model.Attributes.Where(x=>!x.Type.IsPrimitive)) { #>
+    <#= attr.Name.ToCamelCase().Pluralize() #>: <#= attr.Type.Name #>[] = [];
+
+<# } #>
 
   errors: any[] = [];
 
@@ -52,6 +58,12 @@ foreach (var attr in Model.Attributes) { #>
 
 
   async ngOnInit(): Promise<void> {
+    
+<# foreach (var attr in Model.Attributes.Where(x=>!x.Type.IsPrimitive)) { #>
+    this.<#= attr.Name.ToCamelCase().Pluralize() #> = (await this.api.<#= attr.Name.ToCamelCase() #>.<#= attr.Name.ToCamelCase() #>List()).data;
+
+<# } #>
+    
     if(this.data!==null){
       const detail = await this.api.<#= Model.Name.ToCamelCase() #>.<#= Model.Name.ToCamelCase() #>Detail(this.data);
       this.editForm.patchValue(detail.data);

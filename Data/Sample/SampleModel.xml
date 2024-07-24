@@ -104,7 +104,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_825A_61C3DFA0C5A5" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_825A_61C3DFA0C5A5" name="Description" value="Id"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={D75FE467-D66D-43d5-B703-1415782CAF41}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=1@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={5CBA24C4-4EAF-40f2-911B-584716E9C2BA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={6F8ACA99-C9F8-444c-910A-C7C287BAD8E4}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={5CBA24C4-4EAF-40f2-911B-584716E9C2BA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -121,7 +121,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_B6E3_9F919BA71871" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_B6E3_9F919BA71871" name="Description" value="Product"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={DE79710E-57BD-44d0-8C8D-9AD34F2DF4C1}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={30ECBA21-196E-4882-AFA4-EA0E455CB059}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -138,7 +138,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_A1DE_BEC2D98C808C" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_A1DE_BEC2D98C808C" name="Description" value="Title"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={030706F2-1BD4-44ab-AEFB-3960BF4DE587}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={E4A83865-AA13-450f-AC22-9DEA4DE5490B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -155,7 +155,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_A7E8_6EA92897C9A9" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_A7E8_6EA92897C9A9" name="Description" value="Content"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={9FDDDAA8-7A89-447d-A505-0B15057CF488}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={A09FE548-0928-433b-927E-C2EAD6384A5B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -184,7 +184,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_B0C0_0A0E944A1085" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_B0C0_0A0E944A1085" name="Description" value="Id"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={50B22BA6-A100-45a2-AEA4-9E53E73A4C93}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={F4BD9702-468B-4cbd-99A2-DFC5B5D2BDB7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={E2793267-7F92-4475-9974-0AE25B013474}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=1@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={F4BD9702-468B-4cbd-99A2-DFC5B5D2BDB7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -201,7 +201,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_A0BA_0FB0036B434C" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_A0BA_0FB0036B434C" name="Description" value="Name"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={107D7910-D18D-48b1-9F5C-5E8E91C48408}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={FF514BA4-A196-4697-BF80-B70E0BB0C0AC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -218,7 +218,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_AD9A_13348891D80A" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_AD9A_13348891D80A" name="Description" value="Note"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={2E2CACC0-57D3-47ff-81C4-35933C57A079}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={1502E64B-5B49-4334-8B8C-C4DD3B9C23A0}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -235,7 +235,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_8DE0_29122460E44A" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_8DE0_29122460E44A" name="Description" value="Price"/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={2F9EBE20-CCE5-461c-B558-4BB53772CD7A}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={A0783383-B0F8-432d-B6BE-7D3800604AD5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -252,7 +252,7 @@
 						<style/>
 						<styleex value="volatile=0;union=0;"/>
 						<tags>
-							<tag xmi:id="EAID_A646FFA4_6408_d664_95EE_FC92395E6014" name="Description"/>
+							<tag xmi:id="EAID_A646FFA4_6408_d664_95EE_FC92395E6014" name="Description" value="V.I.P."/>
 						</tags>
 						<xrefs value="$XREFPROP=$XID={FB76AA05-80BE-4101-91EC-CC9305E03637}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Field;FQName=DotnetAngular::Field;@ENDSTEREO;$DES;$CLT={489678F6-03D0-4883-AD5F-DFE2CC3F310A}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
@@ -315,17 +315,17 @@
 			<diagram xmi:id="EAID_73FB4042_F096_4def_B866_C982FAA289C0">
 				<model package="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8" localID="1" owner="EAPK_6F030E8A_2CB4_4bfc_9053_415CDD2D79F8"/>
 				<properties name="Model" type="Logical"/>
-				<project author="David" version="1.0" created="2024-04-02 00:01:06" modified="2024-04-02 00:06:59"/>
+				<project author="David" version="1.0" created="2024-04-02 00:01:06" modified="2024-04-02 00:01:10"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=850;DocSize.cy=1098;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
-				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=DotnetAngular::DotnetAngular;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=A6571AFA;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=DotnetAngular::DotnetAngular;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=016E95D5;"/>
 				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
 				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
 				<extendedProperties/>
-				<persistentstyle value="DGS=On=0:CNT=8:W=120:H=40:SG=0:SGH=0:AEB=0:;AR=0;DCL=0;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;Swimlanes=locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;"/>
+				<persistentstyle value="DGS=On=0:CNT=8:W=120:H=40:SG=0:SGH=0:AEB=0:;AR=0;DCL=0;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;Swimlanes=locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;"/>
 				<xrefs/>
 				<elements>
-					<element geometry="Left=898;Top=335;Right=1156;Bottom=450;" subject="EAID_5C996373_6470_4324_91A8_D7FC17258484" seqno="1" style="DUID=2CB2DD29;HideIcon=0;"/>
-					<element geometry="Left=345;Top=120;Right=722;Bottom=248;" subject="EAID_218024A4_6014_4888_9A54_182ACB1E137B" seqno="2" style="DUID=F3CCCD06;HideIcon=0;"/>
+					<element geometry="Left=705;Top=244;Right=866;Bottom=359;" subject="EAID_5C996373_6470_4324_91A8_D7FC17258484" seqno="1" style="DUID=2CB2DD29;HideIcon=0;"/>
+					<element geometry="Left=466;Top=76;Right=639;Bottom=204;" subject="EAID_218024A4_6014_4888_9A54_182ACB1E137B" seqno="2" style="DUID=F3CCCD06;HideIcon=0;"/>
 				</elements>
 			</diagram>
 		</diagrams>

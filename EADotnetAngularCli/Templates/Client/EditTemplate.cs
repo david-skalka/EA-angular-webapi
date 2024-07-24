@@ -124,16 +124,52 @@ namespace EADotnetAngularCli.Templates.Client
             
             #line default
             #line hidden
-            this.Write("</mat-label>\r\n                <input formControlName=\"");
+            this.Write("</mat-label>\r\n                <mat-select formControlName=\"");
             
             #line 51 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
             
             #line default
             #line hidden
-            this.Write("Id\" type=\"number\" matInput  >\r\n            </mat-form-field>\r\n        </div>\r\n");
+            this.Write("Id\" >\r\n                    @for (");
             
-            #line 54 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+            #line 52 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(" of ");
+            
+            #line 52 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase().Pluralize()));
+            
+            #line default
+            #line hidden
+            this.Write("; track ");
+            
+            #line 52 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(") {\r\n                        <mat-option [value]=\"");
+            
+            #line 53 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(".id\">{{");
+            
+            #line 53 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(attr.Name.ToCamelCase()));
+            
+            #line default
+            #line hidden
+            this.Write(".id}}</mat-option>\r\n                    }\r\n                </mat-select>\r\n       " +
+                    "     </mat-form-field>\r\n        </div>\r\n");
+            
+            #line 58 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
                 break;
 
@@ -175,7 +211,7 @@ namespace EADotnetAngularCli.Templates.Client
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 88 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
+        #line 92 "C:\Users\David\source\repos\EA-dotnet-angular\EADotnetAngularCli\Templates\Client\EditTemplate.tt"
 
 public Element Model { get; set; }
 

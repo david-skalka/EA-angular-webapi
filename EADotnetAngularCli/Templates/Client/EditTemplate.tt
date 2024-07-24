@@ -48,7 +48,11 @@
         <div>
             <mat-form-field>
                 <mat-label><#= attr.Tags["Description"] #></mat-label>
-                <input formControlName="<#= attr.Name.ToCamelCase() #>Id" type="number" matInput  >
+                <mat-select formControlName="<#= attr.Name.ToCamelCase() #>Id" >
+                    @for (<#= attr.Name.ToCamelCase() #> of <#= attr.Name.ToCamelCase().Pluralize() #>; track <#= attr.Name.ToCamelCase() #>) {
+                        <mat-option [value]="<#= attr.Name.ToCamelCase() #>.id">{{<#= attr.Name.ToCamelCase() #>.id}}</mat-option>
+                    }
+                </mat-select>
             </mat-form-field>
         </div>
 <#

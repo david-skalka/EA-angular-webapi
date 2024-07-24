@@ -35,6 +35,7 @@ public partial class Program
 
         Element[] entities = elementsSorted.Where(x => x.Stereotype == "DotnetAngular:Entity").ToArray();
 
+        
 
         var testProjectPath = Path.Combine(outputDir, info.ProjectName + "IntegrationTest");
 
